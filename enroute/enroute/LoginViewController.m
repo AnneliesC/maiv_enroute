@@ -29,7 +29,6 @@
     self.view = [[LoginView alloc]initWithFrame:bounds];
 }
 
-
 - (void)viewDidLoad{
     
     [super viewDidLoad];
@@ -38,7 +37,6 @@
     [self.view.registerUser addTarget:self action:@selector(registerUser:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.LoginUser addTarget:self action:@selector(loginUser:) forControlEvents:UIControlEventTouchUpInside];
     
-    //[self.view.btnLogin addTarget:self action:@selector(loginButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.txtMail addTarget:self action:@selector(textFieldFocusIn:) forControlEvents:UIControlEventEditingDidBegin];
     [self.view.txtMail addTarget:self action:@selector(textFieldFocusOut:) forControlEvents:UIControlEventEditingDidEnd];
     [self.view.txtPaswoord addTarget:self action:@selector(textFieldFocusIn:) forControlEvents:UIControlEventEditingDidBegin];
@@ -93,9 +91,7 @@
 -(void)loginButtonTapped:(id)sender{
     NSLog(@"[LOGINVC]  login tapped");
     
-    // spreekt voor zich
     NSString *url = @"http://student.howest.be/annelies.clauwaert/20132014/MAIV/ENROUTE/api/users";
-    
     NSDictionary *parameters = @{
                                  @"email": self.view.txtMail.text,
                                  @"password": self.view.txtPaswoord.text,
@@ -112,23 +108,16 @@
         NSDictionary *errors = [operation.responseObject objectForKey:@"errors"];
         
         if([errors count] != 0){
-            
             [self checkErrorsFromLogin:errors];
             [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"isUserLoggedIn2"];
-            
         }else{
-           
             [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"isUserLoggedIn2"];
             [self dismissViewControllerAnimated:YES completion:^{}];
-            
         }
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-       
         NSLog(@"[LOGINVC] Error: %@", operation.error);
-        
     }];
-    
     
     [[NSUserDefaults standardUserDefaults]synchronize];
 }
@@ -136,15 +125,24 @@
 -(void)checkErrorsFromLogin:(NSDictionary *)errors{
     NSLog(@"[LOGINVC]  login errors");
     
+    BOOL errorMail = NO;
+    BOOL errorPassword = NO;
+    
+    if([errors objectForKey:@"email"]) errorMail = YES;
+    if([errors objectForKey:@"password"]) errorPassword = YES;
+    
+    [self.view handleErrorMessageMail:errorMail];
+    [self.view handleErrorMessagePassword:errorPassword];
+    /*
     if([errors objectForKey:@"email"]){
         NSLog(@"[LOGINVC]  email fout");
         [self.view showErrorMessageMail];
-        
     }
     if([errors objectForKey:@"password"]){
         NSLog(@"[LOGINVC]  wachtwoord fout");
         [self.view showErrorMessagePas];
     }
+     */
 }
 
 -(void)registerButtonTapped:(id)sender{

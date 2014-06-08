@@ -23,8 +23,8 @@
 @property (nonatomic,strong) UIView *loginContainer;
 @property (nonatomic,strong) UIView *RegistreerContainer;
 
--(void)showErrorMessageMail;
--(void)showErrorMessagePas;
+-(void)handleErrorMessageMail:(BOOL)error;
+-(void)handleErrorMessagePassword:(BOOL)error;
 
 @property (nonatomic, strong) UIButton *registerUser;
 
@@ -39,5 +39,7 @@
 @property(nonatomic,strong)UIButton *btnRegister;
 
 @property (nonatomic, strong) UIButton *LoginUser;
+
+@property (nonatomic) NSInteger padding;
 
 @end
