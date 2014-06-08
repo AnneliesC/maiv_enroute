@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.view.RegistreerContainer.hidden=YES;
+        self.view.registerContainer.hidden=YES;
         
         
     }
@@ -43,6 +43,11 @@
     [self.view.txtMail addTarget:self action:@selector(textFieldFocusOut:) forControlEvents:UIControlEventEditingDidEnd];
     [self.view.txtPaswoord addTarget:self action:@selector(textFieldFocusIn:) forControlEvents:UIControlEventEditingDidBegin];
     [self.view.txtPaswoord addTarget:self action:@selector(textFieldFocusOut:) forControlEvents:UIControlEventEditingDidEnd];
+    
+    [self.view.txtWachtwoord1 addTarget:self action:@selector(textFieldFocusIn2:) forControlEvents:UIControlEventEditingDidBegin];
+    [self.view.txtWachtwoord1 addTarget:self action:@selector(textFieldFocusOut2:) forControlEvents:UIControlEventEditingDidEnd];
+    [self.view.txtWachtwoord2 addTarget:self action:@selector(textFieldFocusIn2:) forControlEvents:UIControlEventEditingDidBegin];
+    [self.view.txtWachtwoord2 addTarget:self action:@selector(textFieldFocusOut2:) forControlEvents:UIControlEventEditingDidEnd];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
@@ -87,6 +92,40 @@
     [UIView setAnimationDuration: movementDuration];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [self.view.backgroundImageLogin setAlpha:alpha];
+    [UIView commitAnimations];
+}
+
+- (void)textFieldFocusIn2:(UITextField *)textField
+{
+    [self animateRegisterContainer: textField up: YES];
+}
+
+
+- (void)textFieldFocusOut2:(UITextField *)textField
+{
+    [self animateRegisterContainer: textField up: NO];
+}
+
+- (void) animateRegisterContainer: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = 55;
+    const float movementDuration = 0.4f;
+    
+    int movement = (up ? -movementDistance : 0);
+    CGFloat alpha = (up ? 0 : 1);
+    
+    [UIView beginAnimations: @"registerContainerAnimation" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    self.view.registerContainer.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+    
+    [UIView beginAnimations: @"registerBackgroundAnimation" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [self.view.backgroundImageRegister setAlpha:alpha];
     [UIView commitAnimations];
 }
 
@@ -209,7 +248,7 @@
     //NSLog(@"[LOGINVC]  registereer");
     
     self.view.loginContainer.hidden=YES;
-    self.view.RegistreerContainer.hidden=NO;
+    self.view.registerContainer.hidden=NO;
     
 }
 -(void)loginUser:(id)sender{
@@ -218,7 +257,7 @@
     //NSLog(@"[LOGINVC]  login");
     
     self.view.loginContainer.hidden=NO;
-    self.view.RegistreerContainer.hidden=YES;
+    self.view.registerContainer.hidden=YES;
     
 }
 -(instancetype)initWithBounds:(CGRect)bounds{

@@ -23,7 +23,7 @@
 @property(nonatomic,strong)UIButton *btnLogin;
 
 @property (nonatomic,strong) UIView *loginContainer;
-@property (nonatomic,strong) UIView *RegistreerContainer;
+@property (nonatomic,strong) UIView *registerContainer;
 
 -(void)handleErrorMessageMail:(BOOL)error;
 -(void)handleErrorMessagePassword:(BOOL)error;
