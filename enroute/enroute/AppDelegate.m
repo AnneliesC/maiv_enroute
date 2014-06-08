@@ -13,8 +13,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [UIApplication sharedApplication].statusBarHidden = YES;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    self.MainVC = [[MainViewController alloc] initWithNibName:nil bundle:nil];
+    self.window.rootViewController = self.MainVC;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
