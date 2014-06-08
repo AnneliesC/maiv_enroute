@@ -19,6 +19,10 @@
 		A6A388611941DEE900F75F27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A388491941DEE900F75F27 /* UIKit.framework */; };
 		A6A388691941DEE900F75F27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6A388671941DEE900F75F27 /* InfoPlist.strings */; };
 		A6A3886B1941DEE900F75F27 /* enrouteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A3886A1941DEE900F75F27 /* enrouteTests.m */; };
+		CA50F63E1944BB5F00DD019E /* DroidSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA50F63A1944BB5F00DD019E /* DroidSerif-Bold.ttf */; };
+		CA50F63F1944BB5F00DD019E /* DroidSerif-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA50F63B1944BB5F00DD019E /* DroidSerif-BoldItalic.ttf */; };
+		CA50F6401944BB5F00DD019E /* DroidSerif-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA50F63C1944BB5F00DD019E /* DroidSerif-Italic.ttf */; };
+		CA50F6411944BB5F00DD019E /* DroidSerif.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA50F63D1944BB5F00DD019E /* DroidSerif.ttf */; };
 		CAA440B319431A710004CAB1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA440B219431A710004CAB1 /* MainViewController.m */; };
 		CAA440B619431A7F0004CAB1 /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA440B519431A7F0004CAB1 /* MainView.m */; };
 		CAA440BA19431B360004CAB1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA440B919431B360004CAB1 /* LoginViewController.m */; };
@@ -55,6 +59,10 @@
 		A6A388661941DEE900F75F27 /* enrouteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "enrouteTests-Info.plist"; sourceTree = "<group>"; };
 		A6A388681941DEE900F75F27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6A3886A1941DEE900F75F27 /* enrouteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = enrouteTests.m; sourceTree = "<group>"; };
+		CA50F63A1944BB5F00DD019E /* DroidSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSerif-Bold.ttf"; sourceTree = "<group>"; };
+		CA50F63B1944BB5F00DD019E /* DroidSerif-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSerif-BoldItalic.ttf"; sourceTree = "<group>"; };
+		CA50F63C1944BB5F00DD019E /* DroidSerif-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSerif-Italic.ttf"; sourceTree = "<group>"; };
+		CA50F63D1944BB5F00DD019E /* DroidSerif.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DroidSerif.ttf; sourceTree = "<group>"; };
 		CAA440B119431A710004CAB1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		CAA440B219431A710004CAB1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		CAA440B419431A7F0004CAB1 /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
@@ -93,6 +101,10 @@
 		A6A388391941DEE900F75F27 = {
 			isa = PBXGroup;
 			children = (
+				CA50F63A1944BB5F00DD019E /* DroidSerif-Bold.ttf */,
+				CA50F63B1944BB5F00DD019E /* DroidSerif-BoldItalic.ttf */,
+				CA50F63C1944BB5F00DD019E /* DroidSerif-Italic.ttf */,
+				CA50F63D1944BB5F00DD019E /* DroidSerif.ttf */,
 				A6A3884B1941DEE900F75F27 /* enroute */,
 				A6A388641941DEE900F75F27 /* enrouteTests */,
 				A6A388441941DEE900F75F27 /* Frameworks */,
@@ -127,8 +139,8 @@
 			children = (
 				A6A388541941DEE900F75F27 /* AppDelegate.h */,
 				A6A388551941DEE900F75F27 /* AppDelegate.m */,
-				CAA440B019431A600004CAB1 /* Main */,
 				CAA440B719431B150004CAB1 /* Login/Registreer */,
+				CAA440B019431A600004CAB1 /* Main */,
 				A6A388571941DEE900F75F27 /* Images.xcassets */,
 				A6A3884C1941DEE900F75F27 /* Supporting Files */,
 			);
@@ -263,8 +275,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA50F63F1944BB5F00DD019E /* DroidSerif-BoldItalic.ttf in Resources */,
+				CA50F63E1944BB5F00DD019E /* DroidSerif-Bold.ttf in Resources */,
 				A6A388501941DEE900F75F27 /* InfoPlist.strings in Resources */,
 				A6A388581941DEE900F75F27 /* Images.xcassets in Resources */,
+				CA50F6401944BB5F00DD019E /* DroidSerif-Italic.ttf in Resources */,
+				CA50F6411944BB5F00DD019E /* DroidSerif.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

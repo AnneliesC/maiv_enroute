@@ -20,6 +20,8 @@
     if (self) {
         // Custom initialization
         self.view.RegistreerContainer.hidden=YES;
+        
+        
     }
     return self;
 }
@@ -102,7 +104,7 @@
     
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"[LOGINVC]  JSON: %@", operation.responseObject);
+        //NSLog(@"[LOGINVC]  JSON: %@", operation.responseObject);
         
         //NSDictionary *user = [operation.responseObject objectForKey:@"user"];
         NSDictionary *errors = [operation.responseObject objectForKey:@"errors"];
@@ -133,16 +135,7 @@
     
     [self.view handleErrorMessageMail:errorMail];
     [self.view handleErrorMessagePassword:errorPassword];
-    /*
-    if([errors objectForKey:@"email"]){
-        NSLog(@"[LOGINVC]  email fout");
-        [self.view showErrorMessageMail];
-    }
-    if([errors objectForKey:@"password"]){
-        NSLog(@"[LOGINVC]  wachtwoord fout");
-        [self.view showErrorMessagePas];
-    }
-     */
+    
 }
 
 -(void)registerButtonTapped:(id)sender{
@@ -156,13 +149,14 @@
                                  @"last_name": self.view.txtAchternaam.text,
                                  @"email": self.view.txtEmail.text,
                                  @"password": self.view.txtWachtwoord1.text,
+                                 @"password2": self.view.txtWachtwoord2.text,
                                  @"group_id": @1,
                                  @"submit_type": @"register"
                                  };
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"[LOGINVC]  JSON: %@", operation.responseObject);
+        //NSLog(@"[LOGINVC]  JSON: %@", operation.responseObject);
         
         // NSDictionary *user = [operation.responseObject objectForKey:@"user"];
         NSDictionary *errors = [operation.responseObject objectForKey:@"errors"];
@@ -187,30 +181,32 @@
 }
 
 -(void)checkErrorsFromRegister:(NSDictionary *)errors{
-    NSLog(@"register errors");
+    NSLog(@"[LOGINVC]  login errors");
     
-    if([errors objectForKey:@"first_name"]){
-        NSLog(@"[LOGINVC] Voornaam fout");
-        //[self.view showErrorMessageEmail];
-    }
-    if([errors objectForKey:@"last_name"]){
-        NSLog(@"[LOGINVC] Achternaam fout");
-        //[self.view showErrorMessagePas];
-    }
-    if([errors objectForKey:@"email"]){
-        NSLog(@"[LOGINVC] email fout");
-        //[self.view showErrorMessagePas];
-    }
-    if([errors objectForKey:@"password"]){
-        NSLog(@"[LOGINVC] wachtwoord fout");
-        //[self.view showErrorMessagePas];
-    }
+    BOOL errorVoornaam = NO;
+    BOOL errorAchternaam = NO;
+    BOOL errorEmail = NO;
+    BOOL errorWachtwoord1 = NO;
+    BOOL errorWachtwoord2 = NO;
+    
+    if([errors objectForKey:@"first_name"]) errorVoornaam = YES;
+    if([errors objectForKey:@"last_name"]) errorAchternaam = YES;
+    if([errors objectForKey:@"email"]) errorEmail = YES;
+    if([errors objectForKey:@"password"]) errorWachtwoord1 = YES;
+    if([errors objectForKey:@"password2"]) errorWachtwoord2 = YES;
+    
+    [self.view handleErrorMessageVoornaam:errorVoornaam];
+    [self.view handleErrorMessageAchternaam:errorAchternaam];
+    [self.view handleErrorMessageEmail:errorEmail];
+    [self.view handleErrorMessageWachtwoord1:errorAchternaam];
+    [self.view handleErrorMessageWachtwoord2:errorAchternaam];
+    
 }
 
 -(void)registerUser:(id)sender{
     
     
-    NSLog(@"[LOGINVC]  registereer");
+    //NSLog(@"[LOGINVC]  registereer");
     
     self.view.loginContainer.hidden=YES;
     self.view.RegistreerContainer.hidden=NO;
@@ -219,7 +215,7 @@
 -(void)loginUser:(id)sender{
     
     
-    NSLog(@"[LOGINVC]  login");
+    //NSLog(@"[LOGINVC]  login");
     
     self.view.loginContainer.hidden=NO;
     self.view.RegistreerContainer.hidden=YES;

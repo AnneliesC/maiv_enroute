@@ -15,8 +15,10 @@
 
 @property(nonatomic,strong)UITextField *txtMail;
 @property (nonatomic,strong) UIImageView *iconMail;
+@property (nonatomic,strong) UIImageView *iconMailError;
 @property(nonatomic,strong)UITextField *txtPaswoord;
 @property (nonatomic,strong) UIImageView *iconPaswoord;
+@property (nonatomic,strong) UIImageView *iconPaswoordError;
 
 @property(nonatomic,strong)UIButton *btnLogin;
 
@@ -39,6 +41,12 @@
 @property(nonatomic,strong)UIButton *btnRegister;
 
 @property (nonatomic, strong) UIButton *LoginUser;
+
+-(void)handleErrorMessageVoornaam:(BOOL)error;
+-(void)handleErrorMessageAchternaam:(BOOL)error;
+-(void)handleErrorMessageEmail:(BOOL)error;
+-(void)handleErrorMessageWachtwoord1:(BOOL)error;
+-(void)handleErrorMessageWachtwoord2:(BOOL)error;
 
 @property (nonatomic) NSInteger padding;
 
