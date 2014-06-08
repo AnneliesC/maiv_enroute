@@ -151,9 +151,11 @@
         if([errors count] != 0){
             [self checkErrorsFromLogin:errors];
             [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"isUserLoggedIn2"];
+            [[NSUserDefaults standardUserDefaults]synchronize];
         }else{
             [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"isUserLoggedIn2"];
-            [self dismissViewControllerAnimated:YES completion:^{}];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            [self dismissViewControllerAnimated:NO completion:^{}];
         }
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -204,13 +206,13 @@
             
             [self checkErrorsFromRegister:errors];
             [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"isUserLoggedIn2"];
+            [[NSUserDefaults standardUserDefaults]synchronize];
             
         }else{
             
             [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"isUserLoggedIn2"];
-            [self dismissViewControllerAnimated:YES completion:^{}];
-            
-            
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            [self dismissViewControllerAnimated:NO completion:^{}];
         }
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", operation.error);

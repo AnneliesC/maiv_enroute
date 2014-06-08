@@ -16,4 +16,6 @@
 @property(nonatomic,strong) MainView *view;
 @property(nonatomic,strong)LoginViewController *loginVC;
 
+
+
 @end

@@ -10,4 +10,13 @@
 
 @interface MainView : UIView
 
+@property (nonatomic,strong) UIImageView *backgroundImageMain;
+@property (nonatomic,strong) UIButton *btnLogo;
+@property (nonatomic,strong) UIButton *btnMenu;
+@property (nonatomic,strong) UIButton *btnRush;
+
+
+
+
+
 @end
