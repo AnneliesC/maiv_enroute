@@ -19,6 +19,9 @@
 		A6A388611941DEE900F75F27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A388491941DEE900F75F27 /* UIKit.framework */; };
 		A6A388691941DEE900F75F27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6A388671941DEE900F75F27 /* InfoPlist.strings */; };
 		A6A3886B1941DEE900F75F27 /* enrouteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A3886A1941DEE900F75F27 /* enrouteTests.m */; };
+		A6A388871944DEBC00F75F27 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A388861944DEBC00F75F27 /* Group.m */; };
+		A6A3888A1944DF2000F75F27 /* DataObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A388891944DF2000F75F27 /* DataObjectFactory.m */; };
+		A6A3888D1944E21C00F75F27 /* AppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A3888C1944E21C00F75F27 /* AppModel.m */; };
 		CA50F63E1944BB5F00DD019E /* DroidSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA50F63A1944BB5F00DD019E /* DroidSerif-Bold.ttf */; };
 		CA50F63F1944BB5F00DD019E /* DroidSerif-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA50F63B1944BB5F00DD019E /* DroidSerif-BoldItalic.ttf */; };
 		CA50F6401944BB5F00DD019E /* DroidSerif-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA50F63C1944BB5F00DD019E /* DroidSerif-Italic.ttf */; };
@@ -59,6 +62,12 @@
 		A6A388661941DEE900F75F27 /* enrouteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "enrouteTests-Info.plist"; sourceTree = "<group>"; };
 		A6A388681941DEE900F75F27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6A3886A1941DEE900F75F27 /* enrouteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = enrouteTests.m; sourceTree = "<group>"; };
+		A6A388851944DEBC00F75F27 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		A6A388861944DEBC00F75F27 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		A6A388881944DF2000F75F27 /* DataObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataObjectFactory.h; sourceTree = "<group>"; };
+		A6A388891944DF2000F75F27 /* DataObjectFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataObjectFactory.m; sourceTree = "<group>"; };
+		A6A3888B1944E21C00F75F27 /* AppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppModel.h; sourceTree = "<group>"; };
+		A6A3888C1944E21C00F75F27 /* AppModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppModel.m; sourceTree = "<group>"; };
 		CA50F63A1944BB5F00DD019E /* DroidSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSerif-Bold.ttf"; sourceTree = "<group>"; };
 		CA50F63B1944BB5F00DD019E /* DroidSerif-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSerif-BoldItalic.ttf"; sourceTree = "<group>"; };
 		CA50F63C1944BB5F00DD019E /* DroidSerif-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSerif-Italic.ttf"; sourceTree = "<group>"; };
@@ -139,8 +148,9 @@
 			children = (
 				A6A388541941DEE900F75F27 /* AppDelegate.h */,
 				A6A388551941DEE900F75F27 /* AppDelegate.m */,
-				CAA440B719431B150004CAB1 /* Login/Registreer */,
+				A6A388841944DE9900F75F27 /* Data */,
 				CAA440B019431A600004CAB1 /* Main */,
+				A6A388831944DE7F00F75F27 /* Login/Register */,
 				A6A388571941DEE900F75F27 /* Images.xcassets */,
 				A6A3884C1941DEE900F75F27 /* Supporting Files */,
 			);
@@ -176,6 +186,38 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A6A388831944DE7F00F75F27 /* Login/Register */ = {
+			isa = PBXGroup;
+			children = (
+				CAA440B819431B360004CAB1 /* LoginViewController.h */,
+				CAA440B919431B360004CAB1 /* LoginViewController.m */,
+				CAA440BB19431B460004CAB1 /* LoginView.h */,
+				CAA440BC19431B460004CAB1 /* LoginView.m */,
+			);
+			name = Login/Register;
+			sourceTree = "<group>";
+		};
+		A6A388841944DE9900F75F27 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A6A3888B1944E21C00F75F27 /* AppModel.h */,
+				A6A3888C1944E21C00F75F27 /* AppModel.m */,
+				A6A388881944DF2000F75F27 /* DataObjectFactory.h */,
+				A6A388891944DF2000F75F27 /* DataObjectFactory.m */,
+				A6A3888E1944E22D00F75F27 /* DataObjects */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		A6A3888E1944E22D00F75F27 /* DataObjects */ = {
+			isa = PBXGroup;
+			children = (
+				A6A388851944DEBC00F75F27 /* Group.h */,
+				A6A388861944DEBC00F75F27 /* Group.m */,
+			);
+			name = DataObjects;
+			sourceTree = "<group>";
+		};
 		CAA440B019431A600004CAB1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,17 +227,6 @@
 				CAA440B519431A7F0004CAB1 /* MainView.m */,
 			);
 			name = Main;
-			sourceTree = "<group>";
-		};
-		CAA440B719431B150004CAB1 /* Login/Registreer */ = {
-			isa = PBXGroup;
-			children = (
-				CAA440B819431B360004CAB1 /* LoginViewController.h */,
-				CAA440B919431B360004CAB1 /* LoginViewController.m */,
-				CAA440BB19431B460004CAB1 /* LoginView.h */,
-				CAA440BC19431B460004CAB1 /* LoginView.m */,
-			);
-			name = Login/Registreer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,10 +365,13 @@
 			files = (
 				CAA440BD19431B460004CAB1 /* LoginView.m in Sources */,
 				A6A388561941DEE900F75F27 /* AppDelegate.m in Sources */,
+				A6A388871944DEBC00F75F27 /* Group.m in Sources */,
 				CAA440B619431A7F0004CAB1 /* MainView.m in Sources */,
+				A6A3888D1944E21C00F75F27 /* AppModel.m in Sources */,
 				CAA440B319431A710004CAB1 /* MainViewController.m in Sources */,
 				A6A388521941DEE900F75F27 /* main.m in Sources */,
 				CAA440BA19431B360004CAB1 /* LoginViewController.m in Sources */,
+				A6A3888A1944DF2000F75F27 /* DataObjectFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

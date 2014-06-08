@@ -20,8 +20,6 @@
     if (self) {
         // Custom initialization
         self.view.registerContainer.hidden=YES;
-        
-        
     }
     return self;
 }
@@ -36,28 +34,33 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createPickerView:) name:@"GROUPS_LOADED" object:nil];
+    
     [self.view.registerUser addTarget:self action:@selector(registerUser:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.LoginUser addTarget:self action:@selector(loginUser:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view.txtMail addTarget:self action:@selector(textFieldFocusIn:) forControlEvents:UIControlEventEditingDidBegin];
-    [self.view.txtMail addTarget:self action:@selector(textFieldFocusOut:) forControlEvents:UIControlEventEditingDidEnd];
-    [self.view.txtPaswoord addTarget:self action:@selector(textFieldFocusIn:) forControlEvents:UIControlEventEditingDidBegin];
-    [self.view.txtPaswoord addTarget:self action:@selector(textFieldFocusOut:) forControlEvents:UIControlEventEditingDidEnd];
-    
-    [self.view.txtWachtwoord1 addTarget:self action:@selector(textFieldFocusIn2:) forControlEvents:UIControlEventEditingDidBegin];
-    [self.view.txtWachtwoord1 addTarget:self action:@selector(textFieldFocusOut2:) forControlEvents:UIControlEventEditingDidEnd];
-    [self.view.txtWachtwoord2 addTarget:self action:@selector(textFieldFocusIn2:) forControlEvents:UIControlEventEditingDidBegin];
-    [self.view.txtWachtwoord2 addTarget:self action:@selector(textFieldFocusOut2:) forControlEvents:UIControlEventEditingDidEnd];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
     
     [self.view.btnLogin addTarget:self action:@selector(loginButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.btnRegister addTarget:self action:@selector(registerButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
+    [self.view.txtLoginEmail addTarget:self action:@selector(textFieldFocusIn:) forControlEvents:UIControlEventEditingDidBegin];
+    [self.view.txtLoginEmail addTarget:self action:@selector(textFieldFocusOut:) forControlEvents:UIControlEventEditingDidEnd];
+    [self.view.txtLoginPassword addTarget:self action:@selector(textFieldFocusIn:) forControlEvents:UIControlEventEditingDidBegin];
+    [self.view.txtLoginPassword addTarget:self action:@selector(textFieldFocusOut:) forControlEvents:UIControlEventEditingDidEnd];
+    [self.view.txtRegisterPassword1 addTarget:self action:@selector(textFieldFocusIn2:) forControlEvents:UIControlEventEditingDidBegin];
+    [self.view.txtRegisterPassword1 addTarget:self action:@selector(textFieldFocusOut2:) forControlEvents:UIControlEventEditingDidEnd];
+    [self.view.txtRegisterPassword2 addTarget:self action:@selector(textFieldFocusIn2:) forControlEvents:UIControlEventEditingDidBegin];
+    [self.view.txtRegisterPassword2 addTarget:self action:@selector(textFieldFocusOut2:) forControlEvents:UIControlEventEditingDidEnd];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
 }
 
--(void)dismissKeyboard {
+- (void)createPickerView:(id)sender{
+    NSLog(@"[LoginVC] create picker");
+    NSLog(@"[LoginVC] groups : %@",[[AppModel sharedModel] groups]);
+}
+
+- (void)dismissKeyboard {
     [self.view endEditing:YES];
 }
 
@@ -65,7 +68,6 @@
 {
     [self animateLoginContainer: textField up: YES];
 }
-
 
 - (void)textFieldFocusOut:(UITextField *)textField
 {
@@ -100,7 +102,6 @@
     [self animateRegisterContainer: textField up: YES];
 }
 
-
 - (void)textFieldFocusOut2:(UITextField *)textField
 {
     [self animateRegisterContainer: textField up: NO];
@@ -130,22 +131,21 @@
 }
 
 -(void)loginButtonTapped:(id)sender{
-    NSLog(@"[LOGINVC]  login tapped");
+    NSLog(@"[LoginVC] login tapped");
     
     NSString *url = @"http://student.howest.be/annelies.clauwaert/20132014/MAIV/ENROUTE/api/users";
     NSDictionary *parameters = @{
-                                 @"email": self.view.txtMail.text,
-                                 @"password": self.view.txtPaswoord.text,
+                                 @"email": self.view.txtLoginEmail.text,
+                                 @"password": self.view.txtLoginPassword.text,
                                  @"submit_type": @"login"
                                  };
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        //NSLog(@"[LOGINVC]  JSON: %@", operation.responseObject);
+        NSLog(@"[LoginVC]  JSON: %@", operation.responseObject);
         
-        //NSDictionary *user = [operation.responseObject objectForKey:@"user"];
+        NSDictionary *user = [operation.responseObject objectForKey:@"user"];
         NSDictionary *errors = [operation.responseObject objectForKey:@"errors"];
         
         if([errors count] != 0){
@@ -159,14 +159,14 @@
         }
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"[LOGINVC] Error: %@", operation.error);
+        NSLog(@"[LoginVC] rrror: %@", operation.error);
     }];
     
     [[NSUserDefaults standardUserDefaults]synchronize];
 }
 
 -(void)checkErrorsFromLogin:(NSDictionary *)errors{
-    NSLog(@"[LOGINVC]  login errors");
+    NSLog(@"[LoginVC] login errors");
     
     BOOL errorMail = NO;
     BOOL errorPassword = NO;
@@ -176,30 +176,27 @@
     
     [self.view handleErrorMessageMail:errorMail];
     [self.view handleErrorMessagePassword:errorPassword];
-    
 }
 
 -(void)registerButtonTapped:(id)sender{
-    NSLog(@"[LOGINVC] register tapped");
+    NSLog(@"[LoginVC] register tapped");
     
-    // spreekt voor zich
     NSString *url = @"http://student.howest.be/annelies.clauwaert/20132014/MAIV/ENROUTE/api/users";
-    
     NSDictionary *parameters = @{
-                                 @"first_name": self.view.txtVoornaam.text,
-                                 @"last_name": self.view.txtAchternaam.text,
-                                 @"email": self.view.txtEmail.text,
-                                 @"password": self.view.txtWachtwoord1.text,
-                                 @"password2": self.view.txtWachtwoord2.text,
+                                 @"first_name": self.view.txtRegisterFirstName.text,
+                                 @"last_name": self.view.txtRegisterLastName.text,
+                                 @"email": self.view.txtRegisterEmail.text,
+                                 @"password": self.view.txtRegisterPassword1.text,
+                                 @"password2": self.view.txtRegisterPassword2.text,
                                  @"group_id": @1,
                                  @"submit_type": @"register"
                                  };
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //NSLog(@"[LOGINVC]  JSON: %@", operation.responseObject);
+        NSLog(@"[LoginVC]  JSON: %@", operation.responseObject);
         
-        // NSDictionary *user = [operation.responseObject objectForKey:@"user"];
+        NSDictionary *user = [operation.responseObject objectForKey:@"user"];
         NSDictionary *errors = [operation.responseObject objectForKey:@"errors"];
         
         if([errors count] != 0){
@@ -215,14 +212,14 @@
             [self dismissViewControllerAnimated:NO completion:^{}];
         }
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", operation.error);
+        NSLog(@"LoginVC: %@", operation.error);
     }];
     
     [[NSUserDefaults standardUserDefaults]synchronize];
 }
 
 -(void)checkErrorsFromRegister:(NSDictionary *)errors{
-    NSLog(@"[LOGINVC]  login errors");
+    NSLog(@"[LoginVC]  login errors");
     
     BOOL errorVoornaam = NO;
     BOOL errorAchternaam = NO;
@@ -241,30 +238,19 @@
     [self.view handleErrorMessageEmail:errorEmail];
     [self.view handleErrorMessageWachtwoord1:errorAchternaam];
     [self.view handleErrorMessageWachtwoord2:errorAchternaam];
-    
 }
 
 -(void)registerUser:(id)sender{
-    
-    
-    //NSLog(@"[LOGINVC]  registereer");
-    
     self.view.loginContainer.hidden=YES;
     self.view.registerContainer.hidden=NO;
-    
 }
+
 -(void)loginUser:(id)sender{
-    
-    
-    //NSLog(@"[LOGINVC]  login");
-    
     self.view.loginContainer.hidden=NO;
     self.view.registerContainer.hidden=YES;
-    
 }
+
 -(instancetype)initWithBounds:(CGRect)bounds{
-    
-    
     return [self initWithNibName:nil bundle:nil];
 }
 
@@ -272,6 +258,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"GROUPS_LOADED" object:nil];
 }
 
 /*

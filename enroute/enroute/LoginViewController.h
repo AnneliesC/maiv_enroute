@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "LoginView.h"
-
+#import "AppModel.h"
 #import "AFHTTPRequestOperation.h"
 #import "AFHTTPRequestOperationManager.h"
 
 @interface LoginViewController : UIViewController
 
-@property (nonatomic,strong)LoginView *view;
+@property (nonatomic,strong) LoginView *view;
 
 -(instancetype)initWithBounds:(CGRect)bounds;
 

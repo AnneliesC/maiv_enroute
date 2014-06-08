@@ -16,14 +16,10 @@
     if (self) {
         // Initialization code
         
-        NSLog(@"MAINVIEW");
-        
-        self.backgroundImageMain = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Background"]];
-        [self addSubview:self.backgroundImageMain];
+        NSLog(@"MainView");
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background"]];
         
         [self createHeader];
-        
-        
     }
     return self;
 }

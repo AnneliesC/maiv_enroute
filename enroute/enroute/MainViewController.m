@@ -20,9 +20,37 @@
     if (self) {
         // Custom initialization
         
-        
+        [self loadGroupsData];
     }
     return self;
+}
+
+- (void)loadGroupsData{
+    NSLog(@"[MainVC] Load groups");
+    
+    NSString *path = @"http://student.howest.be/annelies.clauwaert/20132014/MAIV/ENROUTE/api/available/groups/";
+    NSURL *url = [NSURL URLWithString:path];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFHTTPRequestOperation *groupsOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    groupsOperation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [groupsOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
+        
+        [self showLoginRegister];
+        
+        NSMutableArray *groups = [[NSMutableArray alloc] init];
+        for(NSDictionary *dict in operation.responseObject){
+            NSLog(@"[MainVC] dict : %@", [DataObjectFactory createGroupFromDictionary:dict]);
+            [groups addObject: [DataObjectFactory createGroupFromDictionary:dict]];
+        }
+        
+        [[AppModel sharedModel] setGroups:groups];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"[MainVC] Error loading groups: %@", operation.error);
+    }];
+    
+    [groupsOperation start];
 }
 
 - (void)loadView{
@@ -37,14 +65,16 @@
 
 
 -(void)viewDidAppear:(BOOL)animated{
+}
+
+- (void)showLoginRegister{
+    
     if([[NSUserDefaults standardUserDefaults]boolForKey:@"isUserLoggedIn2"] == NO){
-        
         self.loginVC = [[LoginViewController alloc]initWithBounds:self.view.bounds];
         [self presentViewController:self.loginVC animated:NO completion:^{}];
     }
-    
-    
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

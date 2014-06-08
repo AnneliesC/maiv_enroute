@@ -35,7 +35,7 @@
 -(void)createBackground{
     
     self.HeaderImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_Header"]];
-    [self addSubview:self.HeaderImage];
+    [self addSubview:self.headerImage];
     
     //Login
     
@@ -54,15 +54,15 @@
     
     //email input
     
-    self.txtMail = [[UITextField alloc]initWithFrame:CGRectMake(80, 350, 415/2 , 77/2)];
-    self.txtMail.placeholder = @"E-mailadres";
-    self.txtMail.font=[UIFont fontWithName:@"Droid Serif" size:15];
-    self.txtMail.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
-    [self.loginContainer addSubview:self.txtMail];
+    self.txtLoginEmail = [[UITextField alloc]initWithFrame:CGRectMake(80, 350, 415/2 , 77/2)];
+    self.txtLoginEmail.placeholder = @"E-mailadres";
+    self.txtLoginEmail.font=[UIFont fontWithName:@"Droid Serif" size:15];
+    self.txtLoginEmail.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
+    [self.loginContainer addSubview:self.txtLoginEmail];
     
     UIView *spaceMailView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.padding, self.padding)];
-    [self.txtMail setLeftViewMode:UITextFieldViewModeAlways];
-    [self.txtMail setLeftView:spaceMailView];
+    [self.txtLoginEmail setLeftViewMode:UITextFieldViewModeAlways];
+    [self.txtLoginEmail setLeftView:spaceMailView];
     
     self.iconMail = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_Email"]];
     self.iconMail.frame=CGRectMake(33, 350, 47, 38);
@@ -70,16 +70,16 @@
     
     //paswoord input
     
-    self.txtPaswoord = [[UITextField alloc]initWithFrame:CGRectMake(80, 400, 415/2 , 77/2)];
-    self.txtPaswoord.placeholder = @" Wachtwoord";
-    self.txtPaswoord.font=[UIFont fontWithName:@"Droid Serif" size:15];
-    self.txtPaswoord.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
-    self.txtPaswoord.secureTextEntry=YES;
-    [self.loginContainer addSubview:self.txtPaswoord];
+    self.txtLoginPassword = [[UITextField alloc]initWithFrame:CGRectMake(80, 400, 415/2 , 77/2)];
+    self.txtLoginPassword.placeholder = @" Wachtwoord";
+    self.txtLoginPassword.font=[UIFont fontWithName:@"Droid Serif" size:15];
+    self.txtLoginPassword.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
+    self.txtLoginPassword.secureTextEntry=YES;
+    [self.loginContainer addSubview:self.txtLoginPassword];
     
     UIView *spacePaswoordView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.padding, self.padding)];
-    [self.txtPaswoord setLeftViewMode:UITextFieldViewModeAlways];
-    [self.txtPaswoord setLeftView:spacePaswoordView];
+    [self.txtLoginPassword setLeftViewMode:UITextFieldViewModeAlways];
+    [self.txtLoginPassword setLeftView:spacePaswoordView];
     
     self.iconPaswoord = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_wachtwoord"]];
     self.iconPaswoord.frame=CGRectMake(33, 400, 47, 38);
@@ -89,64 +89,71 @@
     
     //Voornaam
     
-    self.txtVoornaam = [[UITextField alloc]initWithFrame:CGRectMake(33, 242, 244/2 , 77/2)];
-    self.txtVoornaam.placeholder = @"Voornaam";
-    self.txtVoornaam.font=[UIFont fontWithName:@"Droid Serif" size:15];
-    self.txtVoornaam.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
-    [self.registerContainer addSubview:self.txtVoornaam];
+    self.txtRegisterFirstName = [[UITextField alloc]initWithFrame:CGRectMake(33, 242, 244/2 , 77/2)];
+    self.txtRegisterFirstName.placeholder = @"Voornaam";
+    self.txtRegisterFirstName.font=[UIFont fontWithName:@"Droid Serif" size:15];
+    self.txtRegisterFirstName.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
+    [self.registerContainer addSubview:self.txtRegisterFirstName];
     
     UIView *spaceVoornaamView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.padding, self.padding)];
-    [self.txtVoornaam setLeftViewMode:UITextFieldViewModeAlways];
-    [self.txtVoornaam setLeftView:spaceVoornaamView];
+    [self.txtRegisterFirstName setLeftViewMode:UITextFieldViewModeAlways];
+    [self.txtRegisterFirstName setLeftView:spaceVoornaamView];
     
     //Naam
     
-    self.txtAchternaam = [[UITextField alloc]initWithFrame:CGRectMake(332/2, 242, 244/2 , 77/2)];
-    self.txtAchternaam.placeholder = @"Achternaam";
-    self.txtAchternaam.font=[UIFont fontWithName:@"Droid Serif" size:15];
-    self.txtAchternaam.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
-    [self.registerContainer addSubview:self.txtAchternaam];
+    self.txtRegisterLastName = [[UITextField alloc]initWithFrame:CGRectMake(332/2, 242, 244/2 , 77/2)];
+    self.txtRegisterLastName.placeholder = @"Achternaam";
+    self.txtRegisterLastName.font=[UIFont fontWithName:@"Droid Serif" size:15];
+    self.txtRegisterLastName.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
+    [self.registerContainer addSubview:self.txtRegisterLastName];
     
     UIView *spaceAchternaamView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.padding, self.padding)];
-    [self.txtAchternaam setLeftViewMode:UITextFieldViewModeAlways];
-    [self.txtAchternaam setLeftView:spaceAchternaamView];
+    [self.txtRegisterLastName setLeftViewMode:UITextFieldViewModeAlways];
+    [self.txtRegisterLastName setLeftView:spaceAchternaamView];
     
     //Email
-    self.txtEmail = [[UITextField alloc]initWithFrame:CGRectMake(33, 293, 255 , 77/2)];
-    self.txtEmail.placeholder = @"Email";
-    self.txtEmail.font=[UIFont fontWithName:@"Droid Serif" size:15];
-    self.txtEmail.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
-    [self.registerContainer addSubview:self.txtEmail];
+    self.txtRegisterEmail = [[UITextField alloc]initWithFrame:CGRectMake(33, 293, 255 , 77/2)];
+    self.txtRegisterEmail.placeholder = @"Email";
+    self.txtRegisterEmail.font=[UIFont fontWithName:@"Droid Serif" size:15];
+    self.txtRegisterEmail.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
+    [self.registerContainer addSubview:self.txtRegisterEmail];
     
     UIView *spaceEmailView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.padding, self.padding)];
-    [self.txtEmail setLeftViewMode:UITextFieldViewModeAlways];
-    [self.txtEmail setLeftView:spaceEmailView];
+    [self.txtRegisterEmail setLeftViewMode:UITextFieldViewModeAlways];
+    [self.txtRegisterEmail setLeftView:spaceEmailView];
     
     //wachtwoord1
     
-    self.txtWachtwoord1 = [[UITextField alloc]initWithFrame:CGRectMake(33, 345, 244/2 , 77/2)];
-    self.txtWachtwoord1.placeholder = @"Wachtwoord1";
-    self.txtWachtwoord1.font=[UIFont fontWithName:@"Droid Serif" size:15];
-    self.txtWachtwoord1.secureTextEntry=YES;
-    self.txtWachtwoord1.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
-    [self.registerContainer addSubview:self.txtWachtwoord1];
+    self.txtRegisterPassword1 = [[UITextField alloc]initWithFrame:CGRectMake(33, 345, 244/2 , 77/2)];
+    self.txtRegisterPassword1.placeholder = @"Wachtwoord1";
+    self.txtRegisterPassword1.font=[UIFont fontWithName:@"Droid Serif" size:15];
+    self.txtRegisterPassword1.secureTextEntry=YES;
+    self.txtRegisterPassword1.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
+    [self.registerContainer addSubview:self.txtRegisterPassword1];
     
     UIView *spaceWachtwoord1View = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.padding, self.padding)];
-    [self.txtWachtwoord1 setLeftViewMode:UITextFieldViewModeAlways];
-    [self.txtWachtwoord1 setLeftView:spaceWachtwoord1View];
+    [self.txtRegisterPassword1 setLeftViewMode:UITextFieldViewModeAlways];
+    [self.txtRegisterPassword1 setLeftView:spaceWachtwoord1View];
     
     //wachtwoord2
     
-    self.txtWachtwoord2 = [[UITextField alloc]initWithFrame:CGRectMake(332/2, 345, 244/2 , 77/2)];
-    self.txtWachtwoord2.placeholder = @"Wachtwoord2";
-    self.txtWachtwoord2.font=[UIFont fontWithName:@"Droid Serif" size:15];
-    self.txtWachtwoord2.secureTextEntry=YES;
-    self.txtWachtwoord2.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
-    [self.registerContainer addSubview:self.txtWachtwoord2];
+    self.txtRegisterPassword2 = [[UITextField alloc]initWithFrame:CGRectMake(332/2, 345, 244/2 , 77/2)];
+    self.txtRegisterPassword2.placeholder = @"Wachtwoord2";
+    self.txtRegisterPassword2.font=[UIFont fontWithName:@"Droid Serif" size:15];
+    self.txtRegisterPassword2.secureTextEntry=YES;
+    self.txtRegisterPassword2.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1];
+    [self.registerContainer addSubview:self.txtRegisterPassword2];
     
     UIView *spaceWachtwoord2View = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 5)];
-    [self.txtWachtwoord2 setLeftViewMode:UITextFieldViewModeAlways];
-    [self.txtWachtwoord2 setLeftView:spaceWachtwoord2View];
+    [self.txtRegisterPassword2 setLeftViewMode:UITextFieldViewModeAlways];
+    [self.txtRegisterPassword2 setLeftView:spaceWachtwoord2View];
+    
+    //selectGroup
+    
+//    self.slctGroup = [[UIPickerView alloc] initWithFrame:CGRectMake(33, 293, 255 , 300/2)];
+//    self.slctGroup.delegate = self;
+//    self.slctGroup.showsSelectionIndicator = YES;
+//    [self addSubview:self.slctGroup];
 }
 
 -(void)createButton{
@@ -187,16 +194,16 @@
 -(void)handleErrorMessageMail:(BOOL)error{
     
     if(error){
-        self.txtMail.layer.borderColor=[[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
-        self.txtMail.layer.borderWidth=1;
+        self.txtLoginEmail.layer.borderColor = [[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
+        self.txtLoginEmail.layer.borderWidth = 1;
         
         self.iconMail = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_Emai_error"]];
         self.iconMail.frame=CGRectMake(33, 350, 47, 38);
         [self.loginContainer addSubview:self.iconMail];
         
     }else{
-        self.txtMail.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
-        self.txtMail.layer.borderWidth=1;
+        self.txtLoginEmail.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
+        self.txtLoginEmail.layer.borderWidth=1;
         
         self.iconMail = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_Email"]];
         self.iconMail.frame=CGRectMake(33, 350, 47, 38);
@@ -207,16 +214,16 @@
 -(void)handleErrorMessagePassword:(BOOL)error{
     
     if(error){
-        self.txtPaswoord.layer.borderColor=[[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
-        self.txtPaswoord.layer.borderWidth=1;
+        self.txtLoginPassword.layer.borderColor=[[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
+        self.txtLoginPassword.layer.borderWidth=1;
         
         self.iconPaswoord = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_wachtwoord_error"]];
         self.iconPaswoord.frame=CGRectMake(33, 400, 47, 38);
         [self.loginContainer addSubview:self.iconPaswoord];
         
     }else{
-        self.txtPaswoord.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
-        self.txtPaswoord.layer.borderWidth=1;
+        self.txtLoginPassword.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
+        self.txtLoginPassword.layer.borderWidth=1;
         
         self.iconPaswoord = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_wachtwoord"]];
         self.iconPaswoord.frame=CGRectMake(33, 400, 47, 38);
@@ -227,11 +234,11 @@
 -(void)handleErrorMessageVoornaam:(BOOL)error{
     
     if(error){
-        self.txtVoornaam.layer.borderColor=[[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
-        self.txtVoornaam.layer.borderWidth=1;
+        self.txtRegisterFirstName.layer.borderColor=[[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
+        self.txtRegisterFirstName.layer.borderWidth=1;
     }else{
-        self.txtVoornaam.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
-        self.txtVoornaam.layer.borderWidth=1;
+        self.txtRegisterFirstName.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
+        self.txtRegisterFirstName.layer.borderWidth=1;
         
     }
 }
@@ -239,43 +246,43 @@
 -(void)handleErrorMessageAchternaam:(BOOL)error{
     
     if(error){
-        self.txtAchternaam.layer.borderColor=[[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
-        self.txtAchternaam.layer.borderWidth=1;
+        self.txtRegisterLastName.layer.borderColor=[[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
+        self.txtRegisterLastName.layer.borderWidth=1;
     }else{
-        self.txtAchternaam.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
-        self.txtAchternaam.layer.borderWidth=1;
+        self.txtRegisterLastName.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
+        self.txtRegisterLastName.layer.borderWidth=1;
     }
 }
 -(void)handleErrorMessageEmail:(BOOL)error{
     
     if(error){
-        self.txtEmail.layer.borderColor=[[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
-        self.txtEmail.layer.borderWidth=1;
+        self.txtRegisterEmail.layer.borderColor=[[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
+        self.txtRegisterEmail.layer.borderWidth=1;
     }else{
-        self.txtEmail.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
-        self.txtEmail.layer.borderWidth=1;
+        self.txtRegisterEmail.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
+        self.txtRegisterEmail.layer.borderWidth=1;
         
     }
 }
 -(void)handleErrorMessageWachtwoord1:(BOOL)error{
     
     if(error){
-        self.txtWachtwoord1.layer.borderColor=[[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
-        self.txtWachtwoord1.layer.borderWidth=1;
+        self.txtRegisterPassword1.layer.borderColor=[[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
+        self.txtRegisterPassword1.layer.borderWidth=1;
     }else{
-        self.txtWachtwoord1.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
-        self.txtWachtwoord1.layer.borderWidth=1;
+        self.txtRegisterPassword1.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
+        self.txtRegisterPassword1.layer.borderWidth=1;
     }
 }
 -(void)handleErrorMessageWachtwoord2:(BOOL)error{
     
     if(error){
-        self.txtWachtwoord2.layer.borderColor=[[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
-        self.txtWachtwoord2.layer.borderWidth=1;
+        self.txtRegisterPassword2.layer.borderColor=[[UIColor colorWithRed:252/255.0f green:122/255.0f blue:115/255.0f alpha:1]CGColor];
+        self.txtRegisterPassword2.layer.borderWidth=1;
         
     }else{
-        self.txtWachtwoord2.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
-        self.txtWachtwoord2.layer.borderWidth=1;
+        self.txtRegisterPassword2.layer.borderColor=[[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]CGColor];
+        self.txtRegisterPassword2.layer.borderWidth=1;
     }
 }
 /*

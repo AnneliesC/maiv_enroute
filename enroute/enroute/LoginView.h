@@ -8,39 +8,36 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginView : UIView
+@interface LoginView : UIView<UIPickerViewDelegate>
 
+@property (nonatomic,strong) UIImageView *headerImage;
 @property (nonatomic,strong) UIImageView *backgroundImageLogin;
-@property (nonatomic,strong) UIImageView *HeaderImage;
+@property (nonatomic,strong) UIImageView *backgroundImageRegister;
 
-@property(nonatomic,strong)UITextField *txtMail;
 @property (nonatomic,strong) UIImageView *iconMail;
 @property (nonatomic,strong) UIImageView *iconMailError;
-@property(nonatomic,strong)UITextField *txtPaswoord;
+@property (nonatomic,strong) UITextField *txtLoginEmail;
 @property (nonatomic,strong) UIImageView *iconPaswoord;
 @property (nonatomic,strong) UIImageView *iconPaswoordError;
+@property (nonatomic,strong) UITextField *txtLoginPassword;
 
-@property(nonatomic,strong)UIButton *btnLogin;
+@property (nonatomic,strong) UITextField *txtRegisterFirstName;
+@property (nonatomic,strong) UITextField *txtRegisterLastName;
+@property (nonatomic,strong) UITextField *txtRegisterEmail;
+@property (nonatomic,strong) UITextField *txtRegisterPassword1;
+@property (nonatomic,strong) UITextField *txtRegisterPassword2;
+@property (nonatomic,strong) UIPickerView *slctGroup;
+
+@property (nonatomic,strong) UIButton *btnLogin;
+@property (nonatomic, strong) UIButton *registerUser;
+@property (nonatomic,strong) UIButton *btnRegister;
+@property (nonatomic, strong) UIButton *LoginUser;
 
 @property (nonatomic,strong) UIView *loginContainer;
 @property (nonatomic,strong) UIView *registerContainer;
 
 -(void)handleErrorMessageMail:(BOOL)error;
 -(void)handleErrorMessagePassword:(BOOL)error;
-
-@property (nonatomic, strong) UIButton *registerUser;
-
-@property (nonatomic,strong) UIImageView *backgroundImageRegister;
-
-@property(nonatomic,strong)UITextField *txtVoornaam;
-@property(nonatomic,strong)UITextField *txtAchternaam;
-@property(nonatomic,strong)UITextField *txtEmail;
-@property(nonatomic,strong)UITextField *txtWachtwoord1;
-@property(nonatomic,strong)UITextField *txtWachtwoord2;
-
-@property(nonatomic,strong)UIButton *btnRegister;
-
-@property (nonatomic, strong) UIButton *LoginUser;
 
 -(void)handleErrorMessageVoornaam:(BOOL)error;
 -(void)handleErrorMessageAchternaam:(BOOL)error;
