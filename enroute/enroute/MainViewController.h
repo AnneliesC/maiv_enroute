@@ -16,9 +16,11 @@
 #import "AFHTTPRequestOperation.h"
 #import "AFHTTPRequestOperationManager.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController<UIScrollViewDelegate>
 
 @property (nonatomic,strong) MainView *view;
 @property (nonatomic,strong) LoginViewController *loginVC;
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 
 @end

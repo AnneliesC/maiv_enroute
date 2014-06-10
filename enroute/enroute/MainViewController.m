@@ -19,8 +19,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
-        [self loadGroupsData];
+        //[self loadGroupsData];
+
     }
     return self;
 }
@@ -60,14 +60,26 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
 
+    // Do any additional setup after loading the view.
+    
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    
+    self.view.scrollView.delegate=self;
+    
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    int index = (scrollView.contentOffset.x / scrollView.frame.size.width);
+    self.view.pageControl.currentPage = index;
+}
 
 -(void)viewDidAppear:(BOOL)animated{
 }
 
 - (void)showLoginRegister{
+    [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"isUserLoggedIn2"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
     
     if([[NSUserDefaults standardUserDefaults]boolForKey:@"isUserLoggedIn2"] == NO){
         self.loginVC = [[LoginViewController alloc]initWithBounds:self.view.bounds];

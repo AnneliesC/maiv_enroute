@@ -22,6 +22,10 @@
 		A6A388871944DEBC00F75F27 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A388861944DEBC00F75F27 /* Group.m */; };
 		A6A3888A1944DF2000F75F27 /* DataObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A388891944DF2000F75F27 /* DataObjectFactory.m */; };
 		A6A3888D1944E21C00F75F27 /* AppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A3888C1944E21C00F75F27 /* AppModel.m */; };
+		CA28C72A1945D9DE00B0806C /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA28C7291945D9DE00B0806C /* NavigationController.m */; };
+		CA28C72D1945D9F400B0806C /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CA28C72C1945D9F400B0806C /* NavigationBar.m */; };
+		CA28C7311945E63500B0806C /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA28C7301945E63500B0806C /* MenuViewController.m */; };
+		CA28C7341945E64400B0806C /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA28C7331945E64400B0806C /* MenuView.m */; };
 		CA50F63E1944BB5F00DD019E /* DroidSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA50F63A1944BB5F00DD019E /* DroidSerif-Bold.ttf */; };
 		CA50F63F1944BB5F00DD019E /* DroidSerif-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA50F63B1944BB5F00DD019E /* DroidSerif-BoldItalic.ttf */; };
 		CA50F6401944BB5F00DD019E /* DroidSerif-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA50F63C1944BB5F00DD019E /* DroidSerif-Italic.ttf */; };
@@ -68,6 +72,14 @@
 		A6A388891944DF2000F75F27 /* DataObjectFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataObjectFactory.m; sourceTree = "<group>"; };
 		A6A3888B1944E21C00F75F27 /* AppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppModel.h; sourceTree = "<group>"; };
 		A6A3888C1944E21C00F75F27 /* AppModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppModel.m; sourceTree = "<group>"; };
+		CA28C7281945D9DE00B0806C /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		CA28C7291945D9DE00B0806C /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		CA28C72B1945D9F400B0806C /* NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBar.h; sourceTree = "<group>"; };
+		CA28C72C1945D9F400B0806C /* NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBar.m; sourceTree = "<group>"; };
+		CA28C72F1945E63500B0806C /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		CA28C7301945E63500B0806C /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		CA28C7321945E64400B0806C /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
+		CA28C7331945E64400B0806C /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		CA50F63A1944BB5F00DD019E /* DroidSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSerif-Bold.ttf"; sourceTree = "<group>"; };
 		CA50F63B1944BB5F00DD019E /* DroidSerif-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSerif-BoldItalic.ttf"; sourceTree = "<group>"; };
 		CA50F63C1944BB5F00DD019E /* DroidSerif-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DroidSerif-Italic.ttf"; sourceTree = "<group>"; };
@@ -149,8 +161,10 @@
 				A6A388541941DEE900F75F27 /* AppDelegate.h */,
 				A6A388551941DEE900F75F27 /* AppDelegate.m */,
 				A6A388841944DE9900F75F27 /* Data */,
-				CAA440B019431A600004CAB1 /* Main */,
+				CA28C7271945D99400B0806C /* Navigation */,
+				CA28C72E1945E61F00B0806C /* Menu */,
 				A6A388831944DE7F00F75F27 /* Login/Register */,
+				CAA440B019431A600004CAB1 /* Main */,
 				A6A388571941DEE900F75F27 /* Images.xcassets */,
 				A6A3884C1941DEE900F75F27 /* Supporting Files */,
 			);
@@ -218,6 +232,28 @@
 			name = DataObjects;
 			sourceTree = "<group>";
 		};
+		CA28C7271945D99400B0806C /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				CA28C7281945D9DE00B0806C /* NavigationController.h */,
+				CA28C7291945D9DE00B0806C /* NavigationController.m */,
+				CA28C72B1945D9F400B0806C /* NavigationBar.h */,
+				CA28C72C1945D9F400B0806C /* NavigationBar.m */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+		CA28C72E1945E61F00B0806C /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				CA28C72F1945E63500B0806C /* MenuViewController.h */,
+				CA28C7301945E63500B0806C /* MenuViewController.m */,
+				CA28C7321945E64400B0806C /* MenuView.h */,
+				CA28C7331945E64400B0806C /* MenuView.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		CAA440B019431A600004CAB1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +314,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Annelies Clauwaert";
 				TargetAttributes = {
+					A6A388411941DEE900F75F27 = {
+						DevelopmentTeam = 9RZW73LTB7;
+					};
 					A6A3885C1941DEE900F75F27 = {
 						TestTargetID = A6A388411941DEE900F75F27;
 					};
@@ -370,7 +409,11 @@
 				A6A3888D1944E21C00F75F27 /* AppModel.m in Sources */,
 				CAA440B319431A710004CAB1 /* MainViewController.m in Sources */,
 				A6A388521941DEE900F75F27 /* main.m in Sources */,
+				CA28C7311945E63500B0806C /* MenuViewController.m in Sources */,
+				CA28C72A1945D9DE00B0806C /* NavigationController.m in Sources */,
 				CAA440BA19431B360004CAB1 /* LoginViewController.m in Sources */,
+				CA28C7341945E64400B0806C /* MenuView.m in Sources */,
+				CA28C72D1945D9F400B0806C /* NavigationBar.m in Sources */,
 				A6A3888A1944DF2000F75F27 /* DataObjectFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,10 +534,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "enroute/enroute-Prefix.pch";
 				INFOPLIST_FILE = "enroute/enroute-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -506,10 +552,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "enroute/enroute-Prefix.pch";
 				INFOPLIST_FILE = "enroute/enroute-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

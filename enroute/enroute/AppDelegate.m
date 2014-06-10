@@ -17,8 +17,14 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
+    
     self.MainVC = [[MainViewController alloc] initWithNibName:nil bundle:nil];
-    self.window.rootViewController = self.MainVC;
+    //self.navigationController = [[NavigationController alloc] initWithRootViewController:self.MainVC];
+    self.customNavigationBar = [[NavigationBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 325/2)];
+    self.navigationController = [[NavigationController alloc] initWithNavigationBarClass:[self.customNavigationBar class] toolbarClass:[UIToolbar class]];
+    //[self.customNavigationBar initButtons:self.navigationController];
+    [self.navigationController pushViewController:self.MainVC animated:NO];
+    self.window.rootViewController = self.navigationController;
     
     [self.window makeKeyAndVisible];
     return YES;
