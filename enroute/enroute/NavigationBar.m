@@ -63,7 +63,7 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
     UIImage *backgroundButtonMenu = [UIImage imageNamed:@"Header_menu"];
     
     self.btnMenu= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnMenu.frame=CGRectMake(0, -14, backgroundButtonMenu.size.width, backgroundButtonMenu.size.height);
+    self.btnMenu.frame=CGRectMake(0, 6.5, backgroundButtonMenu.size.width, backgroundButtonMenu.size.height);
     [self.btnMenu setBackgroundImage:backgroundButtonMenu forState:UIControlStateNormal];
     [self.btnMenu setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnMenu];
@@ -73,7 +73,7 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
     UIImage *backgroundButtonRush = [UIImage imageNamed:@"Header_rush"];
     
     self.btnRush= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnRush.frame=CGRectMake(160, -14, backgroundButtonRush.size.width, backgroundButtonRush.size.height);
+    self.btnRush.frame=CGRectMake(160, 6.5, backgroundButtonRush.size.width, backgroundButtonRush.size.height);
     [self.btnRush setBackgroundImage:backgroundButtonRush forState:UIControlStateNormal];
     [self.btnRush setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnRush];
@@ -84,7 +84,7 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
     UIImage *backgroundButtonLogo = [UIImage imageNamed:@"Header_logo"];
     
     self.btnLogo= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnLogo.frame=CGRectMake(176/2, -5, backgroundButtonLogo.size.width, backgroundButtonLogo.size.height);
+    self.btnLogo.frame=CGRectMake(176/2, 15, backgroundButtonLogo.size.width, backgroundButtonLogo.size.height);
     [self.btnLogo setBackgroundImage:backgroundButtonLogo forState:UIControlStateNormal];
     [self.btnLogo setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnLogo];
