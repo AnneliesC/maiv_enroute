@@ -10,6 +10,7 @@
 
 @implementation AppModel
 @synthesize groups = _groups;
+@synthesize appUser = _appUser;
 
 + (id)sharedModel {
     static AppModel *sharedAppModel = nil;
@@ -37,6 +38,16 @@
 
 - (NSArray *)groups {
     return groups;
+}
+
+- (void)setAppUser:(NSDictionary *)appUserData
+{
+    appUser = appUserData;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"USER_LOADED" object:self];
+}
+
+- (NSDictionary *)appUser {
+    return appUser;
 }
 
 @end

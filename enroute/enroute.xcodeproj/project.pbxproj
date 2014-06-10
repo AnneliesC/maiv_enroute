@@ -238,11 +238,11 @@
 			children = (
 				A6A3888B1944E21C00F75F27 /* AppModel.h */,
 				A6A3888C1944E21C00F75F27 /* AppModel.m */,
+				A6B577D419479E60003F55E5 /* DataParser.h */,
+				A6B577D519479E60003F55E5 /* DataParser.m */,
 				A6A388881944DF2000F75F27 /* DataObjectFactory.h */,
 				A6A388891944DF2000F75F27 /* DataObjectFactory.m */,
 				A6A3888E1944E22D00F75F27 /* DataObjects */,
-				A6B577D419479E60003F55E5 /* DataParser.h */,
-				A6B577D519479E60003F55E5 /* DataParser.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";

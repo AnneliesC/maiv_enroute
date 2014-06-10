@@ -10,11 +10,14 @@
 
 @interface AppModel: NSObject{
     NSArray *groups;
+    NSDictionary *appUser;
 }
 
 @property (nonatomic,strong) NSArray *groups;
+@property (nonatomic,strong) NSDictionary *appUser;
 
 + (id)sharedModel;
 - (void)setGroups:(NSArray *)groupsData;
+- (void)setAppUser:(NSDictionary *)appUserData;
 
 @end

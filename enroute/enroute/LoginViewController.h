@@ -15,6 +15,7 @@
 @interface LoginViewController : UIViewController
 
 @property (nonatomic,strong) LoginView *view;
+@property (nonatomic,strong) NSDictionary *user;
 
 -(instancetype)initWithBounds:(CGRect)bounds;
 

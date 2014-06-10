@@ -140,15 +140,13 @@
         
         NSDictionary *user = [operation.responseObject objectForKey:@"user"];
         NSDictionary *errors = [operation.responseObject objectForKey:@"errors"];
+        self.user = user;
         
         if([errors count] != 0){
             [self checkErrorsFromLogin:errors];
-            [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"isUserLoggedIn2"];
-            [[NSUserDefaults standardUserDefaults]synchronize];
+            [self setUserDefaults:NO];
         }else{
-            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"isUserLoggedIn2"];
-            [[NSUserDefaults standardUserDefaults]synchronize];
-            [self dismissViewControllerAnimated:NO completion:^{}];
+             [self setUserDefaults:YES];
         }
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -191,18 +189,13 @@
         
         NSDictionary *user = [operation.responseObject objectForKey:@"user"];
         NSDictionary *errors = [operation.responseObject objectForKey:@"errors"];
+        self.user = user;
         
         if([errors count] != 0){
-            
             [self checkErrorsFromRegister:errors];
-            [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"isUserLoggedIn2"];
-            [[NSUserDefaults standardUserDefaults]synchronize];
-            
+            [self setUserDefaults:NO];
         }else{
-            
-            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"isUserLoggedIn2"];
-            [[NSUserDefaults standardUserDefaults]synchronize];
-            [self dismissViewControllerAnimated:NO completion:^{}];
+            [self setUserDefaults:YES];
         }
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"LoginVC: %@", operation.error);
@@ -241,6 +234,16 @@
 -(void)loginUser:(id)sender{
     self.view.loginContainer.hidden=NO;
     self.view.registerContainer.hidden=YES;
+}
+
+-(void)setUserDefaults:(BOOL)boolean{
+    [[NSUserDefaults standardUserDefaults]setBool:boolean forKey:@"isUserLoggedIn2"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    
+    if(boolean == YES){
+        [self dismissViewControllerAnimated:NO completion:^{}];
+        [[AppModel sharedModel] setAppUser:self.user];
+    }
 }
 
 -(instancetype)initWithBounds:(CGRect)bounds{

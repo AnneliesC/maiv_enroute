@@ -21,8 +21,6 @@
     groupsOperation.responseSerializer = [AFJSONResponseSerializer serializer];
     [groupsOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
         
-       // [self showLoginRegister];
-        
         NSMutableArray *groups = [[NSMutableArray alloc] init];
         for(NSDictionary *dict in operation.responseObject){
             NSLog(@"[DataParser] dict : %@", [DataObjectFactory createGroupFromDictionary:dict]);
