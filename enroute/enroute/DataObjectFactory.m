@@ -21,4 +21,27 @@
     return group;
 }
 
++ (Challenge *)createChallengeFromDictionary:(NSDictionary*)dictionary{
+    Challenge *challenge = [[Challenge alloc] init];
+    
+    challenge.identifier = [[dictionary objectForKey:@"id"] integerValue];
+    challenge.title = [dictionary objectForKey:@"title"];
+    challenge.info = [dictionary objectForKey:@"info"];
+    challenge.theme = [dictionary objectForKey:@"theme"];
+    challenge.challenge_type = [dictionary objectForKey:@"challenge_type"];
+    
+    return challenge;
+}
+
++ (Location *)createLocationFromDictionary:(NSDictionary*)dictionary{
+    Location *participantLocation = [[Location alloc] init];
+    
+    participantLocation.userId = [[dictionary objectForKey:@"user_id"] integerValue];
+    participantLocation.latitude = [[dictionary objectForKey:@"latitude"] doubleValue];
+    participantLocation.longitude = [[dictionary objectForKey:@"longitude"] doubleValue];
+    participantLocation.lost = [[dictionary objectForKey:@"lost"] boolValue];
+    
+    return participantLocation;
+}
+
 @end

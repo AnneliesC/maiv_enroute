@@ -11,13 +11,19 @@
 @interface AppModel: NSObject{
     NSArray *groups;
     NSDictionary *appUser;
+    NSArray *challenges;
+    NSArray *locations;
 }
 
 @property (nonatomic,strong) NSArray *groups;
 @property (nonatomic,strong) NSDictionary *appUser;
+@property (nonatomic,strong) NSArray *challenges;
+@property (nonatomic,strong) NSArray *locations;
 
 + (id)sharedModel;
 - (void)setGroups:(NSArray *)groupsData;
 - (void)setAppUser:(NSDictionary *)appUserData;
+- (void)setChallenges:(NSArray *)challengesData;
+- (void)setLocations:(NSArray *)locationsData;
 
 @end

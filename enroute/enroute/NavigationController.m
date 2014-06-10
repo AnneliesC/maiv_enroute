@@ -76,6 +76,7 @@
 -(void)loadAppData:(id)sender{
     NSLog(@"[NavigationController] Load app data");
     self.viewControllers = [[NSArray alloc] initWithObjects:self.loadingVC, nil];
+    [self.dataParser loadAppData];
 }
 
 - (void)didReceiveMemoryWarning

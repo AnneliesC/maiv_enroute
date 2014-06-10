@@ -50,4 +50,24 @@
     return appUser;
 }
 
+- (void)setChallenges:(NSArray *)challengesData
+{
+    challenges = challengesData;
+    // [[NSNotificationCenter defaultCenter] postNotificationName:@"CHALLENGES_LOADED" object:self];
+}
+
+- (NSArray *)challenges {
+    return challenges;
+}
+
+- (void)setLocations:(NSArray *)locationsData
+{
+    locations = locationsData;
+    // [[NSNotificationCenter defaultCenter] postNotificationName:@"LOCATIONS_LOADED" object:self];
+}
+
+- (NSArray *)locations {
+    return locations;
+}
+
 @end

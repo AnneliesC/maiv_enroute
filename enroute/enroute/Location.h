@@ -10,4 +10,9 @@
 
 @interface Location : NSObject
 
+@property (nonatomic) NSInteger userId;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic) BOOL lost;
+
 @end

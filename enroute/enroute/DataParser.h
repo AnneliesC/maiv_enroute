@@ -14,6 +14,7 @@
 #import "Group.h"
 #import "User.h"
 #import "Challenge.h"
+#import "AppModel.h"
 #import "RushChallenge.h"
 #import "Location.h"
 
@@ -23,5 +24,7 @@
 @interface DataParser : NSObject
 
 - (void)loadGroupsData;
+- (void)loadChallengesData;
+- (void)loadAppData;
 
 @end

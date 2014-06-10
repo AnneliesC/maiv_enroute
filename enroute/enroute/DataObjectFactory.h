@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Group.h"
+#import "Challenge.h"
+#import "Location.h"
 
 @interface DataObjectFactory : NSObject
 
 + (Group *)createGroupFromDictionary:(NSDictionary*)dictionary;
++ (Challenge *)createChallengeFromDictionary:(NSDictionary*)dictionary;
++ (Location *)createLocationFromDictionary:(NSDictionary*)dictionary;
 
 @end
