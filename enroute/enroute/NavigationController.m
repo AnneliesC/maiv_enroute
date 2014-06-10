@@ -23,6 +23,8 @@
         self.menuVC = [[MenuViewController alloc] initWithNibName:nil bundle:nil];
         self.mainVC = [[MainViewController alloc] initWithNibName:nil bundle:nil];
         
+        self.dataParser = [[DataParser alloc] init];
+        [self.dataParser loadGroupsData];
     }
     return self;
 }
@@ -30,31 +32,45 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //self.navigationController.navigationBar.backItem.hidesBackButton = false;
-    
     // Do any additional setup after loading the view.
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoginRegister:) name:@"GROUPS_LOADED" object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuScreen:) name:@"SHOW_MENU" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themaScreen:) name:@"SHOW_THEMAS" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showMenu:) name:@"SHOW_MENU" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showThemes:) name:@"SHOW_THEMES" object:nil];
     
-    [self.menuVC.view.btnThemas addTarget:self action:@selector(themaScreen:) forControlEvents:UIControlEventTouchUpInside];
+    [self.menuVC.view.btnThemes addTarget:self action:@selector(showThemes:) forControlEvents:UIControlEventTouchUpInside];
+    [self.menuVC.view.btnCompass addTarget:self action:@selector(showCompass:) forControlEvents:UIControlEventTouchUpInside];
+    [self.menuVC.view.btnResults addTarget:self action:@selector(showResults:) forControlEvents:UIControlEventTouchUpInside];
+    [self.menuVC.view.btnRush addTarget:self action:@selector(showRush:) forControlEvents:UIControlEventTouchUpInside];
+    [self.menuVC.view.btnLogout addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchUpInside];
 }
--(void)menuScreen:(id)sender{
 
-    
-    //[self pushViewController:menuVC animated:NO];
+-(void)showMenu:(id)sender{
     self.viewControllers = [[NSArray alloc] initWithObjects:self.menuVC, nil];
-    
 }
--(void)themaScreen:(id)sender{
 
-    
-    //[self pushViewController:menuVC animated:NO];
+-(void)showThemes:(id)sender{
     self.viewControllers = [[NSArray alloc] initWithObjects:self.mainVC, nil];
-    
 }
+
+-(void)showResults:(id)sender{
+}
+
+-(void)showRush:(id)sender{
+}
+
+-(void)showCompass:(id)sender{
+}
+
+-(void)showLoginRegister:(id)sender{
+    self.viewControllers = [[NSArray alloc] initWithObjects:self.mainVC, nil];
+}
+
+-(void)logout:(id)sender{
+    [self.mainVC logout];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -63,6 +79,8 @@
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"SHOW_MENU" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"SHOW_THEMES" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"GROUPS_LOADED" object:nil];
 }
 
 /*

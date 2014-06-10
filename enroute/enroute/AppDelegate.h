@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "NavigationBar.h"
-#import "MainViewController.h"
 #import "NavigationController.h"
-
+#import "LoadingViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) MainViewController *MainVC;
+@property (strong, nonatomic) LoadingViewController *loadingVC;
 @property (strong, nonatomic) NavigationBar *customNavigationBar;
 @property (strong, nonatomic) NavigationController *navigationController;
 

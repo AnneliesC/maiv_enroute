@@ -13,10 +13,10 @@
 
 @property (nonatomic,strong) UIImageView *frameImage;
 
-@property (nonatomic,strong) UIButton *btnThemas;
-@property (nonatomic,strong) UIButton *btnMap;
-@property (nonatomic,strong) UIButton *btnOpdrachten;
-@property (nonatomic,strong) UIButton *btnGebruiker;
+@property (nonatomic,strong) UIButton *btnThemes;
+@property (nonatomic,strong) UIButton *btnCompass;
+@property (nonatomic,strong) UIButton *btnRush;
+@property (nonatomic,strong) UIButton *btnResults;
 
 @property (nonatomic,strong) UIButton *btnLogout;
 

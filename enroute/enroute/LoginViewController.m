@@ -34,8 +34,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createPickerView:) name:@"GROUPS_LOADED" object:nil];
-    
     [self.view.registerUser addTarget:self action:@selector(registerUser:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.LoginUser addTarget:self action:@selector(loginUser:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -53,11 +51,6 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
-}
-
-- (void)createPickerView:(id)sender{
-    NSLog(@"[LoginVC] create picker");
-    NSLog(@"[LoginVC] groups : %@",[[AppModel sharedModel] groups]);
 }
 
 - (void)dismissKeyboard {
@@ -260,9 +253,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"GROUPS_LOADED" object:nil];
-}
+- (void)dealloc{}
 
 /*
 #pragma mark - Navigation

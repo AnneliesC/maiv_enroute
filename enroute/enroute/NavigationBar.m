@@ -43,7 +43,7 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
      [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_MENU" object:self];
 }
 -(void)logoButtonTapped:(id)sender{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_THEMAS" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_THEMES" object:self];
 }
 /*
 -(id)init{

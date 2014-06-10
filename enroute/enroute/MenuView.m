@@ -29,42 +29,41 @@
 }
 -(void)createButtons{
 
-    
     //themas
     UIImage *backgroundButtonThema = [UIImage imageNamed:@"Menu_item"];
     
-    self.btnThemas= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnThemas.frame=CGRectMake(33, 250, backgroundButtonThema.size.width, backgroundButtonThema.size.height);
-    [self.btnThemas setBackgroundImage:backgroundButtonThema forState:UIControlStateNormal];
-    [self.btnThemas setTitle:@"Themas" forState:UIControlStateNormal];
-    [self addSubview:self.btnThemas];
+    self.btnThemes= [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnThemes.frame=CGRectMake(33, 250, backgroundButtonThema.size.width, backgroundButtonThema.size.height);
+    [self.btnThemes setBackgroundImage:backgroundButtonThema forState:UIControlStateNormal];
+    [self.btnThemes setTitle:@"Themas" forState:UIControlStateNormal];
+    [self addSubview:self.btnThemes];
     
     //Map
     UIImage *backgroundButtonMap = [UIImage imageNamed:@"Menu_item"];
     
-    self.btnMap= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnMap.frame=CGRectMake(173, 250, backgroundButtonMap.size.width, backgroundButtonMap.size.height);
-    [self.btnMap setBackgroundImage:backgroundButtonMap forState:UIControlStateNormal];
-    [self.btnMap setTitle:@"Map" forState:UIControlStateNormal];
-    [self addSubview:self.btnMap];
+    self.btnCompass= [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnCompass.frame=CGRectMake(173, 250, backgroundButtonMap.size.width, backgroundButtonMap.size.height);
+    [self.btnCompass setBackgroundImage:backgroundButtonMap forState:UIControlStateNormal];
+    [self.btnCompass setTitle:@"Map" forState:UIControlStateNormal];
+    [self addSubview:self.btnCompass];
 
     //Opdrachten
     UIImage *backgroundButtonOpdrachten = [UIImage imageNamed:@"Menu_item"];
     
-    self.btnOpdrachten= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnOpdrachten.frame=CGRectMake(33, 351, backgroundButtonOpdrachten.size.width, backgroundButtonOpdrachten.size.height);
-    [self.btnOpdrachten setBackgroundImage:backgroundButtonOpdrachten forState:UIControlStateNormal];
-    [self.btnOpdrachten setTitle:@"Opdrachten" forState:UIControlStateNormal];
-    [self addSubview:self.btnOpdrachten];
+    self.btnRush= [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnRush.frame=CGRectMake(33, 351, backgroundButtonOpdrachten.size.width, backgroundButtonOpdrachten.size.height);
+    [self.btnRush setBackgroundImage:backgroundButtonOpdrachten forState:UIControlStateNormal];
+    [self.btnRush setTitle:@"Opdrachten" forState:UIControlStateNormal];
+    [self addSubview:self.btnRush];
     
     //Gebruiker
     UIImage *backgroundButtonGebruiker = [UIImage imageNamed:@"Menu_item"];
     
-    self.btnMap= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnMap.frame=CGRectMake(173, 351, backgroundButtonGebruiker.size.width, backgroundButtonGebruiker.size.height);
-    [self.btnMap setBackgroundImage:backgroundButtonGebruiker forState:UIControlStateNormal];
-    [self.btnMap setTitle:@"Gebruiker" forState:UIControlStateNormal];
-    [self addSubview:self.btnMap];
+    self.btnResults= [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnResults.frame=CGRectMake(173, 351, backgroundButtonGebruiker.size.width, backgroundButtonGebruiker.size.height);
+    [self.btnResults setBackgroundImage:backgroundButtonGebruiker forState:UIControlStateNormal];
+    [self.btnResults setTitle:@"Gebruiker" forState:UIControlStateNormal];
+    [self addSubview:self.btnResults];
     
     
     //logout

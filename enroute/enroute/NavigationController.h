@@ -10,16 +10,12 @@
 #import "NavigationBar.h"
 #import "MenuViewController.h"
 #import "MainViewController.h"
-
-
-
+#import "DataParser.h"
 
 @interface NavigationController : UINavigationController
 
 @property(nonatomic,strong) MenuViewController *menuVC;
 @property(nonatomic,strong) MainViewController *mainVC;
-
-//@property (nonatomic,strong) NavigationBar *navigationBar;
-//@property (nonatomic,strong) NavigationBar *customNavigationBar;
+@property(nonatomic,strong) DataParser *dataParser;
 
 @end

@@ -22,6 +22,13 @@
 		A6A388871944DEBC00F75F27 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A388861944DEBC00F75F27 /* Group.m */; };
 		A6A3888A1944DF2000F75F27 /* DataObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A388891944DF2000F75F27 /* DataObjectFactory.m */; };
 		A6A3888D1944E21C00F75F27 /* AppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A3888C1944E21C00F75F27 /* AppModel.m */; };
+		A6B577D619479E60003F55E5 /* DataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B577D519479E60003F55E5 /* DataParser.m */; };
+		A6B577DA19479F70003F55E5 /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B577D919479F70003F55E5 /* Challenge.m */; };
+		A6B577DD19479F7A003F55E5 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B577DC19479F7A003F55E5 /* Location.m */; };
+		A6B577E019479F83003F55E5 /* RushChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B577DF19479F83003F55E5 /* RushChallenge.m */; };
+		A6B577E319479F8B003F55E5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B577E219479F8B003F55E5 /* User.m */; };
+		A6B577E61947A6CE003F55E5 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B577E51947A6CE003F55E5 /* LoadingViewController.m */; };
+		A6B577E91947A6DD003F55E5 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B577E81947A6DD003F55E5 /* LoadingView.m */; };
 		CA28C72A1945D9DE00B0806C /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA28C7291945D9DE00B0806C /* NavigationController.m */; };
 		CA28C72D1945D9F400B0806C /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CA28C72C1945D9F400B0806C /* NavigationBar.m */; };
 		CA28C7311945E63500B0806C /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA28C7301945E63500B0806C /* MenuViewController.m */; };
@@ -72,6 +79,20 @@
 		A6A388891944DF2000F75F27 /* DataObjectFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataObjectFactory.m; sourceTree = "<group>"; };
 		A6A3888B1944E21C00F75F27 /* AppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppModel.h; sourceTree = "<group>"; };
 		A6A3888C1944E21C00F75F27 /* AppModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppModel.m; sourceTree = "<group>"; };
+		A6B577D419479E60003F55E5 /* DataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataParser.h; sourceTree = "<group>"; };
+		A6B577D519479E60003F55E5 /* DataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataParser.m; sourceTree = "<group>"; };
+		A6B577D819479F70003F55E5 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Challenge.h; sourceTree = "<group>"; };
+		A6B577D919479F70003F55E5 /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Challenge.m; sourceTree = "<group>"; };
+		A6B577DB19479F7A003F55E5 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		A6B577DC19479F7A003F55E5 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		A6B577DE19479F83003F55E5 /* RushChallenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RushChallenge.h; sourceTree = "<group>"; };
+		A6B577DF19479F83003F55E5 /* RushChallenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RushChallenge.m; sourceTree = "<group>"; };
+		A6B577E119479F8B003F55E5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		A6B577E219479F8B003F55E5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		A6B577E41947A6CE003F55E5 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		A6B577E51947A6CE003F55E5 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		A6B577E71947A6DD003F55E5 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		A6B577E81947A6DD003F55E5 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		CA28C7281945D9DE00B0806C /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		CA28C7291945D9DE00B0806C /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		CA28C72B1945D9F400B0806C /* NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBar.h; sourceTree = "<group>"; };
@@ -163,6 +184,7 @@
 				A6A388841944DE9900F75F27 /* Data */,
 				CA28C7271945D99400B0806C /* Navigation */,
 				CA28C72E1945E61F00B0806C /* Menu */,
+				A6B577EA1947A7C1003F55E5 /* Loading */,
 				A6A388831944DE7F00F75F27 /* Login/Register */,
 				CAA440B019431A600004CAB1 /* Main */,
 				A6A388571941DEE900F75F27 /* Images.xcassets */,
@@ -219,6 +241,8 @@
 				A6A388881944DF2000F75F27 /* DataObjectFactory.h */,
 				A6A388891944DF2000F75F27 /* DataObjectFactory.m */,
 				A6A3888E1944E22D00F75F27 /* DataObjects */,
+				A6B577D419479E60003F55E5 /* DataParser.h */,
+				A6B577D519479E60003F55E5 /* DataParser.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -228,8 +252,27 @@
 			children = (
 				A6A388851944DEBC00F75F27 /* Group.h */,
 				A6A388861944DEBC00F75F27 /* Group.m */,
+				A6B577D819479F70003F55E5 /* Challenge.h */,
+				A6B577D919479F70003F55E5 /* Challenge.m */,
+				A6B577DB19479F7A003F55E5 /* Location.h */,
+				A6B577DC19479F7A003F55E5 /* Location.m */,
+				A6B577DE19479F83003F55E5 /* RushChallenge.h */,
+				A6B577DF19479F83003F55E5 /* RushChallenge.m */,
+				A6B577E119479F8B003F55E5 /* User.h */,
+				A6B577E219479F8B003F55E5 /* User.m */,
 			);
 			name = DataObjects;
+			sourceTree = "<group>";
+		};
+		A6B577EA1947A7C1003F55E5 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				A6B577E41947A6CE003F55E5 /* LoadingViewController.h */,
+				A6B577E51947A6CE003F55E5 /* LoadingViewController.m */,
+				A6B577E71947A6DD003F55E5 /* LoadingView.h */,
+				A6B577E81947A6DD003F55E5 /* LoadingView.m */,
+			);
+			name = Loading;
 			sourceTree = "<group>";
 		};
 		CA28C7271945D99400B0806C /* Navigation */ = {
@@ -403,17 +446,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAA440BD19431B460004CAB1 /* LoginView.m in Sources */,
+				A6B577E91947A6DD003F55E5 /* LoadingView.m in Sources */,
+				A6B577E019479F83003F55E5 /* RushChallenge.m in Sources */,
+				A6B577E319479F8B003F55E5 /* User.m in Sources */,
 				A6A388561941DEE900F75F27 /* AppDelegate.m in Sources */,
 				A6A388871944DEBC00F75F27 /* Group.m in Sources */,
 				CAA440B619431A7F0004CAB1 /* MainView.m in Sources */,
 				A6A3888D1944E21C00F75F27 /* AppModel.m in Sources */,
+				A6B577E61947A6CE003F55E5 /* LoadingViewController.m in Sources */,
 				CAA440B319431A710004CAB1 /* MainViewController.m in Sources */,
+				A6B577DA19479F70003F55E5 /* Challenge.m in Sources */,
 				A6A388521941DEE900F75F27 /* main.m in Sources */,
 				CA28C7311945E63500B0806C /* MenuViewController.m in Sources */,
 				CA28C72A1945D9DE00B0806C /* NavigationController.m in Sources */,
 				CAA440BA19431B360004CAB1 /* LoginViewController.m in Sources */,
+				A6B577D619479E60003F55E5 /* DataParser.m in Sources */,
 				CA28C7341945E64400B0806C /* MenuView.m in Sources */,
 				CA28C72D1945D9F400B0806C /* NavigationBar.m in Sources */,
+				A6B577DD19479F7A003F55E5 /* Location.m in Sources */,
 				A6A3888A1944DF2000F75F27 /* DataObjectFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

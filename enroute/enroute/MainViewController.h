@@ -10,11 +10,6 @@
 #import "MainView.h"
 #import "AppModel.h"
 #import "LoginViewController.h"
-#import "DataObjectFactory.h"
-#import "Group.h"
-
-#import "AFHTTPRequestOperation.h"
-#import "AFHTTPRequestOperationManager.h"
 
 @interface MainViewController : UIViewController<UIScrollViewDelegate>
 
@@ -22,5 +17,7 @@
 @property (nonatomic,strong) LoginViewController *loginVC;
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
+-(void)showLoginRegister;
+-(void)logout;
 
 @end
