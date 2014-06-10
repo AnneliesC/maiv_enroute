@@ -16,6 +16,8 @@
 
 @interface NavigationController : UINavigationController
 
+@property(nonatomic,strong) MenuViewController *menuVC;
+@property(nonatomic,strong) MainViewController *mainVC;
 
 //@property (nonatomic,strong) NavigationBar *navigationBar;
 //@property (nonatomic,strong) NavigationBar *customNavigationBar;

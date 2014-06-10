@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        //[self loadGroupsData];
+        [self loadGroupsData];
 
     }
     return self;
@@ -78,8 +78,6 @@
 }
 
 - (void)showLoginRegister{
-    [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"isUserLoggedIn2"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
     
     if([[NSUserDefaults standardUserDefaults]boolForKey:@"isUserLoggedIn2"] == NO){
         self.loginVC = [[LoginViewController alloc]initWithBounds:self.view.bounds];

@@ -16,9 +16,7 @@
     if (self) {
         // Initialization code
         
-        NSLog(@"MainView");
         self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background"]];
-        
         
         self.scrollView =  [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0,self.frame.size.width, self.frame.size.height)];
         [self addSubview:self.scrollView];
@@ -30,7 +28,6 @@
         self.pageControl.pageIndicatorTintColor = [UIColor grayColor];
         self.pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
         [self addSubview:self.pageControl];
-        
         
         UIImage *imageUil = [UIImage imageNamed:@"Home_uil"];
         UIImageView *ImageViewUil = [[UIImageView alloc]initWithImage:imageUil];

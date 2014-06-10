@@ -20,7 +20,8 @@
     if (self) {
         // Custom initialization
 
-        
+        self.menuVC = [[MenuViewController alloc] initWithNibName:nil bundle:nil];
+        self.mainVC = [[MainViewController alloc] initWithNibName:nil bundle:nil];
         
     }
     return self;
@@ -37,21 +38,21 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuScreen:) name:@"SHOW_MENU" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themaScreen:) name:@"SHOW_THEMAS" object:nil];
-
     
+    [self.menuVC.view.btnThemas addTarget:self action:@selector(themaScreen:) forControlEvents:UIControlEventTouchUpInside];
 }
 -(void)menuScreen:(id)sender{
 
-    MenuViewController *menuVC = [[MenuViewController alloc] initWithNibName:nil bundle:nil];
+    
     //[self pushViewController:menuVC animated:NO];
-    self.viewControllers = [[NSArray alloc] initWithObjects:menuVC, nil];
+    self.viewControllers = [[NSArray alloc] initWithObjects:self.menuVC, nil];
     
 }
 -(void)themaScreen:(id)sender{
 
-    MainViewController *mainVC = [[MainViewController alloc] initWithNibName:nil bundle:nil];
+    
     //[self pushViewController:menuVC animated:NO];
-    self.viewControllers = [[NSArray alloc] initWithObjects:mainVC, nil];
+    self.viewControllers = [[NSArray alloc] initWithObjects:self.mainVC, nil];
     
 }
 - (void)didReceiveMemoryWarning

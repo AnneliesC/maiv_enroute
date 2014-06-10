@@ -39,7 +39,7 @@
     
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
-    [self.view.btnThemas addTarget:self action:@selector(ThemasScreen:) forControlEvents:UIControlEventTouchUpInside];
+    //[self.view.btnThemas addTarget:self action:@selector(ThemasScreen:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.btnLogout addTarget:self action:@selector(LogoutScreen:) forControlEvents:UIControlEventTouchUpInside];
     
 }
