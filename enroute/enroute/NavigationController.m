@@ -37,6 +37,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoginRegister:) name:@"GROUPS_LOADED" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadAppData:) name:@"USER_LOADED" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDataLoaded:) name:@"APP_DATA_LOADED" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showMenu:) name:@"SHOW_MENU" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showThemes:) name:@"SHOW_THEMES" object:nil];
@@ -73,10 +74,16 @@
     [self.mainVC logout];
 }
 
+
 -(void)loadAppData:(id)sender{
     NSLog(@"[NavigationController] Load app data");
     self.viewControllers = [[NSArray alloc] initWithObjects:self.loadingVC, nil];
     [self.dataParser loadAppData];
+}
+
+-(void)appDataLoaded:(id)sender{
+    NSLog(@"[NavigationController] App data loaded");
+    self.viewControllers = [[NSArray alloc] initWithObjects:self.mainVC, nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,6 +97,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"SHOW_THEMES" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"GROUPS_LOADED" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"USER_LOADED" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"APP_DATA_LOADED" object:nil];
 }
 
 /*

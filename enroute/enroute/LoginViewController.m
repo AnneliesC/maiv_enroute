@@ -128,8 +128,10 @@
     
     NSString *url = @"http://student.howest.be/annelies.clauwaert/20132014/MAIV/ENROUTE/api/users";
     NSDictionary *parameters = @{
-                                 @"email": self.view.txtLoginEmail.text,
-                                 @"password": self.view.txtLoginPassword.text,
+//                                 @"email": self.view.txtLoginEmail.text,
+//                                 @"password": self.view.txtLoginPassword.text,
+                                 @"email": @"Admin@test.com",
+                                 @"password": @"admintest",
                                  @"submit_type": @"login"
                                  };
     

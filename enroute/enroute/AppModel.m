@@ -15,6 +15,8 @@
 @synthesize locations = _locations;
 @synthesize rushChallenges = _rushChallenges;
 @synthesize isGroupToday = _isGroupToday;
+@synthesize isMentor = _isMentor;
+@synthesize groupId = _groupId;
 
 + (id)sharedModel {
     static AppModel *sharedAppModel = nil;
@@ -51,17 +53,59 @@
 {
     appUser = appUserData;
     
-    NSDate* currentDate = [NSDate date];
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd "];
-    NSString *date = [appUser objectForKey:@"date"];
-    NSDate *userDate = [formatter dateFromString:date];
-    NSComparisonResult comparisonResult = [currentDate compare:userDate];
-    
-    if(comparisonResult){
+    if([[appUser objectForKey:@"role"]  isEqual: @"admin"] || [[appUser objectForKey:@"role"]  isEqual: @"mentor"]){
+        
+        NSLog(@"[AppModel] logged in as mentor or admin");
+        
+        _isMentor = true;
         _isGroupToday = true;
+        
+        NSDate *currentDate = [NSDate date];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        
+        for (Group *group in groups)
+        {
+            NSDate *groupDate = [formatter dateFromString:[NSString stringWithFormat:@"%@",group.date]];
+            NSComparisonResult comparisonResult = [currentDate compare:groupDate];
+            
+            
+            NSLog(@"[AppModel] comp  %d",comparisonResult);
+            
+            if(comparisonResult == YES){
+                NSLog(@"[AppModel] en route group today");
+                _groupId = [NSString stringWithFormat:@"%i",group.identifier];
+            }else{
+                NSLog(@"[AppModel] no en route group today");
+            }
+        }
+        
     }else{
-        _isGroupToday = false;
+        
+        NSLog(@"[AppModel] logged in as participant");
+        
+        _isMentor = false;
+        _groupId = [appUser objectForKey:@"group_id"];
+        NSLog(@"group id user : %@", groupId);
+        
+        NSDate *currentDate = [NSDate date];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        
+        NSString *date = [appUser objectForKey:@"date"];
+        NSDate *userDate = [formatter dateFromString:date];
+        NSComparisonResult comparisonResult = [currentDate compare:userDate];
+        
+        NSLog(@"APP user: %@",userDate);
+        NSLog(@"APP current: %@",currentDate);
+        
+        if(comparisonResult == YES){
+            _isGroupToday = true;
+            NSLog(@"[AppModel] today");
+        }else{
+            _isGroupToday = false;
+            NSLog(@"[AppModel] not today");
+        }
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"USER_LOADED" object:self];

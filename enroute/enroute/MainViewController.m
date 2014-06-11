@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.navigationController.navigationBarHidden = NO;
     }
     return self;
 }
@@ -47,6 +48,8 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)showLoginRegister{

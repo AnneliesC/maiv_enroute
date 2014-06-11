@@ -21,7 +21,12 @@
 #import "AFHTTPRequestOperation.h"
 #import "AFHTTPRequestOperationManager.h"
 
+
 @interface DataParser : NSObject
+
+@property (nonatomic) bool challengesLoaded;
+@property (nonatomic) bool rushChallengesLoaded;
+@property (nonatomic) bool locationsLoaded;
 
 - (void)loadGroupsData;
 - (void)loadChallengesData;

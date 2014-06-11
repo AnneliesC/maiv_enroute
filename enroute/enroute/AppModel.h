@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Group.h"
+#import "Helpers.h"
 
 @interface AppModel: NSObject{
     
@@ -16,6 +18,8 @@
     NSArray *locations;
     NSArray *rushChallenges;
     bool isGroupToday;
+    bool isMentor;
+    NSString *groupId;
 }
 
 @property (nonatomic,strong) NSArray *groups;
@@ -24,6 +28,8 @@
 @property (nonatomic,strong) NSArray *locations;
 @property (nonatomic,strong) NSArray *rushChallenges;
 @property (nonatomic) bool isGroupToday;
+@property (nonatomic) bool isMentor;
+@property (nonatomic) NSString *groupId;
 
 + (id)sharedModel;
 - (void)setGroups:(NSArray *)groupsData;

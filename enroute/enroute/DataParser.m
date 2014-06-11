@@ -10,6 +10,34 @@
 
 @implementation DataParser
 
+- (void)loadAppData{
+     NSLog(@"[DataParser] Load app data");
+    
+    self.challengesLoaded = false;
+    self.rushChallengesLoaded = true;
+    self.locationsLoaded = true;
+    
+    if([[AppModel sharedModel] isMentor] == YES && [[AppModel sharedModel] isGroupToday]){
+        
+        self.rushChallengesLoaded = false;
+        self.locationsLoaded = false;
+        
+        [self loadLocationsData];
+        [self loadRushChallengesData];
+    }
+    
+    [self loadChallengesData];
+}
+
+- (void)checkLoadingStatus{
+    NSLog(@"[DataParser] Check loading status");
+    
+    if(self.challengesLoaded == YES && self.rushChallengesLoaded == YES && self.locationsLoaded == YES){
+        NSLog(@"[DataParser] App data loaded");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"APP_DATA_LOADED" object:self];
+    }
+}
+
 - (void)loadGroupsData{
     NSLog(@"[DataParser] Load groups");
     
@@ -36,53 +64,10 @@
     [groupsOperation start];
 }
 
-- (void)loadAppData{
-    
-    [self loadChallengesData];
-    
-    [self getGroupByDate];
-    
-    if(([[[[AppModel sharedModel] appUser] objectForKey:@"role"]  isEqual: @"admin"] ||
-       [[[[AppModel sharedModel] appUser] objectForKey:@"role"]  isEqual: @"mentor"])
-       && [[AppModel sharedModel] isGroupToday]){
-        
-        
-        [self loadLocationsData];
-        [self loadRushChallengesData];
-    }
-    
-}
-
-- (void)getGroupByDate{
-    NSLog(@"[DataParser] Get group by date");
-    
-    NSString *path = [NSString stringWithFormat:@"http://student.howest.be/annelies.clauwaert/20132014/MAIV/ENROUTE/api/groups/date/%@", [Helpers getCurrentDateAsStringRaw]];
-    NSLog(@"[DataParser] path: %@", path);
-    NSURL *url = [NSURL URLWithString:path];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    AFHTTPRequestOperation *groupOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    groupOperation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [groupOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
-        
-        NSLog(@"[DataParser] succes: %@", operation.responseObject);
-//        NSMutableArray *group = [[NSMutableArray alloc] init];
-//        for(NSDictionary *dict in operation.responseObject){
-//            NSLog(@"[DataParser] dict : %@", [DataObjectFactory createChallengeFromDictionary:dict]);
-//            [group addObject: [DataObjectFactory createChallengeFromDictionary:dict]];
-//        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"[DataParser] Error loading groups: %@", operation.error);
-    }];
-    
-    [groupOperation start];
-}
-
 - (void)loadChallengesData{
     NSLog(@"[DataParser] Load challenges");
     
-    NSString *path = [NSString stringWithFormat:@"http://student.howest.be/annelies.clauwaert/20132014/MAIV/ENROUTE/api/challenges/hidden/group/%@", [[[AppModel sharedModel] appUser] objectForKey:@"group_id"]];
+    NSString *path = [NSString stringWithFormat:@"http://student.howest.be/annelies.clauwaert/20132014/MAIV/ENROUTE/api/challenges/hidden/group/%@", [[AppModel sharedModel] groupId]];
     NSURL *url = [NSURL URLWithString:path];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -97,9 +82,13 @@
         }
         
         [[AppModel sharedModel] setChallenges:challenges];
+        self.challengesLoaded = true;
+        [self checkLoadingStatus];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"[DataParser] Error loading challenges: %@", operation.error);
+        self.challengesLoaded = false;
+        [self checkLoadingStatus];
     }];
     
     [challengesOperation start];
@@ -123,9 +112,13 @@
         }
         
         [[AppModel sharedModel] setRushChallenges:rushChallenges];
+        self.rushChallengesLoaded = true;
+        [self checkLoadingStatus];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"[DataParser] Error loading rush challenges: %@", operation.error);
+        self.rushChallengesLoaded = false;
+        [self checkLoadingStatus];
     }];
     
     [rushChallengesOperation start];
@@ -134,7 +127,7 @@
 - (void)loadLocationsData{
     NSLog(@"[DataParser] Load locations");
     
-    NSString *path = [NSString stringWithFormat:@"http://student.howest.be/annelies.clauwaert/20132014/MAIV/ENROUTE/api/locations/group/%@", [[[AppModel sharedModel] appUser] objectForKey:@"group_id"]];
+    NSString *path = [NSString stringWithFormat:@"http://student.howest.be/annelies.clauwaert/20132014/MAIV/ENROUTE/api/locations/group/%@", [[AppModel sharedModel] groupId]];
     NSURL *url = [NSURL URLWithString:path];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -149,9 +142,13 @@
         }
         
         [[AppModel sharedModel] setLocations:locations];
+        self.locationsLoaded = true;
+        [self checkLoadingStatus];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"[DataParser] Error loading locations: %@", operation.error);
+        self.locationsLoaded = false;
+        [self checkLoadingStatus];
     }];
     
     [locationsOperation start];
