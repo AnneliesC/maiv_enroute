@@ -13,6 +13,6 @@
 @property (nonatomic) NSInteger userId;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
-@property (nonatomic) BOOL lost;
+@property (nonatomic) bool lost;
 
 @end

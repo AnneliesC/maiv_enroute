@@ -11,6 +11,10 @@
 @implementation AppModel
 @synthesize groups = _groups;
 @synthesize appUser = _appUser;
+@synthesize challenges = _challenges;
+@synthesize locations = _locations;
+@synthesize rushChallenges = _rushChallenges;
+@synthesize isGroupToday = _isGroupToday;
 
 + (id)sharedModel {
     static AppModel *sharedAppModel = nil;
@@ -26,6 +30,9 @@
     self = [super init];
     if (self) {
         groups = [[NSArray alloc] init];
+        challenges = [[NSArray alloc] init];
+        locations = [[NSArray alloc] init];
+        rushChallenges = [[NSArray alloc] init];
     }
     return self;
 }
@@ -43,6 +50,20 @@
 - (void)setAppUser:(NSDictionary *)appUserData
 {
     appUser = appUserData;
+    
+    NSDate* currentDate = [NSDate date];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd "];
+    NSString *date = [appUser objectForKey:@"date"];
+    NSDate *userDate = [formatter dateFromString:date];
+    NSComparisonResult comparisonResult = [currentDate compare:userDate];
+    
+    if(comparisonResult){
+        _isGroupToday = true;
+    }else{
+        _isGroupToday = false;
+    }
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"USER_LOADED" object:self];
 }
 
@@ -68,6 +89,16 @@
 
 - (NSArray *)locations {
     return locations;
+}
+
+- (void)setRushChallenges:(NSArray *)rushChallengesData
+{
+    rushChallenges = rushChallengesData;
+    // [[NSNotificationCenter defaultCenter] postNotificationName:@"RUSH_CHALLENGES_LOADED" object:self];
+}
+
+- (NSArray *)rushChallenges {
+    return rushChallenges;
 }
 
 @end

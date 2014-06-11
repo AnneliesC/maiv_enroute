@@ -44,4 +44,15 @@
     return participantLocation;
 }
 
++ (RushChallenge *)createRushChallengeFromDictionary:(NSDictionary*)dictionary{
+    RushChallenge *rushChallenge = [[RushChallenge alloc] init];
+    
+    rushChallenge.identifier = [[dictionary objectForKey:@"id"] integerValue];
+    rushChallenge.title = [dictionary objectForKey:@"title"];
+    rushChallenge.info = [dictionary objectForKey:@"info"];
+    rushChallenge.challenge_type = [dictionary objectForKey:@"challenge_type"];
+    
+    return rushChallenge;
+}
+
 @end
