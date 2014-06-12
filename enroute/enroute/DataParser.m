@@ -13,7 +13,8 @@
 - (void)loadAppData{
     NSLog(@"[DataParser] Load app data");
     
-    self.resultsLoaded = false;
+    self.resultsLoaded = true;
+    //self.resultsLoaded = false;
     self.challengesLoaded = false;
     self.rushChallengesLoaded = true;
     self.locationsLoaded = true;
