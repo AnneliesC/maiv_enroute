@@ -84,7 +84,7 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
     UIImage *backgroundButtonLogo = [UIImage imageNamed:@"Header_logo"];
     
     self.btnLogo= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnLogo.frame=CGRectMake(176/2, 15, backgroundButtonLogo.size.width, backgroundButtonLogo.size.height);
+    self.btnLogo.frame=CGRectMake(176/2, 20, backgroundButtonLogo.size.width, backgroundButtonLogo.size.height);
     [self.btnLogo setBackgroundImage:backgroundButtonLogo forState:UIControlStateNormal];
     [self.btnLogo setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnLogo];

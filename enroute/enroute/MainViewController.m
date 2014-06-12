@@ -65,6 +65,7 @@
 }
 
 -(void)logout{
+    NSLog(@"[MainVC] logout");
     
     [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"isUserLoggedIn2"];
     [[NSUserDefaults standardUserDefaults]synchronize];

@@ -69,12 +69,11 @@
             NSDate *groupDate = [formatter dateFromString:[NSString stringWithFormat:@"%@",group.date]];
             NSComparisonResult comparisonResult = [currentDate compare:groupDate];
             
-            
-            NSLog(@"[AppModel] comp  %d",comparisonResult);
+            NSLog(@"[AppModel] comp  %ld",comparisonResult);
             
             if(comparisonResult == YES){
                 NSLog(@"[AppModel] en route group today");
-                _groupId = [NSString stringWithFormat:@"%i",group.identifier];
+                _groupId = [NSString stringWithFormat:@"%li",(long)group.identifier];
             }else{
                 NSLog(@"[AppModel] no en route group today");
             }

@@ -1,18 +1,18 @@
 //
-//  MenuViewController.m
+//  OverzichtViewController.m
 //  enroute
 //
-//  Created by Gilles Van de Ven on 9/06/14.
+//  Created by Gilles Van de Ven on 12/06/14.
 //  Copyright (c) 2014 Annelies Clauwaert. All rights reserved.
 //
 
-#import "MenuViewController.h"
+#import "OverzichtViewController.h"
 
-@interface MenuViewController ()
+@interface OverzichtViewController ()
 
 @end
 
-@implementation MenuViewController
+@implementation OverzichtViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,23 +22,14 @@
     }
     return self;
 }
-
 - (void)loadView{
     CGRect bounds = [UIScreen mainScreen].bounds;
-    self.view = [[MenuView alloc]initWithFrame:bounds];
+    self.view = [[OverzichtView alloc]initWithFrame:bounds];
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self.navigationItem setHidesBackButton:YES animated:NO];
-    self.navigationController.navigationBarHidden = NO;
-}
-
--(void)createMenu:(id)sender{
-    
 }
 
 - (void)didReceiveMemoryWarning

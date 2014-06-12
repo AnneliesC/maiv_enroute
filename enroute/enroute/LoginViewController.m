@@ -130,8 +130,14 @@
     NSDictionary *parameters = @{
 //                                 @"email": self.view.txtLoginEmail.text,
 //                                 @"password": self.view.txtLoginPassword.text,
-                                 @"email": @"Admin@test.com",
-                                 @"password": @"admintest",
+                                 
+//                                 @"email": @"Admin@test.com",
+//                                 @"password": @"admintest",
+                                 
+                                 @"email": @"e@e.e",
+                                 @"password": @"pppppp",
+                                 
+                                 
                                  @"submit_type": @"login"
                                  };
     

@@ -21,8 +21,11 @@
         // Custom initialization
         
         self.loadingVC = [[LoadingViewController alloc] initWithNibName:nil bundle:nil];
-        self.menuVC = [[MenuViewController alloc] initWithNibName:nil bundle:nil];
         self.mainVC = [[MainViewController alloc] initWithNibName:nil bundle:nil];
+        self.compassVC = [[CompassViewController alloc] initWithNibName:nil bundle:nil];
+        self.uploadVC = [[UploadViewController alloc] initWithNibName:nil bundle:nil];
+        
+        self.overzichtVC = [[OverzichtViewController alloc] initWithNibName:nil bundle:nil];
         
         self.dataParser = [[DataParser alloc] init];
         [self.dataParser loadGroupsData];
@@ -39,14 +42,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadAppData:) name:@"USER_LOADED" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDataLoaded:) name:@"APP_DATA_LOADED" object:nil];
     
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showMenu:) name:@"SHOW_MENU" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showThemes:) name:@"SHOW_THEMES" object:nil];
-    
-    [self.menuVC.view.btnThemes addTarget:self action:@selector(showThemes:) forControlEvents:UIControlEventTouchUpInside];
-    [self.menuVC.view.btnCompass addTarget:self action:@selector(showCompass:) forControlEvents:UIControlEventTouchUpInside];
-    [self.menuVC.view.btnResults addTarget:self action:@selector(showResults:) forControlEvents:UIControlEventTouchUpInside];
-    [self.menuVC.view.btnRush addTarget:self action:@selector(showRush:) forControlEvents:UIControlEventTouchUpInside];
-    [self.menuVC.view.btnLogout addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)showMenu:(id)sender{
@@ -54,29 +52,55 @@
 }
 
 -(void)showThemes:(id)sender{
+    
+    
+    NSLog(@"[NAV]Themas");
     self.viewControllers = [[NSArray alloc] initWithObjects:self.mainVC, nil];
 }
-
--(void)showResults:(id)sender{
+-(void)showCompass:(id)sender{
+    
+    NSLog(@"[NAV]Compass");
+    self.viewControllers = [[NSArray alloc] initWithObjects:self.compassVC, nil];
+    
+}
+-(void)showCompassAdmin:(id)sender{
+    
+    NSLog(@"[NAV]Compass Admin");
+    self.viewControllers = [[NSArray alloc] initWithObjects:self.overzichtVC, nil];
+    
+}
+-(void)showUpload:(id)sender{
+    
+    NSLog(@"[NAV]Upload");
+    self.viewControllers = [[NSArray alloc] initWithObjects:self.uploadVC, nil];
+    
+    
 }
 
 -(void)showRush:(id)sender{
+    
+    
+    
+}
+-(void)logout:(id)sender{
+    NSLog(@"[NAV]logout");
+    
+    self.viewControllers = [[NSArray alloc] initWithObjects:self.mainVC, nil];
+    [self.mainVC logout];
 }
 
--(void)showCompass:(id)sender{
-}
 
 -(void)showLoginRegister:(id)sender{
     self.viewControllers = [[NSArray alloc] initWithObjects:self.mainVC, nil];
 }
 
--(void)logout:(id)sender{
-    [self.mainVC logout];
-}
+
 
 
 -(void)loadAppData:(id)sender{
     NSLog(@"[NavigationController] Load app data");
+    self.menuVC = [[MenuViewController alloc] initWithNibName:nil bundle:nil];
+    [self setMenuEvents];
     self.viewControllers = [[NSArray alloc] initWithObjects:self.loadingVC, nil];
     [self.dataParser loadAppData];
 }
@@ -84,6 +108,28 @@
 -(void)appDataLoaded:(id)sender{
     NSLog(@"[NavigationController] App data loaded");
     self.viewControllers = [[NSArray alloc] initWithObjects:self.mainVC, nil];
+    
+}
+
+-(void)setMenuEvents{
+    
+    //knoppen
+    [self.menuVC.view.btnThemes addTarget:self action:@selector(showThemes:) forControlEvents:UIControlEventTouchUpInside];
+    [self.menuVC.view.btnCompass addTarget:self action:@selector(showCompass:) forControlEvents:UIControlEventTouchUpInside];
+    [self.menuVC.view.btnLogout addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //gebruiker
+    
+    [self.menuVC.view.btnUpload addTarget:self action:@selector(showUpload:) forControlEvents:UIControlEventTouchUpInside];
+    [self.menuVC.view.btnRush addTarget:self action:@selector(showRush:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    //adim
+    [self.menuVC.view.btnChildren addTarget:self action:@selector(showCompassAdmin:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //[self.menuVC.view.btnChildren addTarget:self action:@selector(showResults:) forControlEvents:UIControlEventTouchUpInside];
+    //[self.menuVC.view.btnRushOpdrachten addTarget:self action:@selector(showResults:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 - (void)didReceiveMemoryWarning
