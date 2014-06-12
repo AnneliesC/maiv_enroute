@@ -34,7 +34,7 @@
 
 -(void)createBackground{
     
-    self.HeaderImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_Header"]];
+    self.HeaderImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loginHeader"]];
     [self addSubview:self.headerImage];
     
     //Login

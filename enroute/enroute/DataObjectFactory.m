@@ -55,4 +55,17 @@
     return rushChallenge;
 }
 
++ (Result *)createResultChallengeFromDictionary:(NSDictionary*)dictionary{
+    Result *result = [[Result alloc] init];
+    
+    result.identifier = [[dictionary objectForKey:@"id"] integerValue];
+    result.fileType = [dictionary objectForKey:@"file_type"];
+    result.challengeId = [[dictionary objectForKey:@"challenge_id"] integerValue];
+    result.userGroupId = [[dictionary objectForKey:@"group_id"] integerValue];
+    result.userId = [[dictionary objectForKey:@"user_id"] integerValue];
+    result.datetime = [[dictionary objectForKey:@"datetime"] datetime];
+    
+    return result;
+}
+
 @end

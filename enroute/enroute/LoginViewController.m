@@ -134,8 +134,8 @@
 //                                 @"email": @"Admin@test.com",
 //                                 @"password": @"admintest",
                                  
-                                 @"email": @"e@e.e",
-                                 @"password": @"pppppp",
+                                 @"email": @"User@test.com",
+                                 @"password": @"usertest",
                                  
                                  
                                  @"submit_type": @"login"

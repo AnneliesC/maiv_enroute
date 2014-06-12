@@ -17,6 +17,8 @@
 @synthesize isGroupToday = _isGroupToday;
 @synthesize isMentor = _isMentor;
 @synthesize groupId = _groupId;
+@synthesize results = _results;
+@synthesize resultsToBeUploaded = _resultsToBeUploaded;
 
 + (id)sharedModel {
     static AppModel *sharedAppModel = nil;
@@ -69,8 +71,6 @@
             NSDate *groupDate = [formatter dateFromString:[NSString stringWithFormat:@"%@",group.date]];
             NSComparisonResult comparisonResult = [currentDate compare:groupDate];
             
-            NSLog(@"[AppModel] comp  %ld",comparisonResult);
-            
             if(comparisonResult == YES){
                 NSLog(@"[AppModel] en route group today");
                 _groupId = [NSString stringWithFormat:@"%li",(long)group.identifier];
@@ -85,6 +85,7 @@
         
         _isMentor = false;
         _groupId = [appUser objectForKey:@"group_id"];
+        NSLog(@"group id user : %@", [appUser objectForKey:@"group_id"]);
         NSLog(@"group id user : %@", groupId);
         
         NSDate *currentDate = [NSDate date];
@@ -98,12 +99,10 @@
         NSLog(@"APP user: %@",userDate);
         NSLog(@"APP current: %@",currentDate);
         
+        _isGroupToday = false;
         if(comparisonResult == YES){
             _isGroupToday = true;
-            NSLog(@"[AppModel] today");
-        }else{
-            _isGroupToday = false;
-            NSLog(@"[AppModel] not today");
+            NSLog(@"[AppModel] user has en route day today");
         }
     }
     
@@ -142,6 +141,16 @@
 
 - (NSArray *)rushChallenges {
     return rushChallenges;
+}
+
+- (void)setResults:(NSArray *)resultsData
+{
+    results = resultsData;
+    // [[NSNotificationCenter defaultCenter] postNotificationName:@"RUSH_CHALLENGES_LOADED" object:self];
+}
+
+- (NSArray *)results {
+    return results;
 }
 
 @end

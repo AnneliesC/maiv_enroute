@@ -1,18 +1,18 @@
 //
-//  OverzichtViewController.m
+//  OverviewViewController.m
 //  enroute
 //
-//  Created by Gilles Van de Ven on 12/06/14.
+//  Created by Annelies Clauwaert on 12/06/14.
 //  Copyright (c) 2014 Annelies Clauwaert. All rights reserved.
 //
 
-#import "OverzichtViewController.h"
+#import "OverviewViewController.h"
 
-@interface OverzichtViewController ()
+@interface OverviewViewController ()
 
 @end
 
-@implementation OverzichtViewController
+@implementation OverviewViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,10 +22,12 @@
     }
     return self;
 }
+
 - (void)loadView{
     CGRect bounds = [UIScreen mainScreen].bounds;
-    self.view = [[OverzichtView alloc]initWithFrame:bounds];
+    self.view = [[OverviewView alloc]initWithFrame:bounds];
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

@@ -16,16 +16,11 @@
 
 @property (nonatomic,strong) UIButton *btnThemes;
 @property (nonatomic,strong) UIButton *btnCompass;
-
-
 @property (nonatomic,strong) UIButton *btnRush;
 @property (nonatomic,strong) UIButton *btnUpload;
 
-@property (nonatomic,strong) UIButton *btnChildren;
-@property (nonatomic,strong) UIButton *btnRushOpdrachten;
-
-
-
+@property (nonatomic,strong) UIButton *btnOverview;
+@property (nonatomic,strong) UIButton *btnRushChallenges;
 
 @property (nonatomic,strong) UIButton *btnLogout;
 

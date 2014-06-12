@@ -15,7 +15,7 @@
 
 #import "CompassViewController.h"
 #import "UploadViewController.h"
-#import "OverzichtViewController.h"
+#import "OverviewViewController.h"
 
 @interface NavigationController : UINavigationController
 
@@ -24,8 +24,8 @@
 @property(nonatomic,strong) MainViewController *mainVC;
 @property(nonatomic,strong) CompassViewController *compassVC;
 @property(nonatomic,strong) UploadViewController *uploadVC;
+@property(nonatomic,strong) OverviewViewController *overviewVC;
 
-@property(nonatomic,strong)OverzichtViewController *overzichtVC;
 @property(nonatomic,strong) DataParser *dataParser;
 
 @end

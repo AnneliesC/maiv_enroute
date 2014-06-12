@@ -24,91 +24,79 @@
         
         [self createButtons];
         
-        NSLog(@"ADMIN? %d",[[AppModel sharedModel] isMentor] == YES);
         if([[AppModel sharedModel] isMentor] == YES){
-        
             [self createButtonsAdim];
-        
         }else{
-            
             [self createButtonsUser];
-            
         }
-        
         
     }
     return self;
 }
+
 -(void)createButtons{
     
     //kompas
-    UIImage *backgroundButtonThema = [UIImage imageNamed:@"Menu_kompas"];
-    
+    UIImage *btnCompassImage = [UIImage imageNamed:@"NavigationCompass"];
     self.btnCompass= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnCompass.frame=CGRectMake(33, 250, backgroundButtonThema.size.width, backgroundButtonThema.size.height);
-    [self.btnCompass setBackgroundImage:backgroundButtonThema forState:UIControlStateNormal];
+    self.btnCompass.frame=CGRectMake(33, 250, btnCompassImage.size.width, btnCompassImage.size.height);
+    [self.btnCompass setBackgroundImage:btnCompassImage forState:UIControlStateNormal];
     [self.btnCompass setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnCompass];
     
     //thema
-    UIImage *backgroundButtonMap = [UIImage imageNamed:@"Menu_themas"];
-    
+    UIImage *btnThemesImage = [UIImage imageNamed:@"NavigationThemes"];
     self.btnThemes= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnThemes.frame=CGRectMake(173, 250, backgroundButtonMap.size.width, backgroundButtonMap.size.height);
-    [self.btnThemes setBackgroundImage:backgroundButtonMap forState:UIControlStateNormal];
+    self.btnThemes.frame=CGRectMake(173, 250, btnThemesImage.size.width, btnThemesImage.size.height);
+    [self.btnThemes setBackgroundImage:btnThemesImage forState:UIControlStateNormal];
     [self.btnThemes setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnThemes];
     
     //logout
-    UIImage *backgroundButtonLogout = [UIImage imageNamed:@"Menu_logout"];
-    
+    UIImage *btnLogoutImage = [UIImage imageNamed:@"NavigationLogout"];
     self.btnLogout= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnLogout.frame=CGRectMake(33, 493, backgroundButtonLogout.size.width, backgroundButtonLogout.size.height);
-    [self.btnLogout setBackgroundImage:backgroundButtonLogout forState:UIControlStateNormal];
+    self.btnLogout.frame=CGRectMake(33, 493, btnLogoutImage.size.width, btnLogoutImage.size.height);
+    [self.btnLogout setBackgroundImage:btnLogoutImage forState:UIControlStateNormal];
     [self.btnLogout setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnLogout];
 }
+
 -(void)createButtonsUser{
 
-    //Gebruiker
-    UIImage *backgroundButtonOpdrachten = [UIImage imageNamed:@"Menu_upload"];
-    
+    // Upload
+    UIImage *btnUploadImage = [UIImage imageNamed:@"NavigationUpload"];
     self.btnUpload= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnUpload.frame=CGRectMake(33, 351, backgroundButtonOpdrachten.size.width, backgroundButtonOpdrachten.size.height);
-    [self.btnUpload setBackgroundImage:backgroundButtonOpdrachten forState:UIControlStateNormal];
+    self.btnUpload.frame=CGRectMake(33, 351, btnUploadImage.size.width, btnUploadImage.size.height);
+    [self.btnUpload setBackgroundImage:btnUploadImage forState:UIControlStateNormal];
     [self.btnUpload setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnUpload];
     
-    //Rush
-    UIImage *backgroundButtonGebruiker = [UIImage imageNamed:@"Menu_rush"];
-    
+    // Rush
+    UIImage *btnRushImage = [UIImage imageNamed:@"NavigationRush"];
     self.btnRush= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnRush.frame=CGRectMake(173, 351, backgroundButtonGebruiker.size.width, backgroundButtonGebruiker.size.height);
-    [self.btnRush setBackgroundImage:backgroundButtonGebruiker forState:UIControlStateNormal];
+    self.btnRush.frame=CGRectMake(173, 351, btnRushImage.size.width, btnRushImage.size.height);
+    [self.btnRush setBackgroundImage:btnRushImage forState:UIControlStateNormal];
     [self.btnRush setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnRush];
-    
 }
+
 -(void)createButtonsAdim{
     
-    //Kinderen
-    UIImage *backgroundButtonOpdrachten = [UIImage imageNamed:@"Menu_Admin"];
+    // Overview
+    UIImage *btnOverviewImage = [UIImage imageNamed:@"NavigationOverview"];
+    self.btnOverview= [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnOverview.frame=CGRectMake(33, 351, btnOverviewImage.size.width, btnOverviewImage.size.height);
+    [self.btnOverview setBackgroundImage:btnOverviewImage forState:UIControlStateNormal];
+    [self.btnOverview setTitle:@"" forState:UIControlStateNormal];
+    [self addSubview:self.btnOverview];
     
-    self.btnChildren= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnChildren.frame=CGRectMake(33, 351, backgroundButtonOpdrachten.size.width, backgroundButtonOpdrachten.size.height);
-    [self.btnChildren setBackgroundImage:backgroundButtonOpdrachten forState:UIControlStateNormal];
-    [self.btnChildren setTitle:@"" forState:UIControlStateNormal];
-    [self addSubview:self.btnChildren];
-    
-    //RushOpdracht
-    UIImage *backgroundButtonGebruiker = [UIImage imageNamed:@"Menu_rush"];
-    
-    self.btnRushOpdrachten= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnRushOpdrachten.frame=CGRectMake(173, 351, backgroundButtonGebruiker.size.width, backgroundButtonGebruiker.size.height);
-    [self.btnRushOpdrachten setBackgroundImage:backgroundButtonGebruiker forState:UIControlStateNormal];
-    [self.btnRushOpdrachten setTitle:@"" forState:UIControlStateNormal];
-    [self addSubview:self.btnRushOpdrachten];
-    
+    // RushChallenges
+    UIImage *btnRushImage = [UIImage imageNamed:@"NavigationRush"];
+    self.btnRushChallenges = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnRushChallenges.frame=CGRectMake(173, 351, btnRushImage.size.width, btnRushImage.size.height);
+    [self.btnRushChallenges setBackgroundImage:btnRushImage forState:UIControlStateNormal];
+    [self.btnRushChallenges setTitle:@"" forState:UIControlStateNormal];
+    [self addSubview:self.btnRushChallenges];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

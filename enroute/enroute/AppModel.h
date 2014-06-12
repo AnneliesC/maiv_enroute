@@ -17,6 +17,8 @@
     NSArray *challenges;
     NSArray *locations;
     NSArray *rushChallenges;
+    NSArray *results;
+    NSMutableArray *resultsToBeUploaded;
     bool isGroupToday;
     bool isMentor;
     NSString *groupId;
@@ -27,6 +29,8 @@
 @property (nonatomic,strong) NSArray *challenges;
 @property (nonatomic,strong) NSArray *locations;
 @property (nonatomic,strong) NSArray *rushChallenges;
+@property (nonatomic,strong) NSArray *results;
+@property (nonatomic,strong) NSMutableArray *resultsToBeUploaded;
 @property (nonatomic) bool isGroupToday;
 @property (nonatomic) bool isMentor;
 @property (nonatomic) NSString *groupId;

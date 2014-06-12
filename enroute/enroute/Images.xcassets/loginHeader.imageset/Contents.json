@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "login_Header.png"
+      "filename" : "loginHeader.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "login_Header@2x.png"
+      "filename" : "loginHeader@2x.png"
     }
   ],
   "info" : {

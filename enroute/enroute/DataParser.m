@@ -11,8 +11,9 @@
 @implementation DataParser
 
 - (void)loadAppData{
-     NSLog(@"[DataParser] Load app data");
+    NSLog(@"[DataParser] Load app data");
     
+    self.resultsLoaded = false;
     self.challengesLoaded = false;
     self.rushChallengesLoaded = true;
     self.locationsLoaded = true;
@@ -21,9 +22,13 @@
         
         self.rushChallengesLoaded = false;
         self.locationsLoaded = false;
+        self.resultsLoaded = true;
         
         [self loadLocationsData];
         [self loadRushChallengesData];
+        
+    }else{
+        //[self loadResultsData];
     }
     
     [self loadChallengesData];
@@ -32,7 +37,7 @@
 - (void)checkLoadingStatus{
     NSLog(@"[DataParser] Check loading status");
     
-    if(self.challengesLoaded == YES && self.rushChallengesLoaded == YES && self.locationsLoaded == YES){
+    if(self.challengesLoaded == YES && self.rushChallengesLoaded == YES && self.locationsLoaded == YES && self.resultsLoaded == YES){
         NSLog(@"[DataParser] App data loaded");
         [[NSNotificationCenter defaultCenter] postNotificationName:@"APP_DATA_LOADED" object:self];
     }
@@ -152,6 +157,36 @@
     }];
     
     [locationsOperation start];
+}
+
+- (void)loadResultsData{
+    NSLog(@"[DataParser] Load results");
+    
+    NSString *path = [NSString stringWithFormat:@"http://student.howest.be/annelies.clauwaert/20132014/MAIV/ENROUTE/api/results/user/%@", [[[AppModel sharedModel] appUser] objectForKey:@"id"]];
+    NSURL *url = [NSURL URLWithString:path];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFHTTPRequestOperation *resultsOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    resultsOperation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [resultsOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
+        
+        NSMutableArray *results = [[NSMutableArray alloc] init];
+        for(NSDictionary *dict in operation.responseObject){
+            NSLog(@"[DataParser] dict : %@", [DataObjectFactory createResultChallengeFromDictionary:dict]);
+            [results addObject: [DataObjectFactory createResultChallengeFromDictionary:dict]];
+        }
+        
+        [[AppModel sharedModel] setResults:results];
+        self.locationsLoaded = true;
+        [self checkLoadingStatus];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"[DataParser] Error loading results: %@", operation.error);
+        self.locationsLoaded = false;
+        [self checkLoadingStatus];
+    }];
+    
+    [resultsOperation start];
 }
 
 @end
