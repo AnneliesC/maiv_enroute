@@ -22,10 +22,7 @@
         
         self.loadingVC = [[LoadingViewController alloc] initWithNibName:nil bundle:nil];
         self.mainVC = [[MainViewController alloc] initWithNibName:nil bundle:nil];
-        self.compassVC = [[CompassViewController alloc] initWithNibName:nil bundle:nil];
-        self.uploadVC = [[UploadViewController alloc] initWithNibName:nil bundle:nil];
-        self.overviewVC = [[OverviewViewController alloc] initWithNibName:nil bundle:nil];
-        
+
         self.dataParser = [[DataParser alloc] init];
         [self.dataParser loadGroupsData];
     }
@@ -43,6 +40,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showMenu:) name:@"SHOW_MENU" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showThemes:) name:@"SHOW_THEMES" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showRushChallenge:) name:@"SHOW_RUSHCHALLENGE" object:nil];
+    
 }
 
 -(void)showMenu:(id)sender{
@@ -66,6 +66,8 @@
 
 -(void)showRush:(id)sender{
     
+    
+    
 }
 
 -(void)showOverview:(id)sender{
@@ -75,7 +77,13 @@
 
 -(void)showRushChallenges:(id)sender{
     NSLog(@"[NavigationController] Rush challenges");
+    self.viewControllers = [[NSArray alloc] initWithObjects:self.rushChallengesVC, nil];
     
+}
+
+-(void)showRushChallenge:(id)sender{
+    
+    NSLog(@"Ma gij kunt zagen ze !");
 }
 
 -(void)logout:(id)sender{
@@ -93,9 +101,8 @@
 
 -(void)loadAppData:(id)sender{
     NSLog(@"[NavigationController] Load app data");
-    self.menuVC = [[MenuViewController alloc] initWithNibName:nil bundle:nil];
+    [self initViewControllers];
     [self setMenuEvents];
-    
     self.viewControllers = [[NSArray alloc] initWithObjects:self.loadingVC, nil];
     [self.dataParser loadAppData];
 }
@@ -103,6 +110,20 @@
 -(void)appDataLoaded:(id)sender{
     NSLog(@"[NavigationController] App data loaded");
     self.viewControllers = [[NSArray alloc] initWithObjects:self.mainVC, nil];
+}
+
+-(void)initViewControllers{
+    
+    self.menuVC = [[MenuViewController alloc] initWithNibName:nil bundle:nil];
+    self.compassVC = [[CompassViewController alloc] initWithNibName:nil bundle:nil];
+    
+    
+    self.uploadVC = [[UploadViewController alloc] initWithNibName:nil bundle:nil];
+    
+    
+    self.overviewVC = [[OverviewViewController alloc] initWithNibName:nil bundle:nil];
+    self.rushChallengesVC = [[RushChallengesViewController alloc] initWithNibName:nil bundle:nil];
+    
 }
 
 -(void)setMenuEvents{
@@ -132,6 +153,7 @@
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"SHOW_MENU" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"SHOW_RUSHCHALLENGE" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"SHOW_THEMES" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"GROUPS_LOADED" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"USER_LOADED" object:nil];

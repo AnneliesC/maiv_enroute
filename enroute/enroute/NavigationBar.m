@@ -78,6 +78,10 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
     [self.btnRush setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnRush];
     
+    UIImage *woodenBeamImage = [UIImage imageNamed:@"woodenBeam"];
+    self.woodenBeam = [[UIImageView alloc]initWithImage:woodenBeamImage];
+    self.woodenBeam.frame=CGRectMake(0, 108, woodenBeamImage.size.width, woodenBeamImage.size.height);
+    [self addSubview:self.woodenBeam];
     
     //Knop Logo
     
@@ -88,6 +92,8 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
     [self.btnLogo setBackgroundImage:backgroundButtonLogo forState:UIControlStateNormal];
     [self.btnLogo setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnLogo];
+    
+    
     
 }
 - (CGSize)sizeThatFits:(CGSize)size {

@@ -11,5 +11,9 @@
 @interface UploadView : UIView
 
 
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic,strong) UIImageView *birdOnStick;
+
+
 
 @end

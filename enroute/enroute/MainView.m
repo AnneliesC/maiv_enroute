@@ -22,7 +22,7 @@
         [self addSubview:self.scrollView];
         
         self.pageControl=[[UIPageControl alloc]initWithFrame:CGRectZero];
-        self.pageControl.numberOfPages = 5;
+        self.pageControl.numberOfPages = 4;
         self.pageControl.frame = CGRectMake(0, 0, self.pageControl.frame.size.width, self.pageControl.frame.size.height);
         self.pageControl.center = CGPointMake(self.frame.size.width/2, self.frame.size.height - self.pageControl.frame.size.height - 40);
         self.pageControl.pageIndicatorTintColor = [UIColor grayColor];

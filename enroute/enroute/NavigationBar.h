@@ -11,6 +11,7 @@
 
 @interface NavigationBar : UINavigationBar
 
+@property (nonatomic,strong) UIImageView *woodenBeam;
 @property (nonatomic,strong) UIButton *btnLogo;
 @property (nonatomic,strong) UIButton *btnMenu;
 @property (nonatomic,strong) UIButton *btnRush;

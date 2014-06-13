@@ -16,6 +16,8 @@
 #import "CompassViewController.h"
 #import "UploadViewController.h"
 #import "OverviewViewController.h"
+#import "RushChallengesViewController.h"
+
 
 @interface NavigationController : UINavigationController
 
@@ -25,6 +27,8 @@
 @property(nonatomic,strong) CompassViewController *compassVC;
 @property(nonatomic,strong) UploadViewController *uploadVC;
 @property(nonatomic,strong) OverviewViewController *overviewVC;
+@property(nonatomic,strong) RushChallengesViewController *rushChallengesVC;
+
 
 @property(nonatomic,strong) DataParser *dataParser;
 
