@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "OverviewView.h"
+#import "DataParser.h"
+#import "AppModel.h"
 
 @interface OverviewViewController : UIViewController
-
-@property (nonatomic,strong) OverviewView *view;
 
 @end

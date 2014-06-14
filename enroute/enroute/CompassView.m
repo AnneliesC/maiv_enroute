@@ -17,7 +17,6 @@
         // Initialization code
    
         
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Compass_background"]];
         
         
     }

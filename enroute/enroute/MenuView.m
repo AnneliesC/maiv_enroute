@@ -16,8 +16,6 @@
     if (self) {
         // Initialization code
         
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background"]];
-        
         UIImage *imageFrame = [UIImage imageNamed:@"Menu_frame"];
         self.frameImage = [[UIImageView alloc]initWithImage:imageFrame];
         [self addSubview:self.frameImage];

@@ -16,10 +16,7 @@
     if (self) {
         // Initialization code
         
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"User_background"]];
-        
-        self.scrollView =  [[UIScrollView alloc]initWithFrame:CGRectMake(0, 250,self.frame.size.width, self.frame.size.height)];
-        self.scrollView.backgroundColor=[UIColor redColor];
+        self.scrollView =  [[UIScrollView alloc]initWithFrame:CGRectMake(0, 250,self.frame.size.width, 319)];
         [self addSubview:self.scrollView];
         
         UIImage *BirdOnStickImage = [UIImage imageNamed:@"User_bird"];
@@ -27,15 +24,32 @@
         self.birdOnStick.frame=CGRectMake(0, 210, BirdOnStickImage.size.width, BirdOnStickImage.size.height);
         [self addSubview:self.birdOnStick];
         
+        int xPos = 0;
+        int yPos = -160;
         
+        for (int j = 0; j < 10; j++) {
+            
+            for (int i = 0; i < 3; i++) {
+                
+                NSLog(@"ik haat u");
+                
+                UIImage *UkelderImage = [UIImage imageNamed:@"User_resultButton"];
+                self.UKelder = [[UIImageView alloc]initWithImage:UkelderImage];
+                self.UKelder.frame=CGRectMake(xPos, yPos, UkelderImage.size.width, UkelderImage.size.height);
+                [self.scrollView addSubview:self.UKelder];
+                
+                xPos+=UkelderImage.size.width;
+            }
         
+            xPos=0;
+            yPos+=self.UKelder.frame.size.height;
+        }
+        
+        self.scrollView.contentSize = CGSizeMake(0, yPos);
+        [self.scrollView setShowsVerticalScrollIndicator:NO];
         
         
     }
-    
-    self.scrollView.contentSize = CGSizeMake(0, self.frame.size.height);
-    [self.scrollView setShowsHorizontalScrollIndicator:NO];
-    self.scrollView.pagingEnabled = YES;
     
     
     return self;

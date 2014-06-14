@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RMMapView.h>
+#import <RMMapboxSource.h>
+#import <RMPointAnnotation.h>
 
 @interface OverviewView : UIView
 
-
 @property (nonatomic,strong) UIImageView *woodenBeam;
 @property (nonatomic,strong) UIButton *btnLocation;
+@property (nonatomic,strong) RMMapView *mapView;
 
 @end

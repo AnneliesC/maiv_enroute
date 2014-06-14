@@ -10,6 +10,10 @@
 
 @interface OverviewViewController ()
 
+@property (nonatomic,strong) OverviewView *view;
+@property (nonatomic,strong) NSArray *locations;
+@property (nonatomic,strong) DataParser *dataparser;
+
 @end
 
 @implementation OverviewViewController
@@ -19,6 +23,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.navigationController.navigationBarHidden = NO;
+        
+        self.locations = [[AppModel sharedModel] locations];
+        self.dataparser = [[DataParser alloc] init];
     }
     return self;
 }
@@ -32,6 +40,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    self.navigationController.navigationBarHidden = NO;
+    
+    [self.view.btnLocation addTarget:self action:@selector(updateLocations:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)updateLocations:(id)sender{
+    [self.dataparser loadLocationsData];
+    self.locations = [[AppModel sharedModel] locations];
 }
 
 - (void)didReceiveMemoryWarning

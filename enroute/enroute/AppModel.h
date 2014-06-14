@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Group.h"
 #import "Helpers.h"
+#import "RushChallenge.h"
 
 @interface AppModel: NSObject{
     
@@ -22,8 +23,10 @@
     bool isGroupToday;
     bool isMentor;
     NSString *groupId;
+    RushChallenge *rushChallenge;
 }
 
+@property (nonatomic,strong) RushChallenge *rushChallenge;
 @property (nonatomic,strong) NSArray *groups;
 @property (nonatomic,strong) NSDictionary *appUser;
 @property (nonatomic,strong) NSArray *challenges;

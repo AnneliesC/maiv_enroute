@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "RushChallengesDetailView.h"
+#import "RushChallenge.h"
 
-
-@interface RushChallengesDetailViewController : UIViewController
+@interface RushChallengesDetailViewController : UIViewController<UINavigationControllerDelegate>
 
 @property (nonatomic,strong) RushChallengesDetailView *view;
+@property (nonatomic,strong) RushChallenge *rushChallenge;
+
+- (id)initWithRushChallenge:(RushChallenge *)rushChallenge;
 
 @end

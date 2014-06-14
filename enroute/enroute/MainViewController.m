@@ -53,7 +53,7 @@
 }
 
 - (void)showLoginRegister{
-    NSLog(@"[MainVC] show login & register");
+    NSLog(@"[MainVC] Show login & register");
     
     [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"isUserLoggedIn2"];
     [[NSUserDefaults standardUserDefaults]synchronize];
@@ -74,6 +74,13 @@
         self.loginVC = [[LoginViewController alloc]initWithBounds:self.view.bounds];
         [self presentViewController:self.loginVC animated:NO completion:^{}];
     }
+}
+
+-(void)showIntro{
+    NSLog(@"[MainVC] Show intro");
+    self.introVC = [[IntroViewController alloc]initWithBounds:self.view.bounds];
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    [self presentViewController:self.introVC animated:NO completion:^{}];
 }
 
 - (void)didReceiveMemoryWarning

@@ -17,19 +17,13 @@
 #import "UploadViewController.h"
 #import "OverviewViewController.h"
 #import "RushChallengesViewController.h"
+#import "RushChallengesDetailViewController.h"
+#import "RushViewController.h"
+
+
 
 
 @interface NavigationController : UINavigationController
 
-@property(nonatomic,strong) LoadingViewController *loadingVC;
-@property(nonatomic,strong) MenuViewController *menuVC;
-@property(nonatomic,strong) MainViewController *mainVC;
-@property(nonatomic,strong) CompassViewController *compassVC;
-@property(nonatomic,strong) UploadViewController *uploadVC;
-@property(nonatomic,strong) OverviewViewController *overviewVC;
-@property(nonatomic,strong) RushChallengesViewController *rushChallengesVC;
-
-
-@property(nonatomic,strong) DataParser *dataParser;
 
 @end

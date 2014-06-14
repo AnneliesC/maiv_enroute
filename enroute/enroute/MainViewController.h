@@ -10,14 +10,17 @@
 #import "MainView.h"
 #import "AppModel.h"
 #import "LoginViewController.h"
+#import "IntroViewController.h"
 
 @interface MainViewController : UIViewController<UIScrollViewDelegate>
 
 @property (nonatomic,strong) MainView *view;
 @property (nonatomic,strong) LoginViewController *loginVC;
+@property (nonatomic,strong) IntroViewController *introVC;
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 -(void)showLoginRegister;
 -(void)logout;
+-(void)showIntro;
 
 @end

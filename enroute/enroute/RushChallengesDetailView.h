@@ -10,4 +10,11 @@
 
 @interface RushChallengesDetailView : UIView
 
+
+@property (nonatomic,strong) UIImageView *woodenBeam;
+@property (nonatomic,strong) UIButton *btnBack;
+@property (nonatomic,strong) UIButton *btnRush;
+
+
+
 @end

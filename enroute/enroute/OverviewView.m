@@ -16,7 +16,22 @@
     if (self) {
         // Initialization code
         
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OverviewBackground"]];
+        RMMapboxSource *source = [[RMMapboxSource alloc] initWithMapID:@"anneliesclauwaert.if44g1m7"];
+        self.mapView = [[RMMapView alloc] initWithFrame:frame andTilesource:source];
+        self.mapView = [[RMMapView alloc] initWithFrame:frame andTilesource:source
+                                       centerCoordinate:CLLocationCoordinate2DMake(50.817816f, 3.276922f)
+                                              zoomLevel:14.0f
+                                           maxZoomLevel:14.0f
+                                           minZoomLevel:14.0f
+                                        backgroundImage:nil];
+        
+        self.mapView.zoom = 14.0f;
+        self.userInteractionEnabled = YES;
+        [self.mapView removeAllCachedImages];
+        self.mapView.userTrackingMode = RMUserTrackingModeFollow;
+        self.mapView.adjustTilesForRetinaDisplay = YES;
+        
+        [self addSubview:self.mapView];
         
         UIImage *backgroundButtonOpdrachten = [UIImage imageNamed:@"OverviewButton"];
         self.btnLocation= [UIButton buttonWithType:UIButtonTypeCustom];
@@ -31,6 +46,10 @@
         [self addSubview:self.woodenBeam];
     }
     return self;
+}
+
+-(void)addAnnotationsForLocations:(NSArray*)locations{
+    NSLog(@"[OverviewView] Add annotations");
 }
 
 /*

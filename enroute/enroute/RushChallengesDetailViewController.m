@@ -19,9 +19,20 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.navigationController.navigationBarHidden = NO;
+        
     }
     return self;
 }
+
+- (id)initWithRushChallenge:(RushChallenge *)rushChallenge{
+    
+    self.rushChallenge = rushChallenge;
+    NSLog(@"dit is een rushchallenge blbalaba: %@",self.rushChallenge.title);
+    
+    return [self initWithNibName:nil bundle:nil];
+}
+
 - (void)loadView{
     CGRect bounds = [UIScreen mainScreen].bounds;
     self.view = [[RushChallengesDetailView alloc]initWithFrame:bounds];
@@ -30,6 +41,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    self.navigationController.navigationBarHidden = NO;
+    
+    [self.view.btnBack addTarget:self action:@selector(showPrevious:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)showPrevious:(id)sender{
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

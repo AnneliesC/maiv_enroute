@@ -97,18 +97,15 @@
     cell.textLabel.textColor = [UIColor colorWithRed:0/255.0f green:0/255.0f blue:0/255.0f alpha:1];
     
     cell.backgroundColor = [UIColor colorWithRed:88/255.0f green:109/255.0f blue:124/255.0f alpha:1];
-
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"[SwagTVC] Did Select a row at %li - %li", (long)indexPath.section,(long)indexPath.row);
     
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_RUSHCHALLENGE" object:self];
-    
+    self.selectedRushChallenge = [self.rushChallenges objectAtIndex:indexPath.row];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_RUSHCHALLENGE" object:self];  
 }
 /*
 // Override to support conditional editing of the table view.

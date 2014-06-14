@@ -13,13 +13,9 @@
 #import "RushChallengesTableViewCell.h"
 #import "RushChallengesDetailViewController.h"
 
-
-
-
-
 @interface RushChallengesTableViewController : UITableViewController
 
 @property(nonatomic,strong)NSArray *rushChallenges;
-
+@property(nonatomic,strong)RushChallenge *selectedRushChallenge;
 
 @end

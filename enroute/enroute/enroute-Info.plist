@@ -26,6 +26,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Sports World-Regular.ttf</string>
 		<string>DroidSerif.ttf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>

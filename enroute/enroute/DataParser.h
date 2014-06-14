@@ -27,10 +27,10 @@
 @property (nonatomic) bool challengesLoaded;
 @property (nonatomic) bool rushChallengesLoaded;
 @property (nonatomic) bool locationsLoaded;
-@property (nonatomic) bool resultsLoaded;
 
 - (void)loadGroupsData;
 - (void)loadChallengesData;
 - (void)loadAppData;
+- (void)loadLocationsData;
 
 @end

@@ -28,9 +28,11 @@
         [self createBackground];
         [self createInputFields];
         [self createButton];
+        
     }
     return self;
 }
+
 
 -(void)createBackground{
     

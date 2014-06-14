@@ -130,12 +130,12 @@
     NSDictionary *parameters = @{
 //                                 @"email": self.view.txtLoginEmail.text,
 //                                 @"password": self.view.txtLoginPassword.text,
-                                 
-                                 @"email": @"Admin@test.com",
-                                 @"password": @"admintest",
-                                 
-//                                 @"email": @"User@test.com",
-//                                 @"password": @"usertest",
+//                                 
+//                                 @"email": @"Admin@test.com",
+//                                 @"password": @"admintest",
+//
+                                 @"email": @"User@test.com",
+                                 @"password": @"usertest",
                                  
                                  
                                  @"submit_type": @"login"
@@ -158,7 +158,7 @@
         }
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"[LoginVC] rrror: %@", operation.error);
+        NSLog(@"[LoginVC] error: %@", operation.error);
     }];
     
     [[NSUserDefaults standardUserDefaults]synchronize];

@@ -16,7 +16,6 @@
     if (self) {
         // Initialization code
         
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Rush_background"]];
         
         self.rushChallengesTVC =  [[RushChallengesTableViewController alloc]initWithStyle:UITableViewStylePlain];
         self.rushChallengesTVC.view.frame=CGRectMake(0, 345, self.frame.size.width, 223);

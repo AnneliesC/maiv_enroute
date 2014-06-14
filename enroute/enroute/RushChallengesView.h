@@ -13,8 +13,6 @@
 @interface RushChallengesView : UIView
 
 @property (nonatomic,strong) UIImageView *woodenBeam;
-@property (nonatomic,strong)RushChallengesTableViewController *rushChallengesTVC;
-
-
+@property (nonatomic,strong) RushChallengesTableViewController *rushChallengesTVC;
 
 @end

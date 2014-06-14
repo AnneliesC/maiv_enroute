@@ -19,6 +19,7 @@
 @synthesize groupId = _groupId;
 @synthesize results = _results;
 @synthesize resultsToBeUploaded = _resultsToBeUploaded;
+@synthesize rushChallenge = _rushChallenge;
 
 + (id)sharedModel {
     static AppModel *sharedAppModel = nil;
@@ -151,6 +152,16 @@
 
 - (NSArray *)results {
     return results;
+}
+
+- (void)setRushChallenge:(RushChallenge *)rushChallengeData
+{
+    rushChallenge = rushChallengeData;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RUSH_CHALLENGE_LOADED" object:self];
+}
+
+- (RushChallenge *)rushChallenge {
+    return rushChallenge;
 }
 
 @end

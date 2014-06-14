@@ -31,7 +31,6 @@
 		A6CBD3291947FE4700464F9B /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CBD3281947FE4700464F9B /* Helpers.m */; };
 		A6CBD32C194A079E00464F9B /* OverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CBD32B194A079E00464F9B /* OverviewViewController.m */; };
 		A6CBD32F194A07B200464F9B /* OverviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CBD32E194A07B200464F9B /* OverviewView.m */; };
-		A6CBD333194A0F1600464F9B /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CBD332194A0F1600464F9B /* Result.m */; };
 		CA00DAF1194B2DA500B3CCAA /* RushChallengesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA00DAF0194B2DA500B3CCAA /* RushChallengesViewController.m */; };
 		CA00DAF4194B2DB200B3CCAA /* RushChallengesView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA00DAF3194B2DB200B3CCAA /* RushChallengesView.m */; };
 		CA047431194900AF002FCED0 /* CompassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA047430194900AF002FCED0 /* CompassViewController.m */; };
@@ -50,10 +49,18 @@
 		CA50F6411944BB5F00DD019E /* DroidSerif.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA50F63D1944BB5F00DD019E /* DroidSerif.ttf */; };
 		CA555828194B81B9001DEA92 /* RushChallengesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA555827194B81B9001DEA92 /* RushChallengesDetailViewController.m */; };
 		CA55582B194B81CF001DEA92 /* RushChallengesDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55582A194B81CF001DEA92 /* RushChallengesDetailView.m */; };
+		CA8A8F0A194BAB8B00172706 /* Sports World-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA8A8F08194BAB8B00172706 /* Sports World-Regular.otf */; };
+		CA8A8F0B194BAB8B00172706 /* Sports World-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA8A8F09194BAB8B00172706 /* Sports World-Regular.ttf */; };
 		CAA440B319431A710004CAB1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA440B219431A710004CAB1 /* MainViewController.m */; };
 		CAA440B619431A7F0004CAB1 /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA440B519431A7F0004CAB1 /* MainView.m */; };
 		CAA440BA19431B360004CAB1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA440B919431B360004CAB1 /* LoginViewController.m */; };
 		CAA440BD19431B460004CAB1 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA440BC19431B460004CAB1 /* LoginView.m */; };
+		CAB6DCC9194CBC1600F6BC07 /* IntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6DCC8194CBC1600F6BC07 /* IntroView.m */; };
+		CAB6DCCC194CBC2500F6BC07 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB6DCCB194CBC2500F6BC07 /* IntroViewController.m */; };
+		CAD27B60194CDD9E00291105 /* ChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD27B5F194CDD9E00291105 /* ChallengeViewController.m */; };
+		CAD27B63194CF23700291105 /* ChallengeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD27B62194CF23700291105 /* ChallengeView.m */; };
+		CAFA6AB7194C8366008DE3EF /* RushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFA6AB6194C8366008DE3EF /* RushViewController.m */; };
+		CAFA6ABA194C8702008DE3EF /* RushView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFA6AB9194C8702008DE3EF /* RushView.m */; };
 		E3F9E18974FB48ABAA8330AC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92EEBB2A65A447719950E210 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -110,8 +117,6 @@
 		A6CBD32B194A079E00464F9B /* OverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewViewController.m; sourceTree = "<group>"; };
 		A6CBD32D194A07B200464F9B /* OverviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewView.h; sourceTree = "<group>"; };
 		A6CBD32E194A07B200464F9B /* OverviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewView.m; sourceTree = "<group>"; };
-		A6CBD331194A0F1600464F9B /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
-		A6CBD332194A0F1600464F9B /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
 		CA00DAEF194B2DA500B3CCAA /* RushChallengesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RushChallengesViewController.h; sourceTree = "<group>"; };
 		CA00DAF0194B2DA500B3CCAA /* RushChallengesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RushChallengesViewController.m; sourceTree = "<group>"; };
 		CA00DAF2194B2DB200B3CCAA /* RushChallengesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RushChallengesView.h; sourceTree = "<group>"; };
@@ -144,6 +149,8 @@
 		CA555827194B81B9001DEA92 /* RushChallengesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RushChallengesDetailViewController.m; sourceTree = "<group>"; };
 		CA555829194B81CF001DEA92 /* RushChallengesDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RushChallengesDetailView.h; sourceTree = "<group>"; };
 		CA55582A194B81CF001DEA92 /* RushChallengesDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RushChallengesDetailView.m; sourceTree = "<group>"; };
+		CA8A8F08194BAB8B00172706 /* Sports World-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sports World-Regular.otf"; sourceTree = "<group>"; };
+		CA8A8F09194BAB8B00172706 /* Sports World-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sports World-Regular.ttf"; sourceTree = "<group>"; };
 		CAA440B119431A710004CAB1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		CAA440B219431A710004CAB1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		CAA440B419431A7F0004CAB1 /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
@@ -152,6 +159,18 @@
 		CAA440B919431B360004CAB1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CAA440BB19431B460004CAB1 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		CAA440BC19431B460004CAB1 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		CAB6DCC7194CBC1600F6BC07 /* IntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroView.h; sourceTree = "<group>"; };
+		CAB6DCC8194CBC1600F6BC07 /* IntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroView.m; sourceTree = "<group>"; };
+		CAB6DCCA194CBC2500F6BC07 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		CAB6DCCB194CBC2500F6BC07 /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
+		CAD27B5E194CDD9E00291105 /* ChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeViewController.h; sourceTree = "<group>"; };
+		CAD27B5F194CDD9E00291105 /* ChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeViewController.m; sourceTree = "<group>"; };
+		CAD27B61194CF23700291105 /* ChallengeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeView.h; sourceTree = "<group>"; };
+		CAD27B62194CF23700291105 /* ChallengeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeView.m; sourceTree = "<group>"; };
+		CAFA6AB5194C8366008DE3EF /* RushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RushViewController.h; sourceTree = "<group>"; };
+		CAFA6AB6194C8366008DE3EF /* RushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RushViewController.m; sourceTree = "<group>"; };
+		CAFA6AB8194C8702008DE3EF /* RushView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RushView.h; sourceTree = "<group>"; };
+		CAFA6AB9194C8702008DE3EF /* RushView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RushView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +201,8 @@
 		A6A388391941DEE900F75F27 = {
 			isa = PBXGroup;
 			children = (
+				CA8A8F08194BAB8B00172706 /* Sports World-Regular.otf */,
+				CA8A8F09194BAB8B00172706 /* Sports World-Regular.ttf */,
 				CA50F63A1944BB5F00DD019E /* DroidSerif-Bold.ttf */,
 				CA50F63B1944BB5F00DD019E /* DroidSerif-BoldItalic.ttf */,
 				CA50F63C1944BB5F00DD019E /* DroidSerif-Italic.ttf */,
@@ -225,11 +246,13 @@
 				CA28C72E1945E61F00B0806C /* Menu */,
 				A6B577EA1947A7C1003F55E5 /* Loading */,
 				A6A388831944DE7F00F75F27 /* Login/Register */,
+				CAB6DCC6194CBC0800F6BC07 /* Intro */,
 				CAA440B019431A600004CAB1 /* Main */,
 				CA04742D19490064002FCED0 /* Compass */,
-				A6CBD330194A09B300464F9B /* Overview */,
-				CA04742E1949007B002FCED0 /* Upload */,
-				CA00DAE2194A463200B3CCAA /* RushChallenges */,
+				CA04742E1949007B002FCED0 /* Upload    User */,
+				CAFA6AB4194C8268008DE3EF /* Rush       User */,
+				A6CBD330194A09B300464F9B /* Overview                Admin */,
+				CA00DAE2194A463200B3CCAA /* RushChallenges      Admin */,
 				A6A388571941DEE900F75F27 /* Images.xcassets */,
 				A6A3884C1941DEE900F75F27 /* Supporting Files */,
 			);
@@ -303,8 +326,6 @@
 				A6B577DC19479F7A003F55E5 /* Location.m */,
 				A6B577DE19479F83003F55E5 /* RushChallenge.h */,
 				A6B577DF19479F83003F55E5 /* RushChallenge.m */,
-				A6CBD331194A0F1600464F9B /* Result.h */,
-				A6CBD332194A0F1600464F9B /* Result.m */,
 			);
 			name = DataObjects;
 			sourceTree = "<group>";
@@ -320,7 +341,7 @@
 			name = Loading;
 			sourceTree = "<group>";
 		};
-		A6CBD330194A09B300464F9B /* Overview */ = {
+		A6CBD330194A09B300464F9B /* Overview                Admin */ = {
 			isa = PBXGroup;
 			children = (
 				A6CBD32A194A079E00464F9B /* OverviewViewController.h */,
@@ -328,10 +349,10 @@
 				A6CBD32D194A07B200464F9B /* OverviewView.h */,
 				A6CBD32E194A07B200464F9B /* OverviewView.m */,
 			);
-			name = Overview;
+			name = "Overview                Admin";
 			sourceTree = "<group>";
 		};
-		CA00DAE2194A463200B3CCAA /* RushChallenges */ = {
+		CA00DAE2194A463200B3CCAA /* RushChallenges      Admin */ = {
 			isa = PBXGroup;
 			children = (
 				CA00DAEF194B2DA500B3CCAA /* RushChallengesViewController.h */,
@@ -347,7 +368,7 @@
 				CA555829194B81CF001DEA92 /* RushChallengesDetailView.h */,
 				CA55582A194B81CF001DEA92 /* RushChallengesDetailView.m */,
 			);
-			name = RushChallenges;
+			name = "RushChallenges      Admin";
 			sourceTree = "<group>";
 		};
 		CA04742D19490064002FCED0 /* Compass */ = {
@@ -357,11 +378,15 @@
 				CA047430194900AF002FCED0 /* CompassViewController.m */,
 				CA047432194900C4002FCED0 /* CompassView.h */,
 				CA047433194900C4002FCED0 /* CompassView.m */,
+				CAD27B5E194CDD9E00291105 /* ChallengeViewController.h */,
+				CAD27B5F194CDD9E00291105 /* ChallengeViewController.m */,
+				CAD27B61194CF23700291105 /* ChallengeView.h */,
+				CAD27B62194CF23700291105 /* ChallengeView.m */,
 			);
 			name = Compass;
 			sourceTree = "<group>";
 		};
-		CA04742E1949007B002FCED0 /* Upload */ = {
+		CA04742E1949007B002FCED0 /* Upload    User */ = {
 			isa = PBXGroup;
 			children = (
 				CA047435194902FA002FCED0 /* UploadViewController.h */,
@@ -369,7 +394,7 @@
 				CA04743819490319002FCED0 /* UploadView.h */,
 				CA04743919490319002FCED0 /* UploadView.m */,
 			);
-			name = Upload;
+			name = "Upload    User";
 			sourceTree = "<group>";
 		};
 		CA28C7271945D99400B0806C /* Navigation */ = {
@@ -403,6 +428,28 @@
 				CAA440B519431A7F0004CAB1 /* MainView.m */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		CAB6DCC6194CBC0800F6BC07 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				CAB6DCCA194CBC2500F6BC07 /* IntroViewController.h */,
+				CAB6DCCB194CBC2500F6BC07 /* IntroViewController.m */,
+				CAB6DCC7194CBC1600F6BC07 /* IntroView.h */,
+				CAB6DCC8194CBC1600F6BC07 /* IntroView.m */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
+		CAFA6AB4194C8268008DE3EF /* Rush       User */ = {
+			isa = PBXGroup;
+			children = (
+				CAFA6AB5194C8366008DE3EF /* RushViewController.h */,
+				CAFA6AB6194C8366008DE3EF /* RushViewController.m */,
+				CAFA6AB8194C8702008DE3EF /* RushView.h */,
+				CAFA6AB9194C8702008DE3EF /* RushView.m */,
+			);
+			name = "Rush       User";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -488,8 +535,10 @@
 				CA50F63F1944BB5F00DD019E /* DroidSerif-BoldItalic.ttf in Resources */,
 				CA50F63E1944BB5F00DD019E /* DroidSerif-Bold.ttf in Resources */,
 				A6A388501941DEE900F75F27 /* InfoPlist.strings in Resources */,
+				CA8A8F0A194BAB8B00172706 /* Sports World-Regular.otf in Resources */,
 				A6A388581941DEE900F75F27 /* Images.xcassets in Resources */,
 				CA50F6401944BB5F00DD019E /* DroidSerif-Italic.ttf in Resources */,
+				CA8A8F0B194BAB8B00172706 /* Sports World-Regular.ttf in Resources */,
 				CA50F6411944BB5F00DD019E /* DroidSerif.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,10 +593,13 @@
 			files = (
 				CAA440BD19431B460004CAB1 /* LoginView.m in Sources */,
 				A6B577E91947A6DD003F55E5 /* LoadingView.m in Sources */,
+				CAFA6AB7194C8366008DE3EF /* RushViewController.m in Sources */,
 				A6B577E019479F83003F55E5 /* RushChallenge.m in Sources */,
+				CAD27B63194CF23700291105 /* ChallengeView.m in Sources */,
 				CA047434194900C4002FCED0 /* CompassView.m in Sources */,
 				A6A388561941DEE900F75F27 /* AppDelegate.m in Sources */,
 				A6A388871944DEBC00F75F27 /* Group.m in Sources */,
+				CAD27B60194CDD9E00291105 /* ChallengeViewController.m in Sources */,
 				CAA440B619431A7F0004CAB1 /* MainView.m in Sources */,
 				CA55582B194B81CF001DEA92 /* RushChallengesDetailView.m in Sources */,
 				A6A3888D1944E21C00F75F27 /* AppModel.m in Sources */,
@@ -559,8 +611,8 @@
 				CA1ED624194B319100DDE7B6 /* RushChallengesTableViewController.m in Sources */,
 				CA28C7311945E63500B0806C /* MenuViewController.m in Sources */,
 				A6CBD32F194A07B200464F9B /* OverviewView.m in Sources */,
-				A6CBD333194A0F1600464F9B /* Result.m in Sources */,
 				CA28C72A1945D9DE00B0806C /* NavigationController.m in Sources */,
+				CAFA6ABA194C8702008DE3EF /* RushView.m in Sources */,
 				A6CBD32C194A079E00464F9B /* OverviewViewController.m in Sources */,
 				CA04743A19490319002FCED0 /* UploadView.m in Sources */,
 				CA047431194900AF002FCED0 /* CompassViewController.m in Sources */,
@@ -568,9 +620,11 @@
 				A6B577D619479E60003F55E5 /* DataParser.m in Sources */,
 				CA00DAF4194B2DB200B3CCAA /* RushChallengesView.m in Sources */,
 				CA28C7341945E64400B0806C /* MenuView.m in Sources */,
+				CAB6DCC9194CBC1600F6BC07 /* IntroView.m in Sources */,
 				CA555828194B81B9001DEA92 /* RushChallengesDetailViewController.m in Sources */,
 				CA28C72D1945D9F400B0806C /* NavigationBar.m in Sources */,
 				CA00DAF1194B2DA500B3CCAA /* RushChallengesViewController.m in Sources */,
+				CAB6DCCC194CBC2500F6BC07 /* IntroViewController.m in Sources */,
 				A6CBD3291947FE4700464F9B /* Helpers.m in Sources */,
 				A6B577DD19479F7A003F55E5 /* Location.m in Sources */,
 				CA1ED627194B49C100DDE7B6 /* RushChallengesTableViewCell.m in Sources */,

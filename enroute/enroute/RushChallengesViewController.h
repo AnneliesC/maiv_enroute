@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "RushChallengesView.h"
 
-
 @interface RushChallengesViewController : UIViewController
 
 @property (nonatomic,strong) RushChallengesView *view;

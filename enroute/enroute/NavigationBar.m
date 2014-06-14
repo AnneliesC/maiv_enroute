@@ -24,27 +24,39 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
         self.translucent = YES;
         self.opaque = NO;
 
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createHeader:) name:@"USER_LOADED" object:nil];
         
         //self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         
-        [self createHeader];
-        [self initButtonEvents];
+        //[self createHeader];
+        //[self initButtonEvents];
         
     }
     return self;
 }
 
+
+
 -(void)initButtonEvents{
     [self.btnMenu addTarget:self action:@selector(menuButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnOverview addTarget:self action:@selector(overviewButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnRush addTarget:self action:@selector(rushButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.btnLogo addTarget:self action:@selector(logoButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)menuButtonTapped:(id)sender{
      [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_MENU" object:self];
 }
+-(void)overviewButtonTapped:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_OVERVIEW" object:self];
+}
+-(void)rushButtonTapped:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_RUSH" object:self];
+}
 -(void)logoButtonTapped:(id)sender{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_THEMES" object:self];
 }
+
 /*
 -(id)init{
     self = [super init];
@@ -56,7 +68,7 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
 }
  */
 
--(void)createHeader{
+-(void)createHeader:(id)sender{
     
     //Knop Menu
     
@@ -68,15 +80,27 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
     [self.btnMenu setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnMenu];
     
-    //Knop Rush
     
-    UIImage *backgroundButtonRush = [UIImage imageNamed:@"Header_rush"];
+    if([[AppModel sharedModel] isMentor] == YES){
     
-    self.btnRush= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnRush.frame=CGRectMake(160, 6.5, backgroundButtonRush.size.width, backgroundButtonRush.size.height);
-    [self.btnRush setBackgroundImage:backgroundButtonRush forState:UIControlStateNormal];
-    [self.btnRush setTitle:@"" forState:UIControlStateNormal];
-    [self addSubview:self.btnRush];
+        UIImage *backgroundButtonOverview = [UIImage imageNamed:@"Header_overview"];
+        
+        self.btnOverview= [UIButton buttonWithType:UIButtonTypeCustom];
+        self.btnOverview.frame=CGRectMake(160, 6.5, backgroundButtonOverview.size.width, backgroundButtonOverview.size.height);
+        [self.btnOverview setBackgroundImage:backgroundButtonOverview forState:UIControlStateNormal];
+        [self.btnOverview setTitle:@"" forState:UIControlStateNormal];
+        [self addSubview:self.btnOverview];
+    
+    }else{
+        
+        UIImage *backgroundButtonRush = [UIImage imageNamed:@"Header_rush"];
+        
+        self.btnRush= [UIButton buttonWithType:UIButtonTypeCustom];
+        self.btnRush.frame=CGRectMake(160, 6.5, backgroundButtonRush.size.width, backgroundButtonRush.size.height);
+        [self.btnRush setBackgroundImage:backgroundButtonRush forState:UIControlStateNormal];
+        [self.btnRush setTitle:@"" forState:UIControlStateNormal];
+        [self addSubview:self.btnRush];
+    }
     
     UIImage *woodenBeamImage = [UIImage imageNamed:@"woodenBeam"];
     self.woodenBeam = [[UIImageView alloc]initWithImage:woodenBeamImage];
@@ -95,6 +119,7 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
     
     
     
+    [self initButtonEvents];
 }
 - (CGSize)sizeThatFits:(CGSize)size {
     
@@ -102,6 +127,13 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
     amendedSize.height += VFSNavigationBarHeightIncrease;
     
     return amendedSize;
+}
+
+- (void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"USER_LOADED" object:nil];
+    
+    
 }
 
 /*
