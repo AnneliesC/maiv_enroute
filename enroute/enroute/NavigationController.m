@@ -105,23 +105,21 @@
 
 -(void)loadAppData:(id)sender{
     NSLog(@"[NavigationController] Load app data");
-    [self initViewControllers];
-    [self setMenuEvents];
+    
     [self goTo:self.loadingVC];
     [self.dataParser loadAppData];
 }
 
 -(void)appDataLoaded:(id)sender{
     NSLog(@"[NavigationController] App data loaded");
+    
+    [self initViewControllers];
+    [self setMenuEvents];
     [self goTo:self.mainVC];
     
     if([[AppModel sharedModel] isMentor] == NO){
-    
         [self.mainVC showIntro];
-    
     }
-    
-    
 }
 
 -(void)goTo:(UIViewController*)viewController{

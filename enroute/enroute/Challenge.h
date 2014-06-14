@@ -16,4 +16,7 @@
 @property (nonatomic,strong) NSString *theme;
 @property (nonatomic,strong) NSString *challenge_type;
 
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+
 @end

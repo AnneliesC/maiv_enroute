@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6183A89194CFA4A00433486 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6183A88194CFA4A00433486 /* MapView.m */; };
+		A6183A8C194CFB2B00433486 /* ChallengeTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = A6183A8B194CFB2B00433486 /* ChallengeTarget.m */; };
 		A6A388461941DEE900F75F27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A388451941DEE900F75F27 /* Foundation.framework */; };
 		A6A388481941DEE900F75F27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A388471941DEE900F75F27 /* CoreGraphics.framework */; };
 		A6A3884A1941DEE900F75F27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A388491941DEE900F75F27 /* UIKit.framework */; };
@@ -77,6 +79,10 @@
 /* Begin PBXFileReference section */
 		8DCE08460081439B82D5E023 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		92EEBB2A65A447719950E210 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6183A87194CFA4A00433486 /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		A6183A88194CFA4A00433486 /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		A6183A8A194CFB2B00433486 /* ChallengeTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeTarget.h; sourceTree = "<group>"; };
+		A6183A8B194CFB2B00433486 /* ChallengeTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeTarget.m; sourceTree = "<group>"; };
 		A6A388421941DEE900F75F27 /* enroute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = enroute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A388451941DEE900F75F27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6A388471941DEE900F75F27 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -378,6 +384,10 @@
 				CA047430194900AF002FCED0 /* CompassViewController.m */,
 				CA047432194900C4002FCED0 /* CompassView.h */,
 				CA047433194900C4002FCED0 /* CompassView.m */,
+				A6183A87194CFA4A00433486 /* MapView.h */,
+				A6183A88194CFA4A00433486 /* MapView.m */,
+				A6183A8A194CFB2B00433486 /* ChallengeTarget.h */,
+				A6183A8B194CFB2B00433486 /* ChallengeTarget.m */,
 				CAD27B5E194CDD9E00291105 /* ChallengeViewController.h */,
 				CAD27B5F194CDD9E00291105 /* ChallengeViewController.m */,
 				CAD27B61194CF23700291105 /* ChallengeView.h */,
@@ -613,6 +623,7 @@
 				A6CBD32F194A07B200464F9B /* OverviewView.m in Sources */,
 				CA28C72A1945D9DE00B0806C /* NavigationController.m in Sources */,
 				CAFA6ABA194C8702008DE3EF /* RushView.m in Sources */,
+				A6183A8C194CFB2B00433486 /* ChallengeTarget.m in Sources */,
 				A6CBD32C194A079E00464F9B /* OverviewViewController.m in Sources */,
 				CA04743A19490319002FCED0 /* UploadView.m in Sources */,
 				CA047431194900AF002FCED0 /* CompassViewController.m in Sources */,
@@ -622,6 +633,7 @@
 				CA28C7341945E64400B0806C /* MenuView.m in Sources */,
 				CAB6DCC9194CBC1600F6BC07 /* IntroView.m in Sources */,
 				CA555828194B81B9001DEA92 /* RushChallengesDetailViewController.m in Sources */,
+				A6183A89194CFA4A00433486 /* MapView.m in Sources */,
 				CA28C72D1945D9F400B0806C /* NavigationBar.m in Sources */,
 				CA00DAF1194B2DA500B3CCAA /* RushChallengesViewController.m in Sources */,
 				CAB6DCCC194CBC2500F6BC07 /* IntroViewController.m in Sources */,
