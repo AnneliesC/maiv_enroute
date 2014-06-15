@@ -15,6 +15,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        
+        UIImage *imageBackgroundChallenge = [UIImage imageNamed:@"Compass_background"];
+        UIImageView *ImageChallengeCompass = [[UIImageView alloc]initWithImage:imageBackgroundChallenge];
+        ImageChallengeCompass.frame = CGRectMake(ImageChallengeCompass.frame.size.width * 0, 0, imageBackgroundChallenge.size.width, imageBackgroundChallenge.size.height);
+        [self addSubview:ImageChallengeCompass];
    
         self.mapView = [[MapView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         [self addSubview:self.mapView];

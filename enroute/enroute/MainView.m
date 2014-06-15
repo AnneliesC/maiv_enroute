@@ -29,17 +29,27 @@
         
         UIImage *imageUil = [UIImage imageNamed:@"Home_uil"];
         UIImageView *ImageViewUil = [[UIImageView alloc]initWithImage:imageUil];
-        ImageViewUil.frame = CGRectMake(self.frame.size.width * 0, -162, imageUil.size.width, imageUil.size.height);
+        ImageViewUil.frame = CGRectMake(self.frame.size.width * 0, -152, imageUil.size.width, imageUil.size.height);
         [self.scrollView addSubview:ImageViewUil];
         
         UIImage *imageMuis = [UIImage imageNamed:@"Home_muis"];
         UIImageView *ImageViewMuis = [[UIImageView alloc]initWithImage:imageMuis];
-        ImageViewMuis.frame = CGRectMake(self.frame.size.width * 1, -162, imageMuis.size.width, imageMuis.size.height);
+        ImageViewMuis.frame = CGRectMake(self.frame.size.width * 1, -152, imageMuis.size.width, imageMuis.size.height);
         [self.scrollView addSubview:ImageViewMuis];
+    
+        UIImage *imageBeer = [UIImage imageNamed:@"Home_beer"];
+        UIImageView *ImageViewBeer = [[UIImageView alloc]initWithImage:imageBeer];
+        ImageViewBeer.frame = CGRectMake(self.frame.size.width * 2, -152, imageBeer.size.width, imageBeer.size.height);
+        [self.scrollView addSubview:ImageViewBeer];
+        
+        UIImage *imageHert = [UIImage imageNamed:@"Home_hert"];
+        UIImageView *ImageViewHert = [[UIImageView alloc]initWithImage:imageHert];
+        ImageViewHert.frame = CGRectMake(self.frame.size.width * 3, -152, imageHert.size.width, imageHert.size.height);
+        [self.scrollView addSubview:ImageViewHert];
         
     }
     
-    self.scrollView.contentSize = CGSizeMake(self.frame.size.width * 5., 0);
+    self.scrollView.contentSize = CGSizeMake(self.frame.size.width * 4., 0);
     [self.scrollView setShowsHorizontalScrollIndicator:NO];
     self.scrollView.pagingEnabled = YES;
     

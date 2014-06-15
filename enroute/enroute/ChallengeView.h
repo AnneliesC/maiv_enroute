@@ -10,4 +10,8 @@
 
 @interface ChallengeView : UIView
 
+@property (nonatomic,strong) UIImageView *woodenBeam;
+@property (nonatomic,strong) UIButton *btnBack;
+@property (nonatomic,strong) UIButton *btnStart;
+
 @end

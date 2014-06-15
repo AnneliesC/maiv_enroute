@@ -22,7 +22,10 @@
     }
     return self;
 }
-
+- (void)loadView{
+    CGRect bounds = [UIScreen mainScreen].bounds;
+    self.view = [[ChallengeView alloc]initWithFrame:bounds];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
