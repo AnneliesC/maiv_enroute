@@ -37,10 +37,6 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
--(void)createMenu:(id)sender{
-    
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

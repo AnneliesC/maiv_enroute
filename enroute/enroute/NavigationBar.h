@@ -16,7 +16,7 @@
 @property (nonatomic,strong) UIButton *btnMenu;
 @property (nonatomic,strong) UIButton *btnRush;
 @property (nonatomic,strong) UIButton *btnOverview;
-
+@property (nonatomic,strong) UIImageView *emptyButton;
 
 
 @end

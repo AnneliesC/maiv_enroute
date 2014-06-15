@@ -25,11 +25,7 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
         self.opaque = NO;
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createHeader:) name:@"USER_LOADED" object:nil];
-        
-        //self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-        
-        //[self createHeader];
-        //[self initButtonEvents];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showRushButton:) name:@"RUSH_CHALLENGE_LOADED" object:nil];
         
     }
     return self;
@@ -99,6 +95,8 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
         self.btnRush.frame=CGRectMake(160, 6.5, backgroundButtonRush.size.width, backgroundButtonRush.size.height);
         [self.btnRush setBackgroundImage:backgroundButtonRush forState:UIControlStateNormal];
         [self.btnRush setTitle:@"" forState:UIControlStateNormal];
+        self.btnRush.enabled = NO;
+
         [self addSubview:self.btnRush];
     }
     
@@ -121,6 +119,21 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
     
     [self initButtonEvents];
 }
+
+-(void)showRushButton:(id)sender{
+    
+////    self.btnRush.alpha = 0.3;
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+//    
+//    [UIView setAnimationDuration:0.8];
+////    self.btnRush.alpha = 0.3;
+//    
+//    [UIView commitAnimations];
+//    self.btnRush.enabled = NO;
+
+}
+
 - (CGSize)sizeThatFits:(CGSize)size {
     
     CGSize amendedSize = [super sizeThatFits:size];
@@ -130,10 +143,8 @@ const CGFloat VFSNavigationBarHeightIncrease = 98.f;
 }
 
 - (void)dealloc{
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"USER_LOADED" object:nil];
-    
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"RUSH_CHALLENGE_LOADED" object:nil];
 }
 
 /*

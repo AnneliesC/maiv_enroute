@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Pusher/Pusher.h>
 #import "NavigationBar.h"
 #import "MenuViewController.h"
 #import "MainViewController.h"
@@ -21,7 +22,7 @@
 #import "RushViewController.h"
 #import "ChallengeViewController.h"
 
-@interface NavigationController : UINavigationController
+@interface NavigationController : UINavigationController<PTPusherDelegate>
 
 
 @end

@@ -24,6 +24,8 @@
 
 @property(nonatomic, copy) NSArray *viewControllers;
 
+@property (strong, nonatomic) PTPusher *client;
+
 @end
 
 @implementation NavigationController
@@ -33,6 +35,20 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        _client = [PTPusher pusherWithKey:@"7b08d4ece4550c8194f8" delegate:self encrypted:YES];
+        PTPusherChannel *channel = [_client subscribeToChannelNamed:@"maiv"];
+        [channel bindToEventNamed:@"rush_challenge" handleWithBlock:^(PTPusherEvent *channelEvent) {
+            NSDictionary *data = [channelEvent.data objectForKey:@"rush_challenge"];
+            
+            RushChallenge *rushChallenge = [[RushChallenge alloc] init];
+            rushChallenge.identifier = [[data objectForKey:@"id"] intValue];
+            rushChallenge.title = [data objectForKey:@"title"];
+            rushChallenge.info = [data objectForKey:@"info"];
+            rushChallenge.duration = [[data objectForKey:@"duration"] intValue];
+            [[AppModel sharedModel] setRushChallenge:rushChallenge];
+        }];
+        [_client connect];
         
         self.loadingVC = [[LoadingViewController alloc] initWithNibName:nil bundle:nil];
         self.mainVC = [[MainViewController alloc] initWithNibName:nil bundle:nil];
@@ -161,9 +177,6 @@
     
     //adim
     [self.menuVC.view.btnOverview addTarget:self action:@selector(showOverview:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //[self.menuVC.view.btnChildren addTarget:self action:@selector(showResults:) forControlEvents:UIControlEventTouchUpInside];
-    //[self.menuVC.view.btnRushOpdrachten addTarget:self action:@selector(showResults:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning

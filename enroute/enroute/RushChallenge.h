@@ -14,5 +14,6 @@
 @property (nonatomic,strong) NSString *title;
 @property (nonatomic,strong) NSString *info;
 @property (nonatomic,strong) NSString *challenge_type;
+@property (nonatomic) NSInteger duration;
 
 @end
