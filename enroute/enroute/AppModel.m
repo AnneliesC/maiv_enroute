@@ -20,6 +20,7 @@
 @synthesize results = _results;
 @synthesize resultsToBeUploaded = _resultsToBeUploaded;
 @synthesize rushChallenge = _rushChallenge;
+@synthesize rushChallengePushed = _rushChallengePushed;
 
 + (id)sharedModel {
     static AppModel *sharedAppModel = nil;
@@ -73,10 +74,8 @@
             NSComparisonResult comparisonResult = [currentDate compare:groupDate];
             
             if(comparisonResult == YES){
-                NSLog(@"[AppModel] en route group today");
-                _groupId = [NSString stringWithFormat:@"%li",(long)group.identifier];
-            }else{
-                NSLog(@"[AppModel] no en route group today");
+                NSLog(@"[AppModel] en route group today: %li",(long)group.identifier);
+                groupId = [NSString stringWithFormat:@"%li",(long)group.identifier];
             }
         }
         
@@ -162,6 +161,20 @@
 
 - (RushChallenge *)rushChallenge {
     return rushChallenge;
+}
+
+- (void)setRushChallengePushed:(bool)rushChallengePushedData
+{
+    rushChallengePushed = rushChallengePushedData;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_RUSH" object:self];
+}
+
+- (bool)rushChallengePushed {
+    return rushChallengePushed;
+}
+
+- (NSString *)groupId {
+    return groupId;
 }
 
 @end

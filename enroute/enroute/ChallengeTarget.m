@@ -18,7 +18,7 @@
         
         UIColor *red = [UIColor colorWithRed:252/255.0f green:105/255.0f blue:97/255.0f alpha:1];
         UIColor *gray = [UIColor colorWithRed:153/255.0f green:169/255.0f blue:178/255.0f alpha:1];
-        UIColor *blue = [UIColor colorWithRed:59/255.0f green:8-0/255.0f blue:92/255.0f alpha:1];
+        UIColor *blue = [UIColor colorWithRed:59/255.0f green:80/255.0f blue:92/255.0f alpha:1];
         UIColor *green = [UIColor colorWithRed:174/255.0f green:206/255.0f blue:193/255.0f alpha:1];
         UIColor *white = [UIColor whiteColor];
         
@@ -26,20 +26,20 @@
         UIColor *targetInnerBorderColor = white;
         UIColor *targetFillColor;
         
-        NSString *challengeTargetIconImageName = @"challengeTargetOwl";
+        NSString *challengeTargetIconImageName = @"";
         
-        if([theme  isEqual: @"owl"]){
+        if([theme  isEqual: @"de uil"]){
             targetFillColor = red;
             challengeTargetIconImageName = @"challengeTargetOwl";
-        }else if([theme  isEqual: @"mouse"]){
+        }else if([theme  isEqual: @"de muis"]){
             targetFillColor = gray;
-            challengeTargetIconImageName = @"challengeTargetOwl";
-        }else if([theme  isEqual: @"doe"]){
+            challengeTargetIconImageName = @"challengeTargetMouse";
+        }else if([theme  isEqual: @"het hert"]){
             targetFillColor = green;
-            challengeTargetIconImageName = @"challengeTargetOwl";
-        }else if([theme  isEqual: @"squirrel"]){
+            challengeTargetIconImageName = @"challengeTargetDoe";
+        }else if([theme  isEqual: @"de beer"]){
             targetFillColor = blue;
-            challengeTargetIconImageName = @"challengeTargetOwl";
+            challengeTargetIconImageName = @"challengeTargetBear";
         }
         
         double targetBorderRadius = self.frame.size.width;

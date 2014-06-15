@@ -20,6 +20,7 @@
 @property(nonatomic,strong) RushChallengesViewController *rushChallengesVC;
 @property(nonatomic,strong) RushChallengesDetailViewController *rushChallengesDetailVC;
 @property(nonatomic,strong) RushViewController *rushVC;
+@property(nonatomic,strong) ChallengeViewController *challengeVC;
 
 @property(nonatomic, copy) NSArray *viewControllers;
 
@@ -77,15 +78,20 @@
 }
 
 -(void)showRush:(id)sender{
-    [self goTo:self.rushVC];
+    if([[AppModel sharedModel] isMentor] == NO || [[AppModel sharedModel] rushChallengePushed] == YES){
+        [self goTo:self.rushVC];
+    }else{
+        [self goTo:self.rushChallengesVC];
+    }
+}
+
+-(void)showChallenge:(id)sender{
+    self.challengeVC = [[ChallengeViewController alloc] initWithChallenge:self.compassVC.selectedChallenge];
+    [self goTo:self.challengeVC];
 }
 
 -(void)showOverview:(id)sender{
     [self goTo:self.overviewVC];
-}
-
--(void)showRushChallenges:(id)sender{
-    [self goTo:self.rushChallengesVC];
 }
 
 -(void)showRushChallenge:(id)sender{
@@ -151,10 +157,10 @@
     //gebruiker
     [self.menuVC.view.btnUpload addTarget:self action:@selector(showUpload:) forControlEvents:UIControlEventTouchUpInside];
     [self.menuVC.view.btnRush addTarget:self action:@selector(showRush:) forControlEvents:UIControlEventTouchUpInside];
+    [self.compassVC.view.btnChallenge addTarget:self action:@selector(showChallenge:) forControlEvents:UIControlEventTouchUpInside];
     
     //adim
     [self.menuVC.view.btnOverview addTarget:self action:@selector(showOverview:) forControlEvents:UIControlEventTouchUpInside];
-    [self.menuVC.view.btnRushChallenges addTarget:self action:@selector(showRushChallenges:) forControlEvents:UIControlEventTouchUpInside];
     
     //[self.menuVC.view.btnChildren addTarget:self action:@selector(showResults:) forControlEvents:UIControlEventTouchUpInside];
     //[self.menuVC.view.btnRushOpdrachten addTarget:self action:@selector(showResults:) forControlEvents:UIControlEventTouchUpInside];

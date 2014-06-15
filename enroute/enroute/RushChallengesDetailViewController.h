@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "RushChallengesDetailView.h"
 #import "RushChallenge.h"
+#import "DataParser.h"
+#import "AppModel.h"
 
 @interface RushChallengesDetailViewController : UIViewController<UINavigationControllerDelegate>
 

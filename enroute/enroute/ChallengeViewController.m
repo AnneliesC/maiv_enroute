@@ -19,17 +19,33 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.navigationController.navigationBarHidden = NO;
     }
     return self;
 }
+
+- (id)initWithChallenge:(Challenge *)challenge{
+    
+    self.challenge = challenge;
+    return [self initWithNibName:nil bundle:nil];
+}
+
 - (void)loadView{
     CGRect bounds = [UIScreen mainScreen].bounds;
-    self.view = [[ChallengeView alloc]initWithFrame:bounds];
+    self.view = [[ChallengeView alloc]initWithFrame:bounds andChallenge:self.challenge];
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    self.navigationController.navigationBarHidden = NO;
+    
+    [self.view.btnBack addTarget:self action:@selector(showPrevious:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)showPrevious:(id)sender{
+    [[self navigationController] popViewControllerAnimated:NO];
 }
 
 - (void)didReceiveMemoryWarning

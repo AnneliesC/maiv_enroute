@@ -20,7 +20,6 @@
 @property (nonatomic,strong) UIButton *btnUpload;
 
 @property (nonatomic,strong) UIButton *btnOverview;
-@property (nonatomic,strong) UIButton *btnRushChallenges;
 
 @property (nonatomic,strong) UIButton *btnLogout;
 

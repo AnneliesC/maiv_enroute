@@ -22,6 +22,7 @@
     NSMutableArray *resultsToBeUploaded;
     bool isGroupToday;
     bool isMentor;
+    bool rushChallengePushed;
     NSString *groupId;
     RushChallenge *rushChallenge;
 }
@@ -36,6 +37,7 @@
 @property (nonatomic,strong) NSMutableArray *resultsToBeUploaded;
 @property (nonatomic) bool isGroupToday;
 @property (nonatomic) bool isMentor;
+@property (nonatomic) bool rushChallengePushed;
 @property (nonatomic) NSString *groupId;
 
 + (id)sharedModel;

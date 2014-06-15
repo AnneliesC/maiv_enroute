@@ -15,9 +15,7 @@
 
 @interface CompassViewController : UIViewController<CLLocationManagerDelegate>
 
+@property (nonatomic,strong) Challenge *selectedChallenge;
 @property (nonatomic,strong) CompassView *view;
-@property (nonatomic,strong) CLLocationManager *locationManager;
-@property (nonatomic,strong) NSArray *challenges;
-@property (nonatomic,strong) NSMutableArray *challengesWithCoordinates;
-@property (nonatomic,strong) NSMutableArray *challengeRegions;
+
 @end

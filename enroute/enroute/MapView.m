@@ -31,14 +31,12 @@
         self.mapView.userTrackingMode = RMUserTrackingModeFollowWithHeading;
         self.mapView.adjustTilesForRetinaDisplay = YES;
         self.mapView.showsUserLocation = YES;
-        
         [self addSubview:self.mapView];
         
         CAShapeLayer *circle = [CAShapeLayer layer];
         circle.fillColor = [UIColor redColor].CGColor;
         circle.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0,0, 212, 212)].CGPath;
-        circle.position = CGPointMake((self.frame.size.width/2)-(circle.frame.size.width/2),
-                                      (self.frame.size.height/2)-(circle.frame.size.height/2));
+        circle.position = CGPointMake((self.frame.size.width/2)-(circle.frame.size.width/2),(self.frame.size.height/2)-(circle.frame.size.height/2));
         circle.bounds = CGRectMake(0, 0, 212, 212);
         self.mapView.layer.mask = circle;
         

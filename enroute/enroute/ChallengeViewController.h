@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "ChallengeView.h"
+#import "Challenge.h"
 
 @interface ChallengeViewController : UIViewController
 
 @property (nonatomic,strong) ChallengeView *view;
+@property (nonatomic,strong) Challenge *challenge;
+
+- (id)initWithChallenge:(Challenge *)challenge;
 
 @end

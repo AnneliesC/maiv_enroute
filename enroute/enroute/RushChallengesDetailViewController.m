@@ -28,14 +28,12 @@
 - (id)initWithRushChallenge:(RushChallenge *)rushChallenge{
     
     self.rushChallenge = rushChallenge;
-    NSLog(@"dit is een rushchallenge blbalaba: %@",self.rushChallenge.title);
-    
     return [self initWithNibName:nil bundle:nil];
 }
 
 - (void)loadView{
     CGRect bounds = [UIScreen mainScreen].bounds;
-    self.view = [[RushChallengesDetailView alloc]initWithFrame:bounds];
+    self.view = [[RushChallengesDetailView alloc]initWithFrame:bounds andRushChallenge:self.rushChallenge];
 }
 - (void)viewDidLoad
 {
@@ -44,11 +42,33 @@
     [self.navigationItem setHidesBackButton:YES animated:NO];
     self.navigationController.navigationBarHidden = NO;
     
+    [self.view.btnRush addTarget:self action:@selector(pushRush:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.btnBack addTarget:self action:@selector(showPrevious:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view.slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
+}
+
+-(void)pushRush:(id)sender{
+    
+    DataParser *dataParser = [[DataParser alloc] init];
+    [dataParser uploadRushChallengeWithGroupId:[[[AppModel sharedModel] groupId] intValue]
+                                   challengeId:(int)self.rushChallenge.identifier
+                                   andDuration:(int)(self.view.slider.value + 0.5)];
 }
 
 -(void)showPrevious:(id)sender{
     [[self navigationController] popViewControllerAnimated:YES];
+}
+
+-(void)sliderChanged:(id)sneder{
+    int value = (int)(self.view.slider.value + 0.5);
+    self.view.duration.text = [NSString stringWithFormat:@"%i",value];
+    self.view.duration.center = CGPointMake([self mapValue:(double)self.view.slider.value fromInputStart:5 inputEnd:20 outputStart:0 outputEnd:215] + 53,295/2);
+}
+
+- (double)mapValue:(double)value fromInputStart:(double)inputStart inputEnd:(double)inputEnd outputStart:(double)outputStart outputEnd:(double)outputEnd{
+    double inputRange = inputEnd - inputStart;
+    double outputRange = outputEnd - outputStart;
+    return ((value - inputStart)*outputRange / inputRange + outputStart);
 }
 
 - (void)didReceiveMemoryWarning

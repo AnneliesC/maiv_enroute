@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RushChallenge.h"
 
 @interface RushChallengesDetailView : UIView
 
-
-@property (nonatomic,strong) UIImageView *woodenBeam;
 @property (nonatomic,strong) UIButton *btnBack;
 @property (nonatomic,strong) UIButton *btnRush;
+@property (nonatomic,strong) UISlider *slider;
+@property (nonatomic,strong) UILabel *duration;
 
-
+- (id)initWithFrame:(CGRect)frame andRushChallenge:(RushChallenge*)rushChallenge;
 
 @end

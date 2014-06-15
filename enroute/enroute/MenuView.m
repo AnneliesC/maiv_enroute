@@ -50,6 +50,14 @@
     [self.btnThemes setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnThemes];
     
+    // Rush
+    UIImage *btnRushImage = [UIImage imageNamed:@"NavigationRush"];
+    self.btnRush= [UIButton buttonWithType:UIButtonTypeCustom];
+    self.btnRush.frame=CGRectMake(173, 351, btnRushImage.size.width, btnRushImage.size.height);
+    [self.btnRush setBackgroundImage:btnRushImage forState:UIControlStateNormal];
+    [self.btnRush setTitle:@"" forState:UIControlStateNormal];
+    [self addSubview:self.btnRush];
+    
     //logout
     UIImage *btnLogoutImage = [UIImage imageNamed:@"NavigationLogout"];
     self.btnLogout= [UIButton buttonWithType:UIButtonTypeCustom];
@@ -57,6 +65,7 @@
     [self.btnLogout setBackgroundImage:btnLogoutImage forState:UIControlStateNormal];
     [self.btnLogout setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnLogout];
+    
 }
 
 -(void)createButtonsUser{
@@ -68,14 +77,6 @@
     [self.btnUpload setBackgroundImage:btnUploadImage forState:UIControlStateNormal];
     [self.btnUpload setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnUpload];
-    
-    // Rush
-    UIImage *btnRushImage = [UIImage imageNamed:@"NavigationRush"];
-    self.btnRush= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnRush.frame=CGRectMake(173, 351, btnRushImage.size.width, btnRushImage.size.height);
-    [self.btnRush setBackgroundImage:btnRushImage forState:UIControlStateNormal];
-    [self.btnRush setTitle:@"" forState:UIControlStateNormal];
-    [self addSubview:self.btnRush];
 }
 
 -(void)createButtonsAdim{
@@ -87,14 +88,6 @@
     [self.btnOverview setBackgroundImage:btnOverviewImage forState:UIControlStateNormal];
     [self.btnOverview setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnOverview];
-    
-    // RushChallenges
-    UIImage *btnRushImage = [UIImage imageNamed:@"NavigationRush"];
-    self.btnRushChallenges = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnRushChallenges.frame=CGRectMake(173, 351, btnRushImage.size.width, btnRushImage.size.height);
-    [self.btnRushChallenges setBackgroundImage:btnRushImage forState:UIControlStateNormal];
-    [self.btnRushChallenges setTitle:@"" forState:UIControlStateNormal];
-    [self addSubview:self.btnRushChallenges];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

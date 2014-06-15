@@ -12,7 +12,6 @@
 
 @property (nonatomic,strong) NSMutableArray *challengesInRange;
 @property (nonatomic,strong) NSMutableArray *challengeTargets;
-@property (nonatomic,strong) Challenge *selectedChallenge;
 @property (nonatomic,strong) Challenge *previousChallenge;
 
 @property (nonatomic,strong) CLLocation *lastLocation;
@@ -24,6 +23,10 @@
 @property (nonatomic) int regionSize;
 @property (nonatomic) int distanceMaximum;
 @property (nonatomic) int distanceMinimum;
+@property (nonatomic,strong) CLLocationManager *locationManager;
+@property (nonatomic,strong) NSArray *challenges;
+@property (nonatomic,strong) NSMutableArray *challengesWithCoordinates;
+@property (nonatomic,strong) NSMutableArray *challengeRegions;
 
 @end
 
@@ -37,7 +40,7 @@
         self.navigationController.navigationBarHidden = NO;
         
         self.challenges = [[AppModel sharedModel] challenges];
-        NSLog(@"[CompassViewController] CHALLENGES: %@", self.challenges);
+        NSLog(@"[CompassVC] CHALLENGES: %@", self.challenges);
         
         self.challengeTargets = [[NSMutableArray alloc]init];
         self.locationManager = [[CLLocationManager alloc] init];
@@ -53,7 +56,7 @@
         self.longitudeMinimum = 3.272395;
         self.longitudeMaximum = 3.276922;
         
-        self.regionSize = 70;
+        self.regionSize = 90;
         self.regionMargin = 50;
         
         self.distanceMaximum = 300;
@@ -73,7 +76,6 @@
     [self.navigationItem setHidesBackButton:YES animated:NO];
     self.navigationController.navigationBarHidden = NO;
     
-    [self.view.btnChallenge addTarget:self action:@selector(showChallenge:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.btnCloseButton addTarget:self action:@selector(ignoreChallenge:) forControlEvents:UIControlEventTouchUpInside];
     
     if([CLLocationManager locationServicesEnabled]){
@@ -89,11 +91,6 @@
     }
     
     [self createChallengeRegions];
-
-}
-
--(void)showChallenge:(id)sender{
-    NSLog(@"show challenge");
 }
 
 -(void)ignoreChallenge:(id)sender{
@@ -105,7 +102,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    NSLog(@"[CompassViewController] Location updated");
+    NSLog(@"[CompassVC] Location updated");
     
     // size targets aanpassen
     
@@ -135,7 +132,7 @@
 }
 
 - (void)createChallengeRegions{
-    NSLog(@"[CompassViewController] Create challenge regions");
+    NSLog(@"[CompassVC] Create challenge regions");
     
     self.challengesWithCoordinates = [[NSMutableArray alloc] init];
     
@@ -174,7 +171,7 @@
 }
 
 -(void)createChallengeTargets{
-    NSLog(@"[CompassViewController] Create challenge targets");
+    NSLog(@"[CompassVC] Create challenge targets");
     
     for(ChallengeTarget *challengeTarget in self.challengeTargets){
         [challengeTarget removeFromSuperview];
@@ -205,14 +202,14 @@
         }
         
         ChallengeTarget *challengeTarget = [[ChallengeTarget alloc] initWithFrame:CGRectMake(0, 0,size, size) andTheme:challenge.theme];
-        challengeTarget.center = CGPointMake((self.view.frame.size.width/2)+xPos,(self.view.frame.size.height/2)-yPos);
+        challengeTarget.center = CGPointMake(212/2+xPos,212/2-yPos);
         [self.challengeTargets addObject:challengeTarget];
         [self.view.challengeTargetsContainer addSubview:challengeTarget];
     }
 }
 
 -(void)checkChallengesInRange{
-    NSLog(@"[CompassViewController] Check challenges in range");
+    NSLog(@"[CompassVC] Check challenges in range");
     
     self.challengesInRange = [[NSMutableArray alloc]init];
     
@@ -227,6 +224,7 @@
     
     double distance = 0;
     self.selectedChallenge = nil;
+    NSLog(@"[CompassVC] Challengs in range: %@",self.challengesInRange);
     for(Challenge *challengeInRange in self.challengesInRange){
         
         CLLocation *challengeLocation = [[CLLocation alloc] initWithLatitude:challengeInRange.latitude longitude:challengeInRange.longitude];
@@ -244,14 +242,14 @@
 }
 
 -(void)checkChallengeInRange{
-    NSLog(@"[CompassViewController] Check challenge in range");
+    NSLog(@"[CompassVC] Check challenge in range");
     
     if(self.selectedChallenge != nil){
-        NSLog(@"[CompassViewController] Challenge in range");
+        NSLog(@"[CompassVC] Challenge in range");
         [self.view showChallengeButtonForChallenge:self.selectedChallenge];
         
     }else{
-        NSLog(@"[CompassViewController] No challenges in range");
+        NSLog(@"[CompassVC] No challenges in range");
         if(self.view.btnChallenge.hidden == TRUE) [self.view hideChallengeButton];
         [self checkChallengesInRange];
     }

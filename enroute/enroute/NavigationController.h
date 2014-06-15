@@ -19,9 +19,7 @@
 #import "RushChallengesViewController.h"
 #import "RushChallengesDetailViewController.h"
 #import "RushViewController.h"
-
-
-
+#import "ChallengeViewController.h"
 
 @interface NavigationController : UINavigationController
 

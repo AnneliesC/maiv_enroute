@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Challenge.h"
 
 @interface ChallengeView : UIView
 
-@property (nonatomic,strong) UIImageView *woodenBeam;
 @property (nonatomic,strong) UIButton *btnBack;
 @property (nonatomic,strong) UIButton *btnStart;
+
+- (id)initWithFrame:(CGRect)frame andChallenge:(Challenge*)challenge;
 
 @end

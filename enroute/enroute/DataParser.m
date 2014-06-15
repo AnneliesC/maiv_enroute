@@ -158,21 +158,21 @@
 -(void)uploadRushChallengeWithGroupId:(int)groupId challengeId:(int)challengeId andDuration:(int)duration{
      NSLog(@"[DataParser] Upload rush challenge");
     
-    NSString *url = @"http://localhost/MAIV/ENROUTE/api/challenges/rush/group";
+    NSString *url = @"http://student.howest.be/annelies.clauwaert/20132014/MAIV/ENROUTE/api/challenges/rush/group";
     
     NSDictionary *parameters = @{
-                                 @"group_id": @6,
-                                 @"challenge_id": @2,
-                                 @"duration": @120
+                                 @"group_id": [NSNumber numberWithInt:groupId],
+                                 @"challenge_id": [NSNumber numberWithInt:challengeId],
+                                 @"duration": [NSNumber numberWithInt:duration]
                                  };
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", operation.responseObject);
+        [[AppModel sharedModel] setRushChallengePushed:YES];
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", operation.error);
     }];
-
 }
 
 @end

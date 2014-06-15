@@ -16,15 +16,15 @@
     if (self) {
         // Initialization code
         
-        UIImage *imageBackgroundChallenge = [UIImage imageNamed:@"Compass_background"];
+        UIImage *imageBackgroundChallenge = [UIImage imageNamed:@"compass"];
         UIImageView *ImageChallengeCompass = [[UIImageView alloc]initWithImage:imageBackgroundChallenge];
         ImageChallengeCompass.frame = CGRectMake(ImageChallengeCompass.frame.size.width * 0, 0, imageBackgroundChallenge.size.width, imageBackgroundChallenge.size.height);
         [self addSubview:ImageChallengeCompass];
    
-        self.mapView = [[MapView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        self.mapView = [[MapView alloc] initWithFrame:CGRectMake(0, 20, self.frame.size.width, self.frame.size.height)];
         [self addSubview:self.mapView];
         
-        self.challengeTargetsContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        self.challengeTargetsContainer = [[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width/2)-212/2, (self.frame.size.height/2)-68, 212, 212)];
         [self addSubview:self.challengeTargetsContainer];
         
         self.btnChallenge = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -36,7 +36,7 @@
         
         UIImage *btnCloseChallengeImage = [UIImage imageNamed:@"closeChallengeButton"];
         [self.btnCloseButton setFrame:CGRectMake(0, 0, btnCloseChallengeImage.size.width, btnCloseChallengeImage.size.height)];
-        self.btnCloseButton.center = CGPointMake((self.frame.size.width - btnCloseChallengeImage.size.width) - 40,130);
+        self.btnCloseButton.center = CGPointMake((self.frame.size.width - btnCloseChallengeImage.size.width) - 15,(self.frame.size.height/2)-85);
         [self.btnCloseButton setBackgroundImage:btnCloseChallengeImage forState:UIControlStateNormal];
         self.btnCloseButton.hidden = TRUE;
         self.btnCloseButton.enabled = FALSE;
@@ -46,18 +46,18 @@
 }
 
 -(void)showChallengeButtonForChallenge:(Challenge*)challenge{
-    NSLog(@"[MapBoxView] Create button");
+    NSLog(@"[CompassView] Create button");
     
     NSString *btnChallengeImageName = @"";
     
-    if([challenge.theme  isEqual: @"owl"]){
+    if([challenge.theme  isEqual: @"de uil"]){
         btnChallengeImageName = @"challengeButtonOwl";
-    }else if([challenge.theme  isEqual: @"mouse"]){
+    }else if([challenge.theme  isEqual: @"de muis"]){
         btnChallengeImageName = @"challengeButtonMouse";
-    }else if([challenge.theme  isEqual: @"doe"]){
-        btnChallengeImageName = @"challengeButtonOwl";
-    }else if([challenge.theme  isEqual: @"squirrel"]){
-        btnChallengeImageName = @"challengeButtonMouse";
+    }else if([challenge.theme  isEqual: @"het hert"]){
+        btnChallengeImageName = @"challengeButtonDoe";
+    }else if([challenge.theme  isEqual: @"de beer"]){
+        btnChallengeImageName = @"challengeButtonBear";
     }
     self.btnCloseButton.hidden = FALSE;
     self.btnCloseButton.enabled = TRUE;
@@ -65,21 +65,25 @@
     self.btnChallenge.enabled = TRUE;
     self.btnChallenge.hidden = FALSE;
     
+    self.challengeTargetsContainer.hidden = TRUE;
+    
     UIImage *btnChallengeImage = [UIImage imageNamed:btnChallengeImageName];
     [self.btnChallenge setFrame:CGRectMake(0, 0, btnChallengeImage.size.width+2, btnChallengeImage.size.height+2)];
-    self.btnChallenge.center = CGPointMake((self.frame.size.width/2),(self.frame.size.height/2));
+    self.btnChallenge.center = CGPointMake((self.frame.size.width/2),(self.frame.size.height/2)+40);
     [self.btnChallenge setBackgroundImage:btnChallengeImage forState:UIControlStateNormal];
     
 }
 
 -(void)hideChallengeButton{
-    NSLog(@"[MapBoxView] Hide button");
+    NSLog(@"[CompassView] Hide button");
     
     self.btnCloseButton.hidden = TRUE;
     self.btnCloseButton.enabled = FALSE;
     
     self.btnChallenge.enabled = FALSE;
     self.btnChallenge.hidden = TRUE;
+    
+    self.challengeTargetsContainer.hidden = FALSE;
 }
 
 

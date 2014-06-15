@@ -32,5 +32,6 @@
 - (void)loadChallengesData;
 - (void)loadAppData;
 - (void)loadLocationsData;
+-(void)uploadRushChallengeWithGroupId:(int)groupId challengeId:(int)challengeId andDuration:(int)duration;
 
 @end

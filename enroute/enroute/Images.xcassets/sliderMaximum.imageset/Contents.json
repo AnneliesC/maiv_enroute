@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Compass_background.png"
+      "filename" : "sliderMaximum.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Compass_background@2x.png"
+      "filename" : "sliderMaximum@2x.png"
     }
   ],
   "info" : {
