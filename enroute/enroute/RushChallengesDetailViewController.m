@@ -59,6 +59,13 @@
     [[self navigationController] popViewControllerAnimated:YES];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+//    if([[AppModel sharedModel] rushChallengePushed] == YES){
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_MENU" object:self];
+//    }
+}
+
 -(void)sliderChanged:(id)sneder{
     int value = (int)(self.view.slider.value + 0.5);
     self.view.duration.text = [NSString stringWithFormat:@"%i",value];

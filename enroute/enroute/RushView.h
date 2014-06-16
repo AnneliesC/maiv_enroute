@@ -16,4 +16,8 @@
 @property (nonatomic,strong) UIButton *btnBack;
 @property (nonatomic,strong) UIButton *btnStart;
 
+@property (nonatomic,strong) UILabel *timerLabel;
+
+-(void)updateView;
+
 @end

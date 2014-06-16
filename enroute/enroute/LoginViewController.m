@@ -131,11 +131,11 @@
 //                                 @"email": self.view.txtLoginEmail.text,
 //                                 @"password": self.view.txtLoginPassword.text,
 //                                 
-//                                 @"email": @"Admin@test.com",
-//                                 @"password": @"admintest",
+                                 @"email": @"Admin@test.com",
+                                 @"password": @"admintest",
 //
-                                 @"email": @"User@test.com",
-                                 @"password": @"usertest",
+//                                 @"email": @"User@test.com",
+//                                 @"password": @"usertest",
                                  
                                  
                                  @"submit_type": @"login"

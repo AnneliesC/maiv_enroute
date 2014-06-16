@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "RushView.h"
-
+#import "AppModel.h"
+#import "Helpers.h"
 
 @interface RushViewController : UIViewController
 
-@property(nonatomic,strong)RushView *view;
-
+@property (nonatomic,strong) RushView *view;
+@property (nonatomic,strong) NSTimer *timer;
 
 @end

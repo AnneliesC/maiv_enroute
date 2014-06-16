@@ -155,11 +155,9 @@
 
 - (void)setRushChallenge:(RushChallenge *)rushChallengeData
 {
+    NSLog(@"[AppModel] Update rush");
     rushChallenge = rushChallengeData;
-    if(isMentor == NO){
-        NSLog(@"APPMODEL RECEIVED CHALLLENGE");
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"RUSH_CHALLENGE_LOADED" object:self];
-    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RUSH_CHALLENGE_LOADED" object:self];
 }
 
 - (RushChallenge *)rushChallenge {

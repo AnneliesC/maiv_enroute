@@ -16,6 +16,10 @@
     if (self) {
         // Initialization code
         
+        UIImage *emptyRushImage = [UIImage imageNamed:@"Rush_background"];
+        UIImageView *emptyRush = [[UIImageView alloc]initWithImage:emptyRushImage];
+        emptyRush.frame=CGRectMake(0,0,emptyRushImage.size.width, emptyRushImage.size.height);
+        [self addSubview:emptyRush];
         
         self.rushChallengesTVC =  [[RushChallengesTableViewController alloc]initWithStyle:UITableViewStylePlain];
         self.rushChallengesTVC.view.frame=CGRectMake(0, 345, self.frame.size.width, 223);
@@ -25,7 +29,6 @@
         self.woodenBeam = [[UIImageView alloc]initWithImage:woodenBeamImage];
         self.woodenBeam.frame=CGRectMake(0, 330, woodenBeamImage.size.width, woodenBeamImage.size.height);
         [self addSubview:self.woodenBeam];
-        
     }
     return self;
 }

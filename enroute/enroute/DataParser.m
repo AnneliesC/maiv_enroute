@@ -159,6 +159,7 @@
      NSLog(@"[DataParser] Upload rush challenge");
     
     NSString *url = @"http://student.howest.be/annelies.clauwaert/20132014/MAIV/ENROUTE/api/challenges/rush/group";
+    NSLog(@"DATABASE : %i",duration);
     
     NSDictionary *parameters = @{
                                  @"group_id": [NSNumber numberWithInt:groupId],

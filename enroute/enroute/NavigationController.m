@@ -46,6 +46,7 @@
             rushChallenge.title = [data objectForKey:@"title"];
             rushChallenge.info = [data objectForKey:@"info"];
             rushChallenge.duration = [[data objectForKey:@"duration"] intValue];
+            rushChallenge.timePushed = [Helpers getCurrentDate];
             [[AppModel sharedModel] setRushChallenge:rushChallenge];
         }];
         [_client connect];

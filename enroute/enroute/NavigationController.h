@@ -13,6 +13,7 @@
 #import "MainViewController.h"
 #import "LoadingViewController.h"
 #import "DataParser.h"
+#import "Helpers.h"
 
 #import "CompassViewController.h"
 #import "UploadViewController.h"

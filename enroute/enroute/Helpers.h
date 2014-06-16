@@ -13,6 +13,6 @@
 + (NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 + (NSString *)getCurrentDateAsString;
 + (NSString *)getCurrentDateAsStringRaw;
-+ (NSString *)getCurrentDate;
++ (NSDate *)getCurrentDate;
 
 @end
