@@ -25,6 +25,7 @@
     bool rushChallengePushed;
     NSString *groupId;
     RushChallenge *rushChallenge;
+    int uploadedResults;
 }
 
 @property (nonatomic,strong) RushChallenge *rushChallenge;
@@ -38,7 +39,8 @@
 @property (nonatomic) bool isGroupToday;
 @property (nonatomic) bool isMentor;
 @property (nonatomic) bool rushChallengePushed;
-@property (nonatomic) NSString *groupId;
+@property (nonatomic,strong) NSString *groupId;
+@property (nonatomic) int uploadedResults;
 
 + (id)sharedModel;
 - (void)setGroups:(NSArray *)groupsData;

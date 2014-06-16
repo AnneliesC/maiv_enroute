@@ -11,6 +11,7 @@
 #import "Challenge.h"
 #import "Location.h"
 #import "RushChallenge.h"
+#import "Result.h"
 
 @interface DataObjectFactory : NSObject
 
@@ -18,5 +19,6 @@
 + (Challenge *)createChallengeFromDictionary:(NSDictionary*)dictionary;
 + (Location *)createLocationFromDictionary:(NSDictionary*)dictionary;
 + (RushChallenge *)createRushChallengeFromDictionary:(NSDictionary*)dictionary;
++ (RushChallenge *)createGroupRushChallengeFromDictionary:(NSDictionary*)dictionary;
 
 @end

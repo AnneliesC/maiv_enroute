@@ -34,9 +34,13 @@
         [self.btnBack setTitle:@"" forState:UIControlStateNormal];
         
         // rush
-        UIImage *btnStartImage = [UIImage imageNamed:@"Button_start"];
+        NSString *btnStartImageString = @"doneButton";
+        if([challenge.challengeType  isEqual: @"none"]){
+            btnStartImageString = @"doneButton";
+        }
+        UIImage *btnStartImage = [UIImage imageNamed:btnStartImageString];
         self.btnStart= [UIButton buttonWithType:UIButtonTypeCustom];
-        self.btnStart.frame=CGRectMake(160, 502, btnStartImage.size.width, btnStartImage.size.height);
+        self.btnStart.frame=CGRectMake(160, self.frame.size.height - btnStartImage.size.height, btnStartImage.size.width, btnStartImage.size.height);
         [self.btnStart setBackgroundImage:btnStartImage forState:UIControlStateNormal];
         [self.btnStart setTitle:@"" forState:UIControlStateNormal];
         if([[AppModel sharedModel] isMentor] == YES){

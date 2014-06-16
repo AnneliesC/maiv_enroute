@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RushChallengesView.h"
+#import "RushChallenge.h"
 
 @interface RushChallengesViewController : UIViewController
 

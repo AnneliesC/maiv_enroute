@@ -10,6 +10,8 @@
 		A6183A89194CFA4A00433486 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6183A88194CFA4A00433486 /* MapView.m */; };
 		A6183A8C194CFB2B00433486 /* ChallengeTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = A6183A8B194CFB2B00433486 /* ChallengeTarget.m */; };
 		A6553824194E7085006FB2E1 /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = A6553823194E7085006FB2E1 /* Result.m */; };
+		A6553828194E8918006FB2E1 /* RecordAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6553827194E8918006FB2E1 /* RecordAudioViewController.m */; };
+		A655382B194E892A006FB2E1 /* RecordAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = A655382A194E892A006FB2E1 /* RecordAudioView.m */; };
 		A6A388461941DEE900F75F27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A388451941DEE900F75F27 /* Foundation.framework */; };
 		A6A388481941DEE900F75F27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A388471941DEE900F75F27 /* CoreGraphics.framework */; };
 		A6A3884A1941DEE900F75F27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A388491941DEE900F75F27 /* UIKit.framework */; };
@@ -86,6 +88,10 @@
 		A6183A8B194CFB2B00433486 /* ChallengeTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeTarget.m; sourceTree = "<group>"; };
 		A6553822194E7085006FB2E1 /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
 		A6553823194E7085006FB2E1 /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
+		A6553826194E8918006FB2E1 /* RecordAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordAudioViewController.h; sourceTree = "<group>"; };
+		A6553827194E8918006FB2E1 /* RecordAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordAudioViewController.m; sourceTree = "<group>"; };
+		A6553829194E892A006FB2E1 /* RecordAudioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordAudioView.h; sourceTree = "<group>"; };
+		A655382A194E892A006FB2E1 /* RecordAudioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordAudioView.m; sourceTree = "<group>"; };
 		A6A388421941DEE900F75F27 /* enroute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = enroute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A388451941DEE900F75F27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6A388471941DEE900F75F27 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -214,6 +220,10 @@
 				CAD27B5F194CDD9E00291105 /* ChallengeViewController.m */,
 				CAD27B61194CF23700291105 /* ChallengeView.h */,
 				CAD27B62194CF23700291105 /* ChallengeView.m */,
+				A6553826194E8918006FB2E1 /* RecordAudioViewController.h */,
+				A6553827194E8918006FB2E1 /* RecordAudioViewController.m */,
+				A6553829194E892A006FB2E1 /* RecordAudioView.h */,
+				A655382A194E892A006FB2E1 /* RecordAudioView.m */,
 			);
 			name = Challenge;
 			path = ..;
@@ -617,10 +627,12 @@
 			files = (
 				CAA440BD19431B460004CAB1 /* LoginView.m in Sources */,
 				A6B577E91947A6DD003F55E5 /* LoadingView.m in Sources */,
+				A6553828194E8918006FB2E1 /* RecordAudioViewController.m in Sources */,
 				CAFA6AB7194C8366008DE3EF /* RushViewController.m in Sources */,
 				A6B577E019479F83003F55E5 /* RushChallenge.m in Sources */,
 				CAD27B63194CF23700291105 /* ChallengeView.m in Sources */,
 				CA047434194900C4002FCED0 /* CompassView.m in Sources */,
+				A655382B194E892A006FB2E1 /* RecordAudioView.m in Sources */,
 				A6A388561941DEE900F75F27 /* AppDelegate.m in Sources */,
 				A6A388871944DEBC00F75F27 /* Group.m in Sources */,
 				CAD27B60194CDD9E00291105 /* ChallengeViewController.m in Sources */,

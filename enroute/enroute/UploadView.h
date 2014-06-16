@@ -14,7 +14,8 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic,strong) UIImageView *birdOnStick;
 
-@property (nonatomic,strong)UIImageView *UKelder;
+@property (nonatomic,strong) UIImageView *placeholder;
+@property (nonatomic,strong) UILabel *uploadedResultsLabel;
 
 
 

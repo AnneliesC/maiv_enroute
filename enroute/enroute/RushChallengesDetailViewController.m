@@ -53,6 +53,8 @@
     [dataParser uploadRushChallengeWithGroupId:[[[AppModel sharedModel] groupId] intValue]
                                    challengeId:(int)self.rushChallenge.identifier
                                    andDuration:(int)(self.view.slider.value + 0.5)];
+    
+    [[AppModel sharedModel] setRushChallengePushed:YES];
 }
 
 -(void)showPrevious:(id)sender{
@@ -61,9 +63,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-//    if([[AppModel sharedModel] rushChallengePushed] == YES){
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_MENU" object:self];
-//    }
+    if([[AppModel sharedModel] rushChallengePushed] == YES){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_MENU" object:self];
+    }
 }
 
 -(void)sliderChanged:(id)sneder{

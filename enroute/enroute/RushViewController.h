@@ -10,10 +10,14 @@
 #import "RushView.h"
 #import "AppModel.h"
 #import "Helpers.h"
+#import "RushChallenge.h"
 
 @interface RushViewController : UIViewController
 
 @property (nonatomic,strong) RushView *view;
 @property (nonatomic,strong) NSTimer *timer;
+
+- (id)initWithRushChallenge:(RushChallenge *)rushChallenge;
+@property (nonatomic,strong) RushChallenge *rushChallenge;
 
 @end

@@ -12,8 +12,8 @@
 
 @property (nonatomic,strong) NSString *fileType;
 @property (nonatomic,strong) NSDate *datetime;
-@property (nonatomic) NSInteger *groupId;
-@property (nonatomic) NSInteger *userId;
-@property (nonatomic) NSInteger *challengeId;
+@property (nonatomic) int userGroupId;
+@property (nonatomic) int userIdentifier;
+@property (nonatomic) int challengeId;
 
 @end

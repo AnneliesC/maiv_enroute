@@ -10,13 +10,15 @@
 
 @implementation RushView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame andRushChallenge:(RushChallenge*)rushChallenge
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
         
-        if([[AppModel sharedModel] rushChallenge] != nil){
+        self.rushChallenge = rushChallenge;
+        
+        if(rushChallenge != nil){
             [self createRush];
         }else{
             [self createBackgroundEmptyRush];
@@ -32,11 +34,9 @@
     UIImageView *emptyRush = [[UIImageView alloc]initWithImage:emptyRushImage];
     emptyRush.frame=CGRectMake(0,0,emptyRushImage.size.width, emptyRushImage.size.height);
     [self addSubview:emptyRush];
-    
 }
 
 -(void)createRush{
-    NSLog(@"CREATE BUTTONS");
     
     // background
     UIImage *toolbarBackgroundImage = [UIImage imageNamed:@"toolBarBackground"];
@@ -54,9 +54,13 @@
     [self addSubview:self.btnBack];
     
     //rush
-    UIImage *btnStartImage = [UIImage imageNamed:@"Button_start"];
+    NSString *btnStartImageString = @"doneButton";
+    if([self.rushChallenge.challengeType  isEqual: @"none"]){
+        btnStartImageString = @"doneButton";
+    }
+    UIImage *btnStartImage = [UIImage imageNamed:btnStartImageString];
     self.btnStart= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnStart.frame=CGRectMake(160, 502, btnStartImage.size.width, btnStartImage.size.height);
+    self.btnStart.frame=CGRectMake(160, self.frame.size.height - btnStartImage.size.height, btnStartImage.size.width, btnStartImage.size.height);
     [self.btnStart setBackgroundImage:btnStartImage forState:UIControlStateNormal];
     [self.btnStart setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnStart];
@@ -68,12 +72,9 @@
     self.woodenBeam = [[UIImageView alloc]initWithImage:woodenBeamImage];
     self.woodenBeam.frame=CGRectMake(0,493, woodenBeamImage.size.width, woodenBeamImage.size.height);
     [self addSubview:self.woodenBeam];
-    
 }
 
 -(void)updateView{
-    
-    RushChallenge *rushChallenge = [[AppModel sharedModel] rushChallenge];
     
     UIScrollView *scrollView =  [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0,self.frame.size.width, self.frame.size.height)];
     [scrollView setShowsVerticalScrollIndicator:NO];
@@ -81,6 +82,7 @@
     [self addSubview:scrollView];
     
     // separator
+    
     UIImage *seperatorImage = [UIImage imageNamed:@"seperator"];
     UIImageView *seperator = [[UIImageView alloc]initWithImage:seperatorImage];
     seperator.frame=CGRectMake(35,82,seperatorImage.size.width, seperatorImage.size.height);
@@ -105,7 +107,7 @@
     
     // title
     
-    NSString *titleText = [NSString stringWithFormat:@"%@", rushChallenge.title];
+    NSString *titleText = [NSString stringWithFormat:@"%@", self.rushChallenge.title];
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(35, seperator2.frame.origin.y + seperator2.frame.size.height + 40, 0, 0)];
     title.font = [UIFont fontWithName:@"SportsWorld" size:17];
     title.textColor = [UIColor colorWithRed:70/255.0f green:94/255.0f blue:106/255.0f alpha:1];
@@ -114,7 +116,8 @@
     [scrollView addSubview:title];
     
     // text
-    NSString *descriptionText = [NSString stringWithFormat:@"%@", rushChallenge.info];
+    
+    NSString *descriptionText = [NSString stringWithFormat:@"%@", self.rushChallenge.info];
     UITextView *description = [[UITextView alloc] initWithFrame:CGRectZero];
     description.textColor = [UIColor colorWithRed:46/255.0f green:55/255.0f blue:61/255.0f alpha:1];
     description.frame = CGRectMake(35,title.frame.origin.y + title.frame.size.height + 25,self.frame.size.width-70,0);

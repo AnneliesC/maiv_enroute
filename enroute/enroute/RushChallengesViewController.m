@@ -23,6 +23,7 @@
     }
     return self;
 }
+
 - (void)loadView{
     CGRect bounds = [UIScreen mainScreen].bounds;
     self.view = [[RushChallengesView alloc]initWithFrame:bounds];

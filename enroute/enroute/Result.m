@@ -10,4 +10,12 @@
 
 @implementation Result
 
+//-(id)initWithCoder:(NSCoder *)aDecoder{
+//    return self;
+//}
+//
+//- (void)encodeWithCoder:(NSCoder *)coder {
+//    [coder encodeObject:self.name forKey:@"name"]; [coder encodeInteger:self.age forKey:@"age"];
+//}
+
 @end

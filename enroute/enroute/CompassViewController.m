@@ -272,6 +272,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    if(self.locationManager){
+        [self.locationManager startUpdatingLocation];
+        [self.locationManager startUpdatingHeading];
+    }
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    if(self.locationManager){
+        [self.locationManager stopUpdatingLocation];
+        [self.locationManager stopUpdatingHeading];
+    }
+}
+
 /*
 #pragma mark - Navigation
 

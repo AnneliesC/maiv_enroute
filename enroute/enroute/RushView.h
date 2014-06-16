@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppModel.h"
+#import "RushChallenge.h"
 
 @interface RushView : UIView
 
@@ -17,7 +18,9 @@
 @property (nonatomic,strong) UIButton *btnStart;
 
 @property (nonatomic,strong) UILabel *timerLabel;
+@property (nonatomic,strong) RushChallenge *rushChallenge;
 
 -(void)updateView;
+- (id)initWithFrame:(CGRect)frame andRushChallenge:(RushChallenge*)rushChallenge;
 
 @end

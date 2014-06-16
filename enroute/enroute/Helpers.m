@@ -22,8 +22,23 @@
 + (NSDate *)getCurrentDate{
     NSDate* date = [NSDate date];
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd "];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
     return date;
+}
+
++ (NSDate *)getCurrentTime{
+    NSDate* date = [NSDate date];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    return date;
+}
+
++ (NSString *)getCurrentTimeAsString{
+    NSDate* date = [NSDate date];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    NSString* dateAsString = [formatter stringFromDate:date];
+    return dateAsString;
 }
 
 + (NSString *)getCurrentDateAsStringRaw{

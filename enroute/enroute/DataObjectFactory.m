@@ -50,9 +50,35 @@
     rushChallenge.identifier = [[dictionary objectForKey:@"id"] integerValue];
     rushChallenge.title = [dictionary objectForKey:@"title"];
     rushChallenge.info = [dictionary objectForKey:@"info"];
-    rushChallenge.challenge_type = [dictionary objectForKey:@"challenge_type"];
+    rushChallenge.challengeType = [dictionary objectForKey:@"challenge_type"];
     
     return rushChallenge;
 }
+
++ (RushChallenge *)createGroupRushChallengeFromDictionary:(NSDictionary*)dictionary{
+    RushChallenge *rushChallenge = [[RushChallenge alloc] init];
+    
+    rushChallenge.identifier = [[dictionary objectForKey:@"id"] integerValue];
+    rushChallenge.title = [dictionary objectForKey:@"title"];
+    rushChallenge.info = [dictionary objectForKey:@"info"];
+    rushChallenge.challengeType = [dictionary objectForKey:@"challenge_type"];
+    rushChallenge.timePushed = [dictionary objectForKey:@"datetime"];
+    rushChallenge.duration = [[dictionary objectForKey:@"duration"] intValue];
+    
+    return rushChallenge;
+}
+
+//+ (Result *)createResultFromDictionary:(NSDictionary*)dictionary{
+//    RushChallenge *rushChallenge = [[RushChallenge alloc] init];
+//    
+//    rushChallenge.identifier = [[dictionary objectForKey:@"id"] integerValue];
+//    rushChallenge.title = [dictionary objectForKey:@"title"];
+//    rushChallenge.info = [dictionary objectForKey:@"info"];
+//    rushChallenge.challengeType = [dictionary objectForKey:@"challenge_type"];
+//    rushChallenge.timePushed = [dictionary objectForKey:@"datetime"];
+//    rushChallenge.duration = [[dictionary objectForKey:@"duration"] intValue];
+//    
+//    return rushChallenge;
+//}
 
 @end

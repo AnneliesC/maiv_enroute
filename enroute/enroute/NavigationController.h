@@ -14,6 +14,7 @@
 #import "LoadingViewController.h"
 #import "DataParser.h"
 #import "Helpers.h"
+#import "AppModel.h"
 
 #import "CompassViewController.h"
 #import "UploadViewController.h"

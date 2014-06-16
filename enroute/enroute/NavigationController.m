@@ -45,9 +45,16 @@
             rushChallenge.identifier = [[data objectForKey:@"id"] intValue];
             rushChallenge.title = [data objectForKey:@"title"];
             rushChallenge.info = [data objectForKey:@"info"];
+            rushChallenge.challengeType = [data objectForKey:@"challenge_type"];
             rushChallenge.duration = [[data objectForKey:@"duration"] intValue];
-            rushChallenge.timePushed = [Helpers getCurrentDate];
+            rushChallenge.timePushed = [data objectForKey:@"datetime"];
             [[AppModel sharedModel] setRushChallenge:rushChallenge];
+            
+            if([[AppModel sharedModel] isMentor] == YES){
+                NSLog(@"push rush");
+                NSLog(@"rush : %@", [[AppModel sharedModel] rushChallenge].title);
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_RUSH" object:self];
+            }
         }];
         [_client connect];
         
@@ -95,7 +102,10 @@
 }
 
 -(void)showRush:(id)sender{
+    
     if([[AppModel sharedModel] isMentor] == NO || [[AppModel sharedModel] rushChallengePushed] == YES){
+        NSLog(@"GO to rush: %@",[[AppModel sharedModel] rushChallenge]);
+        self.rushVC = [[RushViewController alloc] initWithRushChallenge:[[AppModel sharedModel] rushChallenge]];
         [self goTo:self.rushVC];
     }else{
         [self goTo:self.rushChallengesVC];
@@ -153,12 +163,10 @@
 }
 
 -(void)initViewControllers{
-    
     self.menuVC = [[MenuViewController alloc] initWithNibName:nil bundle:nil];
     self.compassVC = [[CompassViewController alloc] initWithNibName:nil bundle:nil];
     
     self.uploadVC = [[UploadViewController alloc] initWithNibName:nil bundle:nil];
-    self.rushVC = [[RushViewController alloc] initWithNibName:nil bundle:nil];
 
     self.overviewVC = [[OverviewViewController alloc] initWithNibName:nil bundle:nil];
     self.rushChallengesVC = [[RushChallengesViewController alloc] initWithNibName:nil bundle:nil];

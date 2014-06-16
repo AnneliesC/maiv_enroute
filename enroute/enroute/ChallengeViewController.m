@@ -10,6 +10,8 @@
 
 @interface ChallengeViewController ()
 
+@property (nonatomic,strong) DataParser *dataParser;
+
 @end
 
 @implementation ChallengeViewController
@@ -20,6 +22,8 @@
     if (self) {
         // Custom initialization
         self.navigationController.navigationBarHidden = NO;
+        
+        self.dataParser = [[DataParser alloc] init];
     }
     return self;
 }
@@ -34,6 +38,7 @@
     CGRect bounds = [UIScreen mainScreen].bounds;
     self.view = [[ChallengeView alloc]initWithFrame:bounds andChallenge:self.challenge];
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -49,15 +54,22 @@
     NSLog(@"challenge type: %@",self.challenge.challengeType);
     
     NSString *challengeType = [NSString stringWithFormat:@"%@",self.challenge.challengeType];
-    
-    [self showImagePickerForType:@"audio"];
+    challengeType = @"photo";
     if([challengeType  isEqual: @"photo"]){
+        
         [self showImagePickerForType:@"audio"];
+        
     }else if([challengeType  isEqual: @"video"]){
+        
         [self showImagePickerForType:@"video"];
+        
     }else if([challengeType  isEqual: @"audio"]){
-        // audio
-    }else if([challengeType  isEqual: @"silhouet"]){
+        
+        self.recordAudioVC = [[RecordAudioViewController alloc] init];
+        [self.navigationController pushViewController:self.recordAudioVC animated:NO];
+        [self.recordAudioVC.view.btnStart addTarget:self action:@selector(audioRecorded:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }else if([challengeType  isEqual: @"none"]){
     
     }
     
@@ -96,28 +108,53 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     self.view.btnStart.enabled = FALSE;
+    
     // save result in keyed archive
     // go to result page
     // ignore challenge
     
     NSLog(@"[OverViewVC] Did finish picking media: %@", [info objectForKey:UIImagePickerControllerMediaType]);
     
+    Result *result = [[Result alloc] init];
+    result.userIdentifier = [[[[AppModel sharedModel] appUser] objectForKey:@"id"] intValue];
+    result.userGroupId = [[[AppModel sharedModel] groupId] intValue];
+    result.challengeId = (int)self.challenge.identifier;
+    
     if([[info objectForKey:UIImagePickerControllerMediaType]  isEqual: @"public.image"]){
         UIImage *photo = [info objectForKey:UIImagePickerControllerOriginalImage];
-       // [self uploadPhoto:photo];
+        
+        result.fileType = @"photo";
+        
+        NSData *imageData = UIImageJPEGRepresentation(photo, 50);
+        [self.dataParser uploadPhoto:result forFile:imageData];
+        
     }else if ([[info objectForKey:UIImagePickerControllerMediaType]  isEqual: @"public.movie"])
     {
         NSURL * mediaURL = [info objectForKey:UIImagePickerControllerMediaURL];
-       // [self uploadVideo:mediaURL];
+        
+        result.fileType = @"video";
+        
+        NSData *videoData = [NSData dataWithContentsOfFile:[mediaURL path]];
+        [self.dataParser uploadVideo:result forFile:videoData];
+        
     }else{
         NSLog(@"no mediatype");
     }
     
     [picker dismissViewControllerAnimated:YES completion:^{}];
-    UIImage *photo = [info objectForKey:UIImagePickerControllerOriginalImage];
-     
-     [picker dismissViewControllerAnimated:YES completion:^{}];
     // [self uploadPhoto:photo];
+}
+
+-(void)audioRecorded:(id)sender{
+    NSLog(@"[ChallengeVC] Audio recorded");
+    
+    Result *result = [[Result alloc] init];
+    result.userIdentifier = [[[[AppModel sharedModel] appUser] objectForKey:@"id"] intValue];
+    result.userGroupId = [[[AppModel sharedModel] groupId] intValue];
+    result.challengeId = (int)self.challenge.identifier;
+    result.fileType = @"audio";
+    NSData *audioData = [NSData dataWithContentsOfFile:[self.recordAudioVC.recorder.url path]];
+    [self.dataParser uploadAudio:result forFile:audioData];
 }
 
 -(void)showPrevious:(id)sender{

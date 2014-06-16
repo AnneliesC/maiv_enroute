@@ -13,8 +13,8 @@
 @property (nonatomic) NSInteger identifier;
 @property (nonatomic,strong) NSString *title;
 @property (nonatomic,strong) NSString *info;
-@property (nonatomic,strong) NSString *challenge_type;
+@property (nonatomic,strong) NSString *challengeType;
 @property (nonatomic) NSInteger duration;
-@property (nonatomic,strong) NSDate *timePushed;
+@property (nonatomic,strong) NSString *timePushed;
 
 @end

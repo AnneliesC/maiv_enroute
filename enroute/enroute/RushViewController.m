@@ -21,14 +21,21 @@
         // Custom initialization
         
         self.navigationController.navigationBarHidden = NO;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showRush:) name:@"RUSH_CHALLENGE_LOADED" object:nil];
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rushPushed:) name:@"RUSH_CHALLENGE_LOADED" object:nil];
     }
     
     return self;
 }
+
+- (id)initWithRushChallenge:(RushChallenge *)rushChallenge{
+    
+    self.rushChallenge = rushChallenge;
+    return [self initWithNibName:nil bundle:nil];
+}
+
 - (void)loadView{
     CGRect bounds = [UIScreen mainScreen].bounds;
-    self.view = [[RushView alloc]initWithFrame:bounds];
+    self.view = [[RushView alloc]initWithFrame:bounds andRushChallenge:self.rushChallenge];
 }
 
 - (void)viewDidLoad
@@ -37,28 +44,44 @@
     // Do any additional setup after loading the view.
     [self.navigationItem setHidesBackButton:YES animated:NO];
     self.navigationController.navigationBarHidden = NO;
-}
-
--(void)showRush:(id)sender{
-    [self.view updateView];
-    self.timer = [[NSTimer alloc] init];
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimerLabel:) userInfo:nil repeats:YES];
+    
+    if(self.rushChallenge){
+        NSLog(@"[RushVC] init with rush");
+        [self showRush];
+    }
     
     [self.view.btnBack addTarget:self action:@selector(showPrevious:) forControlEvents:UIControlEventTouchUpInside];
 }
 
+-(void)rushPushed:(id)sender{
+    [self showRush];
+}
+
+-(void)showRush{
+    self.view.rushChallenge = [[AppModel sharedModel] rushChallenge];
+    [self.view updateView];
+    self.timer = [[NSTimer alloc] init];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimerLabel:) userInfo:nil repeats:YES];
+    [self.view.btnStart addTarget:self action:@selector(challengeDone:) forControlEvents:UIControlEventTouchUpInside];
+}
+
 -(void)updateTimerLabel:(id)sender{
-    NSDate *timePushed = [[AppModel sharedModel] rushChallenge].timePushed;
-    NSDate *currentTime = [Helpers getCurrentDate];
+
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *timePushedString = self.rushChallenge.timePushed;
+    NSDate *timePushed = [formatter dateFromString:timePushedString];
     
-    int duration = (int)[[AppModel sharedModel] rushChallenge].duration * 60;
+    NSDate *currentTime = [Helpers getCurrentTime];
+    
+    int duration = (int)self.rushChallenge.duration * 60;
     int timeDifference = duration - [currentTime timeIntervalSinceDate:timePushed];
     
     int minutes = timeDifference/60;
     int seconds = timeDifference - (minutes * 60);
     
     if(timeDifference < 3*60) self.view.timerLabel.textColor = [UIColor colorWithRed:252/255.0f green:105/255.0f blue:97/255.0f alpha:1];
-    if(timeDifference == 0){
+    if(timeDifference <= 0){
         [self.timer invalidate];
         self.view.timerLabel.text = @"00:00:00";
         self.view.btnStart.enabled = FALSE;
@@ -78,6 +101,10 @@
 -(void)showPrevious:(id)sender{
     [self.timer invalidate];
     [[self navigationController] popViewControllerAnimated:NO];
+}
+
+-(void)challengeDone:(id)sender{
+    NSLog(@"challenge done");
 }
 
 - (void)didReceiveMemoryWarning
