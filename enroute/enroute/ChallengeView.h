@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Challenge.h"
+#import "AppModel.h"
 
 @interface ChallengeView : UIView
 

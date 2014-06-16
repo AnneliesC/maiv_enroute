@@ -28,7 +28,7 @@
     challenge.title = [dictionary objectForKey:@"title"];
     challenge.info = [dictionary objectForKey:@"info"];
     challenge.theme = [dictionary objectForKey:@"theme"];
-    challenge.challenge_type = [dictionary objectForKey:@"challenge_type"];
+    challenge.challengeType = [dictionary objectForKey:@"challenge_type"];
     
     return challenge;
 }

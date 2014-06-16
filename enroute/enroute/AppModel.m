@@ -84,7 +84,7 @@
         NSLog(@"[AppModel] logged in as participant");
         
         _isMentor = false;
-        _groupId = [appUser objectForKey:@"group_id"];
+        groupId = [appUser objectForKey:@"group_id"];
         NSLog(@"group id user : %@", [appUser objectForKey:@"group_id"]);
         NSLog(@"group id user : %@", groupId);
         

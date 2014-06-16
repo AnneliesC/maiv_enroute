@@ -37,6 +37,14 @@
 
 -(void)createRush{
     NSLog(@"CREATE BUTTONS");
+    
+    // background
+    UIImage *toolbarBackgroundImage = [UIImage imageNamed:@"toolBarBackground"];
+    UIImageView *toolbarBackground= [[UIImageView alloc] initWithImage:toolbarBackgroundImage];
+    toolbarBackground.frame = CGRectMake(0, self.frame.size.height - toolbarBackgroundImage.size.height,
+                                         toolbarBackgroundImage.size.width, toolbarBackgroundImage.size.height);
+    [self addSubview:toolbarBackground];
+    
     //terug
     UIImage *btnBackImage = [UIImage imageNamed:@"Button_back"];
     self.btnBack= [UIButton buttonWithType:UIButtonTypeCustom];
@@ -52,6 +60,9 @@
     [self.btnStart setBackgroundImage:btnStartImage forState:UIControlStateNormal];
     [self.btnStart setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:self.btnStart];
+    if([[AppModel sharedModel] isMentor] == YES){
+        self.btnStart.enabled = FALSE;
+    }
     
     UIImage *woodenBeamImage = [UIImage imageNamed:@"woodenBeam"];
     self.woodenBeam = [[UIImageView alloc]initWithImage:woodenBeamImage];

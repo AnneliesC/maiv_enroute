@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A6183A89194CFA4A00433486 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6183A88194CFA4A00433486 /* MapView.m */; };
 		A6183A8C194CFB2B00433486 /* ChallengeTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = A6183A8B194CFB2B00433486 /* ChallengeTarget.m */; };
+		A6553824194E7085006FB2E1 /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = A6553823194E7085006FB2E1 /* Result.m */; };
 		A6A388461941DEE900F75F27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A388451941DEE900F75F27 /* Foundation.framework */; };
 		A6A388481941DEE900F75F27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A388471941DEE900F75F27 /* CoreGraphics.framework */; };
 		A6A3884A1941DEE900F75F27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A388491941DEE900F75F27 /* UIKit.framework */; };
@@ -83,6 +84,8 @@
 		A6183A88194CFA4A00433486 /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		A6183A8A194CFB2B00433486 /* ChallengeTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeTarget.h; sourceTree = "<group>"; };
 		A6183A8B194CFB2B00433486 /* ChallengeTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeTarget.m; sourceTree = "<group>"; };
+		A6553822194E7085006FB2E1 /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
+		A6553823194E7085006FB2E1 /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
 		A6A388421941DEE900F75F27 /* enroute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = enroute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A388451941DEE900F75F27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6A388471941DEE900F75F27 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -169,10 +172,10 @@
 		CAB6DCC8194CBC1600F6BC07 /* IntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroView.m; sourceTree = "<group>"; };
 		CAB6DCCA194CBC2500F6BC07 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
 		CAB6DCCB194CBC2500F6BC07 /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
-		CAD27B5E194CDD9E00291105 /* ChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeViewController.h; sourceTree = "<group>"; };
-		CAD27B5F194CDD9E00291105 /* ChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeViewController.m; sourceTree = "<group>"; };
-		CAD27B61194CF23700291105 /* ChallengeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeView.h; sourceTree = "<group>"; };
-		CAD27B62194CF23700291105 /* ChallengeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeView.m; sourceTree = "<group>"; };
+		CAD27B5E194CDD9E00291105 /* ChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChallengeViewController.h; path = enroute/ChallengeViewController.h; sourceTree = "<group>"; };
+		CAD27B5F194CDD9E00291105 /* ChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChallengeViewController.m; path = enroute/ChallengeViewController.m; sourceTree = "<group>"; };
+		CAD27B61194CF23700291105 /* ChallengeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChallengeView.h; path = enroute/ChallengeView.h; sourceTree = "<group>"; };
+		CAD27B62194CF23700291105 /* ChallengeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChallengeView.m; path = enroute/ChallengeView.m; sourceTree = "<group>"; };
 		CAFA6AB5194C8366008DE3EF /* RushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RushViewController.h; sourceTree = "<group>"; };
 		CAFA6AB6194C8366008DE3EF /* RushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RushViewController.m; sourceTree = "<group>"; };
 		CAFA6AB8194C8702008DE3EF /* RushView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RushView.h; sourceTree = "<group>"; };
@@ -204,6 +207,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6553825194E88AD006FB2E1 /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				CAD27B5E194CDD9E00291105 /* ChallengeViewController.h */,
+				CAD27B5F194CDD9E00291105 /* ChallengeViewController.m */,
+				CAD27B61194CF23700291105 /* ChallengeView.h */,
+				CAD27B62194CF23700291105 /* ChallengeView.m */,
+			);
+			name = Challenge;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		A6A388391941DEE900F75F27 = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +270,7 @@
 				CAB6DCC6194CBC0800F6BC07 /* Intro */,
 				CAA440B019431A600004CAB1 /* Main */,
 				CA04742D19490064002FCED0 /* Compass */,
+				A6553825194E88AD006FB2E1 /* Challenge */,
 				CA04742E1949007B002FCED0 /* Upload    User */,
 				CAFA6AB4194C8268008DE3EF /* Rush       User */,
 				A6CBD330194A09B300464F9B /* Overview                Admin */,
@@ -332,6 +348,8 @@
 				A6B577DC19479F7A003F55E5 /* Location.m */,
 				A6B577DE19479F83003F55E5 /* RushChallenge.h */,
 				A6B577DF19479F83003F55E5 /* RushChallenge.m */,
+				A6553822194E7085006FB2E1 /* Result.h */,
+				A6553823194E7085006FB2E1 /* Result.m */,
 			);
 			name = DataObjects;
 			sourceTree = "<group>";
@@ -388,10 +406,6 @@
 				A6183A88194CFA4A00433486 /* MapView.m */,
 				A6183A8A194CFB2B00433486 /* ChallengeTarget.h */,
 				A6183A8B194CFB2B00433486 /* ChallengeTarget.m */,
-				CAD27B5E194CDD9E00291105 /* ChallengeViewController.h */,
-				CAD27B5F194CDD9E00291105 /* ChallengeViewController.m */,
-				CAD27B61194CF23700291105 /* ChallengeView.h */,
-				CAD27B62194CF23700291105 /* ChallengeView.m */,
 			);
 			name = Compass;
 			sourceTree = "<group>";
@@ -640,6 +654,7 @@
 				A6CBD3291947FE4700464F9B /* Helpers.m in Sources */,
 				A6B577DD19479F7A003F55E5 /* Location.m in Sources */,
 				CA1ED627194B49C100DDE7B6 /* RushChallengesTableViewCell.m in Sources */,
+				A6553824194E7085006FB2E1 /* Result.m in Sources */,
 				A6A3888A1944DF2000F75F27 /* DataObjectFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,7 @@
 #import "ChallengeView.h"
 #import "Challenge.h"
 
-@interface ChallengeViewController : UIViewController
+@interface ChallengeViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic,strong) ChallengeView *view;
 @property (nonatomic,strong) Challenge *challenge;

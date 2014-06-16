@@ -51,7 +51,7 @@
     NSDate *timePushed = [[AppModel sharedModel] rushChallenge].timePushed;
     NSDate *currentTime = [Helpers getCurrentDate];
     
-    int duration = [[AppModel sharedModel] rushChallenge].duration * 60;
+    int duration = (int)[[AppModel sharedModel] rushChallenge].duration * 60;
     int timeDifference = duration - [currentTime timeIntervalSinceDate:timePushed];
     
     int minutes = timeDifference/60;
@@ -59,7 +59,8 @@
     
     if(timeDifference < 3*60) self.view.timerLabel.textColor = [UIColor colorWithRed:252/255.0f green:105/255.0f blue:97/255.0f alpha:1];
     if(timeDifference == 0){
-        self.view.timerLabel.textColor = [UIColor colorWithRed:59/255.0f green:80/255.0f blue:92/255.0f alpha:1];
+        [self.timer invalidate];
+        self.view.timerLabel.text = @"00:00:00";
         self.view.btnStart.enabled = FALSE;
     }
     

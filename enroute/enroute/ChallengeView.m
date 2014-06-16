@@ -20,6 +20,12 @@
     if (self) {
         // Initialization code
         
+        // background
+        UIImage *toolbarBackgroundImage = [UIImage imageNamed:@"toolBarBackground"];
+        UIImageView *toolbarBackground= [[UIImageView alloc] initWithImage:toolbarBackgroundImage];
+        toolbarBackground.frame = CGRectMake(0, self.frame.size.height - toolbarBackgroundImage.size.height,
+                                          toolbarBackgroundImage.size.width, toolbarBackgroundImage.size.height);
+        
         // back
         UIImage *btnBackImage = [UIImage imageNamed:@"Button_back"];
         self.btnBack= [UIButton buttonWithType:UIButtonTypeCustom];
@@ -33,6 +39,9 @@
         self.btnStart.frame=CGRectMake(160, 502, btnStartImage.size.width, btnStartImage.size.height);
         [self.btnStart setBackgroundImage:btnStartImage forState:UIControlStateNormal];
         [self.btnStart setTitle:@"" forState:UIControlStateNormal];
+        if([[AppModel sharedModel] isMentor] == YES){
+            self.btnStart.enabled = FALSE;
+        }
         
         UIImage *woodenBeamImage = [UIImage imageNamed:@"woodenBeam"];
         UIImageView *woodenBeam = [[UIImageView alloc]initWithImage:woodenBeamImage];
@@ -146,6 +155,7 @@
                                             description.frame.size.height +
                                             120);
         
+        [self addSubview:toolbarBackground];
         [self addSubview:self.btnBack];
         [self addSubview:self.btnStart];
         [self addSubview:woodenBeam];
