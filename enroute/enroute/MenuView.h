@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppModel.h"
 
+#import <QuartzCore/QuartzCore.h>
 
 @interface MenuView : UIView
 
@@ -20,6 +21,24 @@
 @property (nonatomic,strong) UIButton *btnUpload;
 
 @property (nonatomic,strong) UIButton *btnOverview;
+@property (nonatomic,strong) UIButton *btnRushChallenges;
+
 @property (nonatomic,strong) UIButton *btnLogout;
+
+
+
+
+
+@property (nonatomic,strong) UIImageView *woodenBeam1;
+@property (nonatomic,strong) UIImageView *woodenBeam2;
+@property (nonatomic,strong) UIImageView *Bird1;
+@property (nonatomic,strong) UIImageView *Bird2;
+
+@property (nonatomic,strong) CAShapeLayer *frameLinesMask;
+
+
+-(void)animateImages;
+
+
 
 @end
